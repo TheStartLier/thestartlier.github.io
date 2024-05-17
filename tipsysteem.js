@@ -13,7 +13,7 @@
     if (tiptext.length > 30){
       tiptext = tiptext.substring(0, 30) + "...";
     }
-    $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").html(texticon+tiptext);
+    $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").html(texticon+tiptext).attr("style", "justify-content: left;");
   }
     
   $("button[data-target='modal-textmovietip']").each(function(){
