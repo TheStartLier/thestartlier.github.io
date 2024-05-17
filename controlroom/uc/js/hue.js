@@ -2,7 +2,7 @@ var app = express();
 var cors = require('cors');
 app.use(cors());
 
-var hueIp = "https://192.168.0.136";
+var hueIp = "192.168.0.136";
 var client;
 
 // These are configs
@@ -317,11 +317,11 @@ function rebootBox(){
     button.classList.remove("example_a");
     button.classList.add("example_b");
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", `http://192.168.0.107/updates?value=Reset`);
+    xmlhttp.open("GET", `https://192.168.0.107/updates?value=Reset`);
     xmlhttp.send();
     boxReset = true;
 	
-	sendMessage(`http://192.168.0.162/updates?value=Reset`);
+	sendMessage(`https://192.168.0.162/updates?value=Reset`);
 	
 	
   }else{
@@ -330,7 +330,7 @@ function rebootBox(){
     button.classList.remove("example_b");
     button.classList.add("example_a");
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", `http://192.168.0.107/updates?value=TurnOn`);
+    xmlhttp.open("GET", `https://192.168.0.107/updates?value=TurnOn`);
     xmlhttp.send();
     boxReset = false;
   }
