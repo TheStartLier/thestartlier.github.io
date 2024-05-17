@@ -884,10 +884,10 @@ var colorChecker = setInterval(async function(){
 
       const config = {
           method: 'get',
-          url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`,
+          url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`,
 	      headers:{"Accept":"application/json, text/plain, /","Content-Type": "multipart/form-data"}
       };
-      let res = await axios(config)
+      let res = await axios(config);
       let rgb = ColorConverter.xyBriToRgb(res.data.action.xy[0], res.data.action.xy[1], 255);
       let color = (rgbToHex(rgb.r, rgb.g, rgb.b));
       document.getElementById('diningLight').style.backgroundColor = "" + color;
@@ -900,38 +900,38 @@ var statusChecker = setInterval(async function(){
   
   const smokeConfig = {
     method: 'get',
-    url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/51/`
+    url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/51/`
   };
   const geurConfig = {
     method: 'get',
-    url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/21/`
+    url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/21/`
   };
 
 	 const vladConfig = {
     method: 'get',
-    url: `http://192.168.0.246/Status`
+    url: `https://192.168.0.246/Status`
   };
   
   const verlaagdeConfig = {
     method: 'get',
-    url: `http://192.168.0.145/Status`
+    url: `https://192.168.0.145/Status`
   };
 
 
 	const drugsConfig = {
     method: 'get',
-    url: `http://192.168.0.224/Status`
+    url: `https://192.168.0.224/Status`
   };
   
   const diningConfig = {
     method: 'get',
-    url: `http://192.168.0.223/Status`
+    url: `https://192.168.0.223/Status`
   };
   
   
   const LaserConfig = {
     method: 'get',
-    url: `http://192.168.0.158/Status`
+    url: `https://192.168.0.158/Status`
   };
   
   let ressmokePwr = await axios(smokeConfig);
@@ -940,7 +940,7 @@ var statusChecker = setInterval(async function(){
   
 	const BombConfig = {
     method: 'get',
-    url: `http://192.168.0.149/Status`
+    url: `https://192.168.0.149/Status`
   };
   
   
@@ -1143,7 +1143,7 @@ var statusChecker = setInterval(async function(){
   
   const configReuk = {
           method: 'get',
-          url: `http://192.168.0.208/api/vmvRoxgP6Dlv6E7MoIA0iMTIZNXvpDukECZMpoup/lights/12`
+          url: `https://192.168.0.208/api/vmvRoxgP6Dlv6E7MoIA0iMTIZNXvpDukECZMpoup/lights/12`
       };
 	  
 	  
