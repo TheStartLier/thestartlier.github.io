@@ -891,7 +891,7 @@ var colorChecker = setInterval(async function(){
       let color = (rgbToHex(rgb.r, rgb.g, rgb.b));
       document.getElementById('diningLight').style.backgroundColor = "" + color;
 
-  }, 1000);
+  }, 20000);
 
 
 
@@ -1160,7 +1160,7 @@ var statusChecker = setInterval(async function(){
 
 
 
-},1000);
+},20000);
 
 function getXY(red,green,blue){
 
