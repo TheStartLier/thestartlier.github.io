@@ -754,7 +754,7 @@ let SceneId = "";
   xmlhttp = new XMLHttpRequest();
   xmlhttp.open("PUT", `${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20/action`);
   xmlhttp.send(JSON.stringify({"scene": `${SceneId}`}));
-  sendMessage(`http://192.168.0.118/update?value=NoCheating`);
+  sendMessage(`https://192.168.0.118/update?value=NoCheating`);
 
 }
 
