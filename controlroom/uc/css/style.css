@@ -1,0 +1,339 @@
+.example_a {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: darkgreen;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+
+.example_a:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+.example_b {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: red;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+
+.example_b:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+.example_c {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: cornflowerblue;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+
+.example_d {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: darkgoldenrod;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.example_d:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+
+.example_c:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  color : white;
+  outline: none;
+  font-size: 40px;
+}
+
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: lightGreen;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+  color: black
+}
+
+.blue {
+  background-color: lightBlue;
+}
+
+.chrome {
+  background-color: black;
+}
+
+.silver {
+  background-color: silver;
+}
+
+.lightBlue {
+  background-color: lightBlue;
+}
+
+.purple {
+  background-color: purple;
+}
+
+
+
+.example_g {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: purple;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.example_g:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+.example_f {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: green;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.example_f:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+
+
+.timerDisplay{
+    position: static;
+    background: #ffffff;
+    left: 4%;
+    padding: 40px 0;
+    font-family: 'Roboto mono',monospace;
+    color: #0381bb;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
+.buttons button:nth-last-child(2){
+  background-color: #d23332;
+}
+.buttons button:nth-last-child(1){
+  background-color: #20b380;
+}
+
+.minButons{
+	width: 80%;
+	margin: 5px auto 0 auto;
+
+	display: flex;
+	justify-content: space-around;
+	width: 120px;
+	height: 45px;
+	background-color: #205e94;
+	color: #ffffff;
+	border: none;
+	font-family: 'Poppins',sans-serif;
+	font-size: 18px;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+}
+
+.buttons{
+    width: 80%;
+    margin: 5px auto 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+.buttons button{
+    width: 120px;
+    height: 45px;
+    background-color: #205e94;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+#colorButton{
+	height: 30px;
+	padding: 8px;
+}
+
+h1{
+	font-family: 'Pathway Gothic One', sans-serif;
+}
+
+#laptopLamp{
+	background-color:aliceblue;
+}
+
+
+.box{
+box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+height: 160px;
+width: 250px;
+vertical-align: top;
+font-family: 'Kanit', sans-serif;
+display: inline-block;
+}
+
+.boxR{
+box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+height: 220px;
+width: 250px;
+vertical-align: top;
+font-family: 'Kanit', sans-serif;
+display: inline-block;
+}
+
+
+.boxBig{
+box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+height: 450px;
+width: 250px;
+vertical-align: top;
+font-family: 'Kanit', sans-serif;
+display: inline-block;
+}
+
+
+.boxBiggest{
+box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+height: 625px;
+width: 250px;
+vertical-align: top;
+font-family: 'Kanit', sans-serif;
+display: inline-block;
+}
+
+
+
+.footer-heart{text-align:center;font-family: open sans, sans-serif;}
+
+.footer-heart a{border-bottom: 1px solid #453886;color: #453886;padding-bottom: .25em; text-decoration: none;}
+
+.footer-heart a:hover{color:#2196f3; background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23453886' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 20%;
+  border-bottom: 0;
+  padding-bottom: .3em;
+  text-decoration: none;}
+
+.emoji{vertical-align: middle;}
