@@ -1,5 +1,5 @@
 
-var hueIp = "192.168.0.136";
+var hueIp = "https://192.168.0.136";
 var client;
 
 // These are configs
@@ -706,7 +706,7 @@ function forceSmoke(){
 
 
 const turnLightOnOrOff = async (lightId, on) => {
-    const url = `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/${lightId}/state`;
+    const url = `${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/${lightId}/state`;
     try {
         return await axios.put(url, {
             on,
@@ -717,7 +717,7 @@ const turnLightOnOrOff = async (lightId, on) => {
 };
 
 const turnLightGroupOnOrOff = async (groupId, on) => {
-    const url = `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/${groupId}/action`;
+    const url = `${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/${groupId}/action`;
     try {
         return await axios.put(url, {
             on,
@@ -752,7 +752,7 @@ let SceneId = "";
   }
 
   xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("PUT", `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20/action`);
+  xmlhttp.open("PUT", `${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20/action`);
   xmlhttp.send(JSON.stringify({"scene": `${SceneId}`}));
   sendMessage(`http://192.168.0.118/update?value=NoCheating`);
 
@@ -884,10 +884,10 @@ var colorChecker = setInterval(async function(){
 
       const config = {
           method: 'get',
-          url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`,
+          url: `${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`,
 	      headers:{"Accept":"application/json, text/plain, /","Content-Type": "multipart/form-data"}
       };
-      let res = await axios(config);
+      let res = await axios(config)
       let rgb = ColorConverter.xyBriToRgb(res.data.action.xy[0], res.data.action.xy[1], 255);
       let color = (rgbToHex(rgb.r, rgb.g, rgb.b));
       document.getElementById('diningLight').style.backgroundColor = "" + color;
@@ -900,38 +900,38 @@ var statusChecker = setInterval(async function(){
   
   const smokeConfig = {
     method: 'get',
-    url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/51/`
+    url: `${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/51/`
   };
   const geurConfig = {
     method: 'get',
-    url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/21/`
+    url: `${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/21/`
   };
 
 	 const vladConfig = {
     method: 'get',
-    url: `https://192.168.0.246/Status`
+    url: `http://192.168.0.246/Status`
   };
   
   const verlaagdeConfig = {
     method: 'get',
-    url: `https://192.168.0.145/Status`
+    url: `http://192.168.0.145/Status`
   };
 
 
 	const drugsConfig = {
     method: 'get',
-    url: `https://192.168.0.224/Status`
+    url: `http://192.168.0.224/Status`
   };
   
   const diningConfig = {
     method: 'get',
-    url: `https://192.168.0.223/Status`
+    url: `http://192.168.0.223/Status`
   };
   
   
   const LaserConfig = {
     method: 'get',
-    url: `https://192.168.0.158/Status`
+    url: `http://192.168.0.158/Status`
   };
   
   let ressmokePwr = await axios(smokeConfig);
@@ -940,7 +940,7 @@ var statusChecker = setInterval(async function(){
   
 	const BombConfig = {
     method: 'get',
-    url: `https://192.168.0.149/Status`
+    url: `http://192.168.0.149/Status`
   };
   
   
@@ -1143,7 +1143,7 @@ var statusChecker = setInterval(async function(){
   
   const configReuk = {
           method: 'get',
-          url: `https://192.168.0.208/api/vmvRoxgP6Dlv6E7MoIA0iMTIZNXvpDukECZMpoup/lights/12`
+          url: `http://192.168.0.208/api/vmvRoxgP6Dlv6E7MoIA0iMTIZNXvpDukECZMpoup/lights/12`
       };
 	  
 	  
