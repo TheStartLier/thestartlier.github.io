@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Undercover Control</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&family=Modak&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <body onload="getApi();">
+    <center>
+
+
+        <h1><u>Undercover Facility</u></h1>
+ 
+     
+      <h1>⚠️ Reset Rooms:</h1>
+ <!--
+		<button id="resetLeft" class="example_a" type="button" name="button" onclick="rebootLeft();">Reboot Left</button>
+        <button id="resetLeft" class="example_a" type="button" name="button" onclick="rebootRight();">Reboot Right</button>
+-->
+
+<br><br>
+<button id="English" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.149/updates?value=English`); sendMessage(`http://192.168.0.246/update?value=English`); sendMessage(`http://192.168.0.162/updatess?value=English`); sendMessage(`http://192.168.0.224/English`); sendMessage(`http://192.168.0.223/English`); sendMessage(`http://192.168.0.145/English`); sendMessage('http://192.168.0.158/updates?value=English');  sendMessage(`http://192.168.0.107/updates?value=English`); sendMessage(`http://192.168.0.210/updates?value=English`); sendMessage(`http://192.168.0.184/update?value=English`);">English Room</button>
+<button id="English" class="example_a" type="button" name="button" onclick="sendMessage(`http://192.168.0.149/updates?value=Nederlands`); sendMessage(`http://192.168.0.246/update?value=Nederlands`); sendMessage(`http://192.168.0.162/updatess?value=Nederlands`); sendMessage(`http://192.168.0.224/Nederlands`); sendMessage(`http://192.168.0.223/Nederlands`); sendMessage(`http://192.168.0.145/Nederlands`); sendMessage('http://192.168.0.158/updates?value=Nederlands');  sendMessage(`http://192.168.0.107/updates?value=Nederlands`); sendMessage(`http://192.168.0.210/updates?value=Nederlands`); sendMessage(`http://192.168.0.184/update?value=Nederlands`);">Nederlands Room</button>     
+	<br><br>	
+	
+	<button type="button" class="collapsible purple" >First Room</button>
+<div class="content">
+	<div id="drugsReset" class="boxBig">
+	  <h2>First Room:(1)</h2>
+	  <button id="resetFirstButton" class="example_a" type="button" name="button" onclick="rebootFirst();">Room Active</button>
+        <br><br>
+		<button id="MoceItMove" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.210/updates?value=Win`);"> Win </button>
+		
+	</div>
+
+</div>
+
+
+<button type="button" class="collapsible red">Verlaagde Kamer</button>
+<div class="content">
+	 <div id="drugsReset" class="boxBig">
+
+        <h2>Verlaagde: (2)</h2>
+        <button id="resetVerlaagdeButton" class="example_a" type="button" name="button" onclick="rebootVerlaagde();">Room Active</button>
+        <br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.145/Win`);"> Win Game </button>
+		<br><br>
+		<button id="Stage2" class="example_c" type="button" name="button" onclick="sendMessage(`http://192.168.0.145/Stage2`);"> Enter Stage 2 </button>	
+		
+		<br><br>
+		<button id="RR" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.145/Start`);"> Start Briefing </button>
+		<br><br>
+		<button id="1Min" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.145/1Min`);"> 1 Min </button>	
+  </div>
+  
+  
+  <div id="drugsReset" class="box">
+        <h2>Sounds</h2>
+		<button id="TipOne" class="example_f" type="button" name="button" onclick="sendMessage(`http://192.168.0.145/TipOne`);"> Broken Machine </button>	
+		
+  </div>
+  
+  <div id="drugsReset" class="boxBig">
+        <h2>Phone</h2>
+		<button id="TipOne" class="example_f" type="button" name="button" onclick="sendCall('Stage two.mp3');"> Stage 2 </button>	
+		<br><br>
+		<button id="TipOne" class="example_f" type="button" name="button" onclick="sendCall('EngStaheTwo.mp3');"> Stage 2 English </button>	
+		<br><br>
+		<button id="TipTwo" class="example_g" type="button" name="button" onclick="sendCall('Birthday.mp3');"> Happy Birthday </button>	
+		<br><br>
+	
+		<br><br>
+		
+		
+  
+  </div>
+</div>
+     
+
+<button type="button" class="collapsible blue" >DrugsLab</button>
+<div class="content">
+	 <div id="" class="boxBig">
+    <h2>Drugslab: (3)</h2>
+        <button id="resetDrugsButton" class="example_a" type="button" name="button" onclick="rebootDrugs();">Room Active</button>
+        <br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.224/Win`);"> Win Game </button>
+		<br><br>
+		<button id="RR" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.224/Start`);"> Start Briefing </button>
+		
+		<br><br>
+		<button id="1Min" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.224/1Min`);"> 66 sec </button>	
+
+	</div>
+</div>
+
+     
+  
+<button type="button" class="collapsible orange" >Dining Room</button>
+<div class="content">
+	<div id="drugsReset" class="boxBig">
+		<h2>Dining Room: (4)</h2>
+		<button id="resetDiningButton" class="example_a" type="button" name="button" onclick="rebootDiningRoom();">Room Active </button>
+		<br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.223/Win`);"> Win Game </button>
+		<br><br>
+		<button id="Stage3" class="example_c" type="button" name="button" onclick="sendMessage(`http://192.168.0.223/Lose`);"> Lose Game </button>	
+		<br><br>
+		<button id="RR" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.223/Start`);"> Start Briefing </button>
+		
+		<br><br>
+		<button id="1Min" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.223/1Min`);"> 90 Sec </button>			
+	</div>
+	<br><br>
+	<div id="diningLight" class="box">
+
+        <h2>Lights</h2>
+        <button id="diningRoomButton" class="example_b" type="button" name="button" onclick="diningRoomToggle();">Off</button>
+  </div>
+<br><br>
+    <button class="example_b" id="colorButtonRed" type="button" name="button" onclick="changeDiningScene('red');">Red</button>
+    <button class="example_a" id="colorButtonGreen" type="button" name="button" onclick="changeDiningScene('green');">Green</button>
+    
+    <button class="example_c" id="colorButtonBlue" type="button" name="button" onclick="changeDiningScene('blue');">Blue</button>
+    <button class="example_d" id="colorButtonStart" type="button" name="button" onclick="changeDiningScene('start');">Candles</button>
+
+	
+	<br><br>
+	
+	
+</div>
+
+
+	
+	
+	
+	
+<button type="button" class="collapsible yellow" >Laser Room</button>
+<div class="content">
+	
+	<div id="drugsReset" class="boxBig">
+		<h2>Laser Room: (5)</h2>
+		<button id="resetLaserButton" class="example_a" type="button" name="button" onclick="rebootLaser();">Room Active </button>
+		<br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.158/updates?value=Win`); sendMessage(`http://192.168.0.118/update?value=Win`);"> Win Game </button>
+		<br><br>
+		<button id="Stage3" class="example_c" type="button" name="button" onclick="sendMessage(`http://192.168.0.158/updates?value=Lose`); sendMessage(`http://192.168.0.118/update?value=Win`);"> Lose Game </button>	
+		<br><br>
+		<button id="RR" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.158/updates?value=Start`);"> Start Game </button>
+		<br><br>
+		<button id="RR" class="example_a" type="button" name="button" onclick="sendMessage(`http://192.168.0.158/updates?value=1Min`);"> 20 Seconds  </button>
+		
+		<br><br>
+		</div>
+	
+	 <div class="box">
+        <h2>Fog Control</h2>
+        <button id="smokePButton" class="example_a" type="button" name="button" onclick="smokeToggle();">Off</button>
+        <button class="example_b" id="forceButton" type="button" name="button" onclick="forceSmoke(); ">Force Smoke</button>
+      </div>
+	  
+	  <!--
+	  <div id="drugsReset" class="boxR">
+	  <h2>Cheating Allowed?</h2>
+		<button id="MoceItMove" class="example_c" type="button" name="button" onclick="sendMessage(`http://192.168.0.118/update?value=AllowCheating`);"> Cheating </button>
+		<br><br>
+		<button id="MoceItMove2" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.118/update?value=NoCheating`);"> No Cheating </button>
+		<br><br>
+	  </div>  -->
+	  
+	  
+	  <div id="drugsReset" class="boxR">
+	  <h2>Bottom Laser</h2>
+		<button id="TopLaser" class="example_b" type="button" name="button" onclick="topLaser();"> Laser in Hard Mode </button>
+		
+	  </div>
+	  
+	  <div id="drugsReset" class="boxR">
+	  <h2>Top Laser</h2>
+		<button id="BottomLaser" class="example_b" type="button" name="button" onclick="bottomLaser();"> Laser in Hard Mode </button>
+		
+	  </div>
+	<br><br> <br><br>
+	
+	 <button class="example_c" id="colorButtonBlue" type="button" name="button" onclick="changeLqserScene('blue');">Reset</button>
+
+
+	  <button class="example_b" id="colorButtonRed" type="button" name="button" onclick="changeLqserScene('red');">Red</button>
+    <button class="example_a" id="colorButtonGreen" type="button" name="button" onclick="changeLqserScene('green');">Green</button>
+    
+   
+	
+	
+</div>  
+
+
+	
+	
+	
+
+
+
+<button type="button" class="collapsible silver" >Vladimir</button>
+<div class="content">
+	<div id="vladReset" class="boxBiggest">
+		<h2>Vladimir: (6)</h2>
+		<button id="resetVladButton" class="example_a" type="button" name="button" onclick="rebootVlad(); sendMessage(`http://192.168.0.245/relay/off`);">Room Active </button>
+		<br><br>
+		<button id="OverruleCPR" class="example_b" type="button" name="button" onclick="overruleCPR(); sendMessage(`http://192.168.0.245/relay/on`); ">CPR Normal </button>
+		<br><br>
+		<button id="Fallback" class="example_b" type="button" name="button" onclick="FallbackControl(); sendMessage(`http://192.168.0.245/relay/on`);">Team can Fall back </button>
+		<br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.246/Win`); sendMessage(`http://192.168.0.245/relay/on`);"> Win Game </button>
+		<br><br>
+		<button id="Stage3" class="example_c" type="button" name="button" onclick="sendMessage(`http://192.168.0.246/Lose`); sendMessage(`http://192.168.0.245/relay/on`);"> Lose Game </button>	
+		<br><br>
+		<button id="RR" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.246/Start`);"> Start Briefing </button>	
+		<br><br>
+		<button id="1Min" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.246/1Min`);"> 1 Min </button>
+	
+	</div>
+	
+	
+	
+	<div id="drugsReset" class="boxR">
+	  <h2>Stages</h2>
+		<button id="MoceItMove" class="example_a" type="button" name="button" onclick="sendMessage(`http://192.168.0.246/update?value=StageTwo`);"> Stage Two </button>
+		<br><br>
+		<button id="MoceItMove2" class="example_a" type="button" name="button" onclick="sendMessage(`http://192.168.0.246/update?value=StageThree`);"> Stage Three </button>
+		<br><br>
+	  </div>
+	  <br><br><br><br>
+	  <div id="receptionreuk" class="boxR">
+	  <h2>Reuk</h2>
+		<button id="MoceItMove2" class="example_b" type="button" name="button" onclick="turnLightOnOrOffTwo(12, false)"> Turn Off </button>
+		<br><br>
+	  </div>
+	  <br><br><br><br>
+	  <div id="drugsReset" class="boxR">
+	  <h2>Door</h2>
+		<button id="MoceItMove" class="example_a" type="button" name="button" onclick="sendMessage(`http://192.168.0.245/relay/on`);"> Open </button>
+		<br><br>
+		<button id="MoceItMove2" class="example_a" type="button" name="button" onclick="sendMessage(`http://192.168.0.245/relay/off`);"> Closed </button>
+		<br><br>
+	  </div>
+	  
+	
+</div>
+
+<button type="button" class="collapsible lightBlue" >Box Room</button>
+<div class="content">
+
+	 <div id="" class="boxBig">
+    <h2>Box Kamer: (7)</h2>
+        <button id="resetBoxButton" class="example_a" type="button" name="button" onclick="rebootBox();">Room Active</button>
+ <br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.107/updates?value=Win`);"> Win Game </button>
+		<br><br>
+		<button id="RR" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.107/updates?value=Start`);"> Start Briefing </button>
+		
+		<br><br>
+		<button id="1Min" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.107/updates?value=1min`);"> 66 sec </button>	
+
+	</div>
+	
+	
+	<div id="drugsReset" class="boxBiggest">
+  <h2>Box Control</h2>
+ 
+   <button id="Easy" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.162/updates?value=time%3D2500`); sendMessage(`http://192.168.0.162/updates?value=kantel%3D54`); updateBox(0);"> Easy </button>
+		<br><br>
+		<button id="Normal" class="example_a" type="button" name="button" onclick="sendMessage(`http://192.168.0.162/updates?value=time%3D1500`); sendMessage(`http://192.168.0.162/updates?value=kantel%3D24`); updateBox(1);"> Normal </button>	
+		<br><br>
+		<button id="Hard" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.162/updates?value=time%3D1000`); sendMessage(`http://192.168.0.162/updates?value=kantel%3D15`); updateBox(2);"> Hard </button>	
+		<br><br>
+		<button id="Recalibrate" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.162/updates?value=Calibrate`);"> Recalibrate Box </button>
+		<br><br>
+		<button id="Recalibrate" class="example_c" type="button" name="button" onclick="sendMessage(`http://192.168.0.162/updates?value=Reset`); sendMessage(`http://192.168.0.107/updates?value=Deactivate`);"> Reset Box </button>
+</div>
+</div>
+
+
+
+
+<button type="button" class="collapsible green" >Dark Room</button>
+<div class="content">
+	<div id="drugsReset" class="boxBig">
+	  <h2>Dark Room:(8)</h2>
+	  <button id="resetDarkButton" class="example_a" type="button" name="button" onclick="rebootDarkRoom();">Room Active </button>
+	  <br><br>
+		<button id="MoceItMove" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.184/update?value=Start`);"> Start Briefing </button>
+		<br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.184/update?value=Win`);"> Win Game </button>
+		<br><br>
+	  </div>
+	  
+	  <div id="drugsReset" class="boxBig">
+	  <h2>Sounds</h2>
+		<button id="MoceItMove" class="example_c" type="button" name="button" onclick="sendMessage(`http://192.168.0.184/update?value=Normal`);"> Normal </button>
+		<br><br>
+		<button id="BomBNoise" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.184/update?value=TipThree`);"> Chicken Dance </button>	
+		<br><br>
+		<button id="MoceItMove" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.184/update?value=TipTwo`);"> Move it </button>
+	
+	  </div>
+
+</div>
+
+
+
+<button type="button" class="collapsible purple" >Bomb Room</button>
+<div class="content">
+	<div id="drugsReset" class="boxBig">
+	  <h2>Bomb Room:(9)</h2>
+	  <button id="resetBomButton" class="example_a" type="button" name="button" onclick="rebootBom();">Room Active </button>
+	  <br><br>
+		<button id="MoceItMove" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.149/updates?value=Start`);"> Start Briefing </button>
+		<br><br>
+		<button id="Win" class="example_d" type="button" name="button" onclick="sendMessage(`http://192.168.0.149/updates?value=Win`);"> Win Game </button>
+		<br><br>
+		<button id="MoceItMove" class="example_b" type="button" name="button" onclick="sendMessage(`http://192.168.0.149/updates?value=1Min`);"> 72 sec </button>
+		<br><br>
+	</div>
+
+</div>
+
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js'></script>
+  <script src="./js/hue.js" charset="utf-8"></script>
+  <script src="./js/timer.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/ColorConverter.js"></script>
+
+  </body>
+</html>
