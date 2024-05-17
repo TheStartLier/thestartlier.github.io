@@ -888,7 +888,7 @@ var colorChecker = setInterval(async function(){
 	      headers:{'Access-Control-Allow-Origin': '*',
         		'Content-Type': 'application/json',
 		      "crossorigin":true},
-    		withCredentials: true
+    		withCredentials: false
       };
       let res = await axios(config)
       let rgb = ColorConverter.xyBriToRgb(res.data.action.xy[0], res.data.action.xy[1], 255);
