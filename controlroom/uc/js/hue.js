@@ -884,7 +884,7 @@ var colorChecker = setInterval(async function(){
 
       const config = {
           method: 'get',
-          url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`,
+          url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`,
 	      headers:{"Accept":"application/json, text/plain, /","Content-Type": "multipart/form-data"}
       };
       let res = await axios(config)
