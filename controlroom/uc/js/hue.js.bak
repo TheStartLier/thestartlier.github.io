@@ -1,0 +1,528 @@
+var hueIp = "192.168.0.134";
+var client;
+
+// These are configs
+var hostname = "broker.emqx.io";
+var port = "8083";
+var mqtt_Topic = "Smoke9Rooms";
+var clientId;
+
+let diningRoomStatus = false;
+let smokePowerStatus = false;
+let VladPowerStatus = false;
+let geurDrugsLab = false;
+
+let verlaagdeReset = false;
+let drugslabReset = false;
+let diningReset = false;
+let vladreset = false;
+let boxReset = false;
+
+//create client ID or load from storage
+if ( window.sessionStorage.clientId){
+  clientId = window.sessionStorage.clientId;
+}else{
+  clientId = "SmokeThestartmqtt_js_" + parseInt(Math.random() * 100000, 10);
+  window.sessionStorage.clientId = clientId;
+}
+
+// This is called after the webpage is completely loaded
+// It is the main entry point into the JS code
+function connect(){
+	// Set up the client
+	client = new Paho.MQTT.Client(hostname, Number(port), clientId);
+	console.info('Connecting to Server: Hostname: ', hostname, '. Port: ', port, '. Client ID: ', clientId);
+
+	// set callback handlers
+	client.onConnectionLost = onConnectionLost;
+	client.onMessageArrived = onMessageArrived;
+
+	// see client class docs for all the options
+	var options = {
+		onSuccess: onConnect, // after connected, subscribes
+		onFailure: onFail,    // useful for logging / debugging
+    useSSL:false
+	};
+	// connect the client
+	client.connect(options);
+	console.info('Connecting...');
+}
+
+function rebootDrugs(){
+  if(drugsReset == false){
+    let button = document.getElementById('resetDrugsButton');
+    button.innerHTML = "RESET MODE: ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom3/on`);
+    xmlhttp.send();
+    drugsReset = true;
+  }else{
+    let button = document.getElementById('resetDrugsButton');
+    button.innerHTML = "ROOM: ON ";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom3/off`);
+    xmlhttp.send();
+    drugsReset = false;
+  }
+}
+
+function rebootDiningRoom(){
+  if(diningReset == false){
+    let button = document.getElementById('resetDiningButton');
+    button.innerHTML = "RESET MODE: ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom4/on`);
+    xmlhttp.send();
+    diningReset = true;
+  }else{
+    let button = document.getElementById('resetDiningButton');
+    button.innerHTML = "ROOM: ON ";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom4/off`);
+    xmlhttp.send();
+    diningReset = false;
+  }
+}
+
+
+function rebootBox(){
+  if(boxReset == false){
+    let button = document.getElementById('resetBoxButton');
+    button.innerHTML = "RESET MODE: ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom7/on`);
+    xmlhttp.send();
+    boxReset = true;
+  }else{
+    let button = document.getElementById('resetBoxButton');
+    button.innerHTML = "ROOM: ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom7/off`);
+    xmlhttp.send();
+    boxReset = false;
+  }
+}
+
+function rebootLaser(){
+  if(boxReset == false){
+    let button = document.getElementById('resetLaserButton');
+    button.innerHTML = "RESET MODE: ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom5/on`);
+    xmlhttp.send();
+    boxReset = true;
+  }else{
+    let button = document.getElementById('resetLaserButton');
+    button.innerHTML = "ROOM: ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom5/off`);
+    xmlhttp.send();
+    boxReset = false;
+  }
+}
+
+function rebootVerlaagde(){
+
+  if(verlaagdeReset == false){
+    let button = document.getElementById('resetVerlaagdeButton');
+    button.innerHTML = "RESET MODE: ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom2/on`);
+    xmlhttp.send();
+    verlaagdeReset = true;
+  }else{
+    let button = document.getElementById('resetVerlaagdeButton');
+    button.innerHTML = "ROOM: ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom2/off`);
+    xmlhttp.send();
+    verlaagdeReset = false;
+  }
+}
+function rebootVlad(){
+  if(vladreset == false){
+    let button = document.getElementById('resetVladButton');
+    button.innerHTML = "RESET MODE: ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom6/on`);
+    xmlhttp.send();
+    vladreset = true;
+  }else{
+    let button = document.getElementById('resetVladButton');
+    button.innerHTML = "ROOM: ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom6/off`);
+    xmlhttp.send();
+    vladreset = false;
+  }
+}
+function rebootBom(){
+  if(vladreset == false){
+    let button = document.getElementById('resetBomButton');
+    button.innerHTML = "RESET MODE: ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom9/on`);
+    xmlhttp.send();
+    vladreset = true;
+  }else{
+    let button = document.getElementById('resetBomButton');
+    button.innerHTML = "ROOM: ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom9/off`);
+    xmlhttp.send();
+    vladreset = false;
+  }
+}
+
+
+function quickReset(roomNumber){
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", `http://ESPUCRoom${roomNumber}/on`);
+  xmlhttp.send();
+  setTimeout(() => {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", `http://ESPUCRoom${roomNumber}/off`);
+    xmlhttp.send(); }, 2000);
+}
+
+function onConnect(context) {
+	console.log("Client Connected");
+
+
+
+    // And subscribe to our topics	-- all with the same callback function
+	options = {qos:0, onSuccess:function(context){ console.log("subscribed"); } }
+	client.subscribe(mqtt_Topic, options);
+
+}
+
+function onFail(context) {
+  console.log("Failed to connect");
+}
+
+function onConnectionLost(responseObject) {
+  if (responseObject.errorCode !== 0) {
+    console.log("Connection Lost: " + responseObject.errorMessage);
+    window.alert("Someone else took my websocket!\nRefresh to take it back.");
+  }
+}
+
+function onMessageArrived(message) {
+  console.log(
+    "got message to topic:",
+    message.destinationName,
+    "message:",
+    message.payloadString
+  );
+  if (message.destinationName == mqtt_Topic) {
+    console.log("got LED message");
+  }
+}
+
+function forceSmoke(){
+
+  document.getElementById('forceButton').disabled = true;
+  document.getElementById('forceButton').innerHTML = "SMOKING...";
+  document.getElementById('forceButton').classList.remove('example_b');
+  document.getElementById('forceButton').classList.add('example_a');
+  /*var payload = "f";
+  message = new Paho.MQTT.Message(payload);
+  message.destinationName = mqtt_Topic;
+  message.retained = false;
+  client.send(message);
+  console.info("sending: ", payload);*/
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", `http://ESPUCSmoker/off`);
+  xmlhttp.send();
+  
+  
+  setTimeout(function () {
+	  
+	  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", `http://ESPUCSmoker/on`);
+  xmlhttp.send();
+  
+  
+  document.getElementById('forceButton').disabled = false;
+  document.getElementById('forceButton').innerHTML = "Force Smoke";
+  document.getElementById('forceButton').classList.remove('example_a');
+  document.getElementById('forceButton').classList.add('example_b');
+
+}, 10000);
+
+
+}
+
+  async function getApi(){
+  connect();
+  const config = {
+    method: 'get',
+    url: 'https://discovery.meethue.com/'
+  }
+  let res = await axios(config);
+  console.log("Found bridge at: " + res.data[0].internalipaddress);
+  hueIp = res.data[0].internalipaddress;
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", `http://ESPUCSmoker/on`);
+  xmlhttp.send()
+}
+
+
+const turnLightOnOrOff = async (lightId, on) => {
+    const url = `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/${lightId}/state`;
+    try {
+        return await axios.put(url, {
+            on,
+        });
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const turnLightGroupOnOrOff = async (groupId, on) => {
+    const url = `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/${groupId}/action`;
+    try {
+        return await axios.put(url, {
+            on,
+        });
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+async function changeDiningScene(sceneName){
+
+let SceneId = "";
+
+
+  switch (sceneName) {
+    case "start":
+      SceneId = "7efgb0NCfppgLL3";
+      break;
+    case "blue":
+      SceneId = "gErHdHpricbcD9b";
+      break;
+    case "red":
+      SceneId = "Hmzs-vbBtlunZuf";
+      break;
+    case "green":
+      SceneId = "l92fHO0pf8YzVxo";
+      break;
+    default:
+    SceneId = "";
+    break;
+
+  }
+
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("PUT", `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20/action`);
+  xmlhttp.send(JSON.stringify({"scene": `${SceneId}`}));
+
+}
+
+function diningRoomToggle(){
+
+  if(diningRoomStatus == true){
+    turnLightGroupOnOrOff(20, false);
+    diningRoomStatus = false;
+  }else{
+    turnLightGroupOnOrOff(20, true)
+    diningRoomStatus = true;
+  };
+
+}
+
+
+function smokeToggle(){
+
+  if(smokePowerStatus == true){
+    turnLightOnOrOff(51, false);
+    smokePowerStatus = false;
+  }else{
+    turnLightOnOrOff(51, true)
+    smokePowerStatus = true;
+  };
+
+}
+
+
+function VladToggle(){
+
+  if(smokePowerStatus == true){
+    turnLightOnOrOff(51, false);
+    smokePowerStatus = false;
+  }else{
+    turnLightOnOrOff(51, true)
+    smokePowerStatus = true;
+  };
+
+}
+
+
+function geurControl(){
+
+  if(geurDrugsLab == true){
+    turnLightOnOrOff(21, false);
+    geurDrugsLab = false;
+  }else{
+    turnLightOnOrOff(21, true)
+    geurDrugsLab = true;
+  };
+
+}
+
+
+var colorChecker = setInterval(async function(){
+
+      const config = {
+          method: 'get',
+          url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`
+      };
+      let res = await axios(config)
+      let rgb = ColorConverter.xyBriToRgb(res.data.action.xy[0], res.data.action.xy[1], 255);
+      let color = (rgbToHex(rgb.r, rgb.g, rgb.b));
+      document.getElementById('diningLight').style.backgroundColor = "" + color;
+
+  }, 1000);
+
+
+
+var statusChecker = setInterval(async function(){
+  const diningConfig = {
+    method: 'get',
+    url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20/`
+  };
+  const smokeConfig = {
+    method: 'get',
+    url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/51/`
+  };
+  const geurConfig = {
+    method: 'get',
+    url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/lights/21/`
+  };
+
+
+  let resDining = await axios(diningConfig);
+  let ressmokePwr = await axios(smokeConfig);
+  let resGeurPower = await axios(geurConfig);
+  diningRoomStatus = resDining.data.state.any_on;
+  smokePowerStatus = ressmokePwr.data.state.on;
+  VladPowerStatus = ressmokePwr.data.state.on;
+  
+  if(diningRoomStatus == true){
+    let button = document.getElementById('diningRoomButton');
+    button.innerHTML = "ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+  }else{
+    let button = document.getElementById('diningRoomButton');
+    button.innerHTML = "off";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+  }
+  /*if(diningRoomStatus == true){
+    let button = document.getElementById('diningRoomButton');
+    button.innerHTML = "ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+  }else{
+    let button = document.getElementById('diningRoomButton');
+    button.innerHTML = "off";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+  }*/
+  if(smokePowerStatus == true){
+    let button = document.getElementById('smokePButton');
+    button.innerHTML = "ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+  }else{
+    let button = document.getElementById('smokePButton');
+    button.innerHTML = "off";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+  }
+  
+  
+  if(VladPowerStatus == true){
+    let button = document.getElementById('VladButton');
+    button.innerHTML = "ON";
+    button.classList.remove("example_b");
+    button.classList.add("example_a");
+  }else{
+    let button = document.getElementById('VladButton');
+    button.innerHTML = "off";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+  }
+  
+
+/*  if(geurDrugsLab == true){
+    let button = document.getElementById('geurButton');
+    button.innerHTML = "ON";
+    button.classList.remove("example_a");
+    button.classList.add("example_b");
+  }*/
+
+
+
+
+},1000);
+
+function getXY(red,green,blue){
+
+if (red > 0.04045){
+red = Math.pow((red + 0.055) / (1.0 + 0.055), 2.4);
+}
+else red = (red / 12.92);
+
+ if (green > 0.04045){
+green = Math.pow((green + 0.055) / (1.0 + 0.055), 2.4);
+}
+else green = (green / 12.92);
+
+if (blue > 0.04045){
+blue = Math.pow((blue + 0.055) / (1.0 + 0.055), 2.4);
+}
+else blue = (blue / 12.92);
+
+var X = red * 0.664511 + green * 0.154324 + blue * 0.162028;
+var Y = red * 0.283881 + green * 0.668433 + blue * 0.047685;
+var Z = red * 0.000088 + green * 0.072310 + blue * 0.986039;
+var x = X / (X + Y + Z);
+var y = Y / (X + Y + Z);
+return new Array(x,y);
+
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
