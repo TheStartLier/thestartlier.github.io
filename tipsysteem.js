@@ -52,7 +52,7 @@
         $(this).html(texticon+"R4 - Nicole waarheid");
         break;
       case "819":
-        $(this).html(texticon+"R4 - 3 liegen");
+        $(this).html(texticon+"R4 - 3 personen liegen");
         break;
       case "818":
         $(this).html(texticon+"R4 - Schilderijen");
