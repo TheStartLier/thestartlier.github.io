@@ -2,7 +2,7 @@ var app = express();
 var cors = require('cors');
 app.use(cors());
 
-var hueIp = "192.168.0.136";
+var hueIp = "http://192.168.0.136";
 var client;
 
 // These are configs
