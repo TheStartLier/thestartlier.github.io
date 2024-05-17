@@ -317,11 +317,11 @@ function rebootBox(){
     button.classList.remove("example_a");
     button.classList.add("example_b");
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", `https://192.168.0.107/updates?value=Reset`);
+    xmlhttp.open("GET", `http://192.168.0.107/updates?value=Reset`);
     xmlhttp.send();
     boxReset = true;
 	
-	sendMessage(`https://192.168.0.162/updates?value=Reset`);
+	sendMessage(`http://192.168.0.162/updates?value=Reset`);
 	
 	
   }else{
@@ -330,7 +330,7 @@ function rebootBox(){
     button.classList.remove("example_b");
     button.classList.add("example_a");
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", `https://192.168.0.107/updates?value=TurnOn`);
+    xmlhttp.open("GET", `http://192.168.0.107/updates?value=TurnOn`);
     xmlhttp.send();
     boxReset = false;
   }
@@ -887,7 +887,8 @@ var colorChecker = setInterval(async function(){
 
       const config = {
           method: 'get',
-          url: `http://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`
+          url: `https://${hueIp}/api/FswU2OL6HzX9kDVwNNL9GTMjvD4wdQVeeIOuMqpE/groups/20`,
+	      cors: true
       };
       let res = await axios(config)
       let rgb = ColorConverter.xyBriToRgb(res.data.action.xy[0], res.data.action.xy[1], 255);
