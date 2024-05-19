@@ -91,5 +91,155 @@
       case "457":
         $(this).html(texticon+"R9 - Bom active");
         break;
+      case "206":
+        $(this).html(texticon+"Besmettelijk - quarantine");
+        break;
+      case "552":
+        $(this).html(texticon+"Briefingtent - Onderstreepte / fluo text");
+        break;
+      case "204":
+        $(this).html(texticon+"Briefingtent - Correct jaar, foute maand");
+        break;
+      case "205":
+        $(this).html(texticon+"Briefingtent - ? 6 ? 1");
+        break;
+      case "202":
+        $(this).html(texticon+"Briefingtent - 2 6 ? ?");
+        break;
+      case "203":
+        $(this).html(texticon+"Briefingtent - Teams die zijn binnengegaan");
+        break;
+      case "246":
+        $(this).html(texticon+"Briefingtent - Sluit de deur");
+        break;
+      case "200":
+        $(this).html(texticon+"Lobby - Zoek ook in de briefingtent");
+        break;
+      case "199":
+        $(this).html(texticon+"Lobby - Gebruik de generator");
+        break;
+      case "198":
+        $(this).html(texticon+"Lobby - Boris boek");
+        break;
+      case "197":
+        $(this).html(texticon+"Lobby - Check onderhoudsrooster");
+        break;
+      case "196":
+        $(this).html(texticon+"Lobby - Onderhoudsrooster startpunten");
+        break;
+      case "518":
+        $(this).html(texticon+"Lobby - Helft van Andrey");
+        break;
+      case "523":
+        $(this).html(texticon+"Lobby - Mila 6 en Olek 9");
+        break;
+      case "468":
+        $(this).html(texticon+"Lobby - Stroompunten aan muur");
+        break;
+      case "466":
+        $(this).html(texticon+"Lobby - Ijzeren staven");
+        break;
+      case "194":
+        $(this).html(texticon+"Lobby - Gebruik de generator opnieuw");
+        break;
+      case "527":
+        $(this).html(texticon+"Pas op voor besmette persoon");
+        break;
+      case "192":
+        $(this).html(texticon+"Fabriek - kijk naar de 3 machines");
+        break;
+      case "485":
+        $(this).html(texticon+"Fabriek - Trek niet aan de kokers");
+        break;
+      case "191":
+        $(this).html(texticon+"Fabriek - Machine A stappen");
+        break;
+      case "189":
+        $(this).html(texticon+"Fabriek - Machine A knoppen wisselen");
+        break;
+      case "546":
+        $(this).html(texticon+"Fabriek - Machine A achterzijde");
+        break;
+      case "188":
+        $(this).html(texticon+"Fabriek - Machine A 8 stappen");
+        break;
+      case "187":
+        $(this).html(texticon+"Fabriek - Machine A formule");
+        break;
+      case "547":
+        $(this).html(texticon+"Fabriek - Machine B kleurcodes blokkeren");
+        break;
+      case "184":
+        $(this).html(texticon+"Fabriek - Machine B bevriezen");
+        break;
+      case "182":
+        $(this).html(texticon+"Fabriek - Machine C panelen zoeken");
+        break;
+      case "183":
+        $(this).html(texticon+"Fabriek - Machine C werk als een team");
+        break;
+      case "510":
+        $(this).html(texticon+"Fabriek - Machine witte vierkant inhouden");
+        break;
+      case "181":
+        $(this).html(texticon+"Jerrycans - zet licht uit en wees stil");
+        break;
+      case "441":
+        $(this).html(texticon+"Zoek jerrycans in fabriek");
+        break;
+      case "245":
+        $(this).html(texticon+"Nucleaire opslag achter douche");
+        break;
+      case "180":
+        $(this).html(texticon+"Douche - Radioactief water");
+        break;
+      case "179":
+        $(this).html(texticon+"Jerrycans in fabriek bij Machine A");
+        break;
+      case "178":
+        $(this).html(texticon+"Check document achter douche");
+        break;
+      case "177":
+        $(this).html(texticon+"Jerrycan achter douche");
+        break;
+      case "176":
+        $(this).html(texticon+"Douche - metalen kratten");
+        break;
+      case "175":
+        $(this).html(texticon+"Douche - vind 3 documenten");
+        break;
+      case "174":
+        $(this).html(texticon+"Douche - Jerrycan D aan XXX");
+        break;
+      case "243":
+        $(this).html(texticon+"Douche - Jerrycan E en C");
+        break;
+      case "244":
+        $(this).html(texticon+"Douche - Jerrycans juist, zoek cijferslot");
+        break;
+      case "549":
+        $(this).html(texticon+"Douche - 4 cijfers nodig");
+        break;
+      case "514":
+        $(this).html(texticon+"Endgame - 4 noodknoppen");
+        break;
+      case "173":
+        $(this).html(texticon+"Endgame - hurry up");
+        break;
+      case "172":
+        $(this).html(texticon+"3 extra min");
+        break;
+      case "171":
+        $(this).html(texticon+"6 extra min");
+        break;
+      case "169":
+        $(this).html(texticon+"Endgame - 2 players 4 buttons");
+        break;
+      case "170":
+        $(this).html(texticon+"Endgame - kantel serum niet");
+        break;
+      case "820":
+        $(this).html(texticon+"Sleutel gebroken - forceer deur");
+        break;
     }
   })
