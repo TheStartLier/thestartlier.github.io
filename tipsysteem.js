@@ -241,5 +241,56 @@
       case "820":
         $(this).html(texticon+"Sleutel gebroken - forceer deur");
         break;
+      case "814":
+        $(this).html(texticon+"Reception - Kijk naar lamp");
+        break;
+      case "756":
+        $(this).html(texticon+"Reception - Kijk naar klok");
+        break;
+      case "418":
+        $(this).html(texticon+"Gang - Kijk naar deurhangers");
+        break;
+      case "799":
+        $(this).html(texticon+"Gang - Dieter mag niet gezien worden");
+        break;
+      case "713":
+        $(this).html(texticon+"Werk sneller");
+        break;
+      case "712":
+        $(this).html(texticon+"Niet vloeken");
+        break;
+      case "711":
+        $(this).html(texticon+"Slaapkamer - Kamerjas zakken");
+        break;
+      case "590":
+        $(this).html(texticon+"Slaapkamer - Bureaulade steeksleutel");
+        break;
+      case "792":
+        $(this).html(texticon+"Slaapkamer - Leer tellen");
+        break;
+      case "451":
+        $(this).html(texticon+"Slaapkamer - Schilderij code");
+        break;
+      case "680":
+        $(this).html(texticon+"Slaapkamer - Code start bij 6");
+        break;
+      case "316":
+        $(this).html(texticon+"Buizenkamer - 10 richtingen");
+        break;
+      case "566":
+        $(this).html(texticon+"Buizenkamer - Oplossing");
+        break;
+      case "474":
+        $(this).html(texticon+"Waskamer - Handdoeken in slaapkamer");
+        break;
+      case "554":
+        $(this).html(texticon+"Waskamer - Lift kleuren");
+        break;
+      case "319":
+        $(this).html(texticon+"Waskamer - Werk sneller");
+        break;
+      case "308":
+        $(this).html(texticon+"Endgame - Verzamel objecten");
+        break;
     }
   })
