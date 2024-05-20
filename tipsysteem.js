@@ -82,6 +82,9 @@
       case "836":
         $(this).html(texticon+"R8 - Volgorde letters");
         break;
+      case "859":
+        $(this).html(texticon+"R8 - Geen stemactivatie");
+        break;
       case "286":
         $(this).html(texticon+"R9 - Station vinden");
         break;
