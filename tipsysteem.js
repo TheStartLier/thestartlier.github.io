@@ -300,7 +300,7 @@
 
 var styles = `
 
-    @media (max-width: 1500px) {
+    @media only screen and (max-device-width: 1500px) {
       .button.is-large { 
           font-size: 1.3rem;
       }
