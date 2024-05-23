@@ -305,7 +305,7 @@ var styles = `
           font-size: 1.3rem;
       }
     }
-    @media only screen and (max-device-width: 600px) {
+    @media only screen and (max-device-width: 700px) {
       .content table tbody td { 
           display: block;
       }
