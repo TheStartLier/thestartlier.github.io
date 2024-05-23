@@ -305,6 +305,11 @@ var styles = `
           font-size: 1.3rem;
       }
     }
+    @media only screen and (max-device-width: 600px) {
+      .content table tbody td { 
+          display: block;
+      }
+    }
 `;
 
 var styleSheet = document.createElement("style");
