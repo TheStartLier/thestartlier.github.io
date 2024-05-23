@@ -98,22 +98,22 @@
         $(this).html(texticon+"Besmettelijk - quarantine");
         break;
       case "552":
-        $(this).html(texticon+"Briefingtent - Onderstreepte / fluo text");
+        $(this).html(texticon+"Briefing - Onderstreepte / fluo text");
         break;
       case "204":
-        $(this).html(texticon+"Briefingtent - Correct jaar, foute maand");
+        $(this).html(texticon+"Briefing - Correct jaar, foute maand");
         break;
       case "205":
-        $(this).html(texticon+"Briefingtent - ? 6 ? 1");
+        $(this).html(texticon+"Briefing - ? 6 ? 1");
         break;
       case "202":
-        $(this).html(texticon+"Briefingtent - 2 6 ? ?");
+        $(this).html(texticon+"Briefing - 2 6 ? ?");
         break;
       case "203":
-        $(this).html(texticon+"Briefingtent - Teams die zijn binnengegaan");
+        $(this).html(texticon+"Briefing - Teams die zijn binnengegaan");
         break;
       case "246":
-        $(this).html(texticon+"Briefingtent - Sluit de deur");
+        $(this).html(texticon+"Briefing - Sluit de deur");
         break;
       case "200":
         $(this).html(texticon+"Lobby - Zoek ook in de briefingtent");
@@ -155,34 +155,34 @@
         $(this).html(texticon+"Fabriek - Trek niet aan de kokers");
         break;
       case "191":
-        $(this).html(texticon+"Fabriek - Machine A stappen");
+        $(this).html(texticon+"Fabriek - A stappen");
         break;
       case "189":
-        $(this).html(texticon+"Fabriek - Machine A knoppen wisselen");
+        $(this).html(texticon+"Fabriek - A knoppen wisselen");
         break;
       case "546":
-        $(this).html(texticon+"Fabriek - Machine A achterzijde");
+        $(this).html(texticon+"Fabriek - A achterzijde");
         break;
       case "188":
-        $(this).html(texticon+"Fabriek - Machine A 8 stappen");
+        $(this).html(texticon+"Fabriek - A 8 stappen");
         break;
       case "187":
-        $(this).html(texticon+"Fabriek - Machine A formule");
+        $(this).html(texticon+"Fabriek - A formule");
         break;
       case "547":
-        $(this).html(texticon+"Fabriek - Machine B kleurcodes blokkeren");
+        $(this).html(texticon+"Fabriek - B kleurcodes blokkeren");
         break;
       case "184":
-        $(this).html(texticon+"Fabriek - Machine B bevriezen");
+        $(this).html(texticon+"Fabriek - B bevriezen");
         break;
       case "182":
-        $(this).html(texticon+"Fabriek - Machine C panelen zoeken");
+        $(this).html(texticon+"Fabriek - C panelen zoeken");
         break;
       case "183":
-        $(this).html(texticon+"Fabriek - Machine C werk als een team");
+        $(this).html(texticon+"Fabriek - C werk als een team");
         break;
       case "510":
-        $(this).html(texticon+"Fabriek - Machine witte vierkant inhouden");
+        $(this).html(texticon+"Fabriek - C witte vierkant inhouden");
         break;
       case "181":
         $(this).html(texticon+"Jerrycans - zet licht uit en wees stil");
@@ -297,3 +297,13 @@
         break;
     }
   })
+
+var styles = `
+    .button.is-large { 
+        font-size: 1.4rem;
+    }
+`
+
+var styleSheet = document.createElement("style")
+styleSheet.innerText = styles
+document.head.appendChild(styleSheet)
