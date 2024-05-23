@@ -299,8 +299,11 @@
   })
 
 var styles = `
-    .button.is-large { 
-        font-size: 1.4rem;
+
+    @media (max-width: 1500px) {
+      .button.is-large { 
+          font-size: 1.3rem;
+      }
     }
 `
 
