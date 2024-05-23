@@ -245,16 +245,16 @@
         $(this).html(texticon+"Sleutel gebroken - forceer deur");
         break;
       case "814":
-        $(this).html(texticon+"Receptie - Kijk naar lamp");
+        $(this).html(texticon+"Receptie - Kijk lamp");
         break;
       case "756":
-        $(this).html(texticon+"Receptie - Kijk naar klok");
+        $(this).html(texticon+"Receptie - Kijk klok");
         break;
       case "418":
-        $(this).html(texticon+"Gang - Kijk naar deurhangers");
+        $(this).html(texticon+"Gang - Deurhangers");
         break;
       case "799":
-        $(this).html(texticon+"Gang - Dieter mag niet gezien worden");
+        $(this).html(texticon+"Gang - Verstop Dieter");
         break;
       case "713":
         $(this).html(texticon+"Werk sneller");
@@ -263,10 +263,10 @@
         $(this).html(texticon+"Niet vloeken");
         break;
       case "711":
-        $(this).html(texticon+"SLPKMR - Kamerjas zakken");
+        $(this).html(texticon+"SLPKMR - Kamerjas zak");
         break;
       case "590":
-        $(this).html(texticon+"SLPKMR - Bureaulade steeksleutel");
+        $(this).html(texticon+"SLPKMR - Steeksleutel");
         break;
       case "792":
         $(this).html(texticon+"SLPKMR - Leer tellen");
@@ -284,7 +284,7 @@
         $(this).html(texticon+"Buizen - Oplossing");
         break;
       case "474":
-        $(this).html(texticon+"Was - Handdoeken in slaapkamer");
+        $(this).html(texticon+"Was - Handdoeken in slpkmr");
         break;
       case "554":
         $(this).html(texticon+"Was - Lift kleuren");
