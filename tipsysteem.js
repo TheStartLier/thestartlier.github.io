@@ -305,8 +305,8 @@ var styles = `
           font-size: 1.3rem;
       }
     }
-`
+`;
 
-var styleSheet = document.createElement("style")
-styleSheet.innerText = styles
-document.head.appendChild(styleSheet)
+var styleSheet = document.createElement("style");
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
