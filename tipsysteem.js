@@ -322,14 +322,14 @@ var styles = `
       .content table tbody td { 
           display: block;
       }
-      .section.is-main-section[style*="position:fixed"]{
+      .section.is-main-section:first-of-type{
         padding: 0;
       }
     }
     .content table tbody td { 
         position: relative;
     }
-      .section.is-main-section[style*="position:fixed"]{
+      .section.is-main-section:first-of-type{
         padding: 0;
       }
     td i.mdi-sync {
