@@ -5,7 +5,6 @@
   
   for (var i = 0; i < movietips.length; i++){
     $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").html(movieicon+movietips[i]["video"]);
-    $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").parent("td").append('<i class="mdi mdi-sync"></i>');
   }
   
   for (var i = 0; i < text_tips.length; i++){
@@ -300,7 +299,15 @@
   })
 
 $(document).on("click", "i.mdi-sync", function(){
-  $(this).siblings("button").removeAttr("disabled");
+  var tipID = $(this).siblings("button").attr("data-tip_id");
+  
+  for (var i = 0; i < text_tips.length; i++){
+    if(text_tips[i]["id"] == tipID){
+      $('#modal-customtip textarea[name="tip_text"]').val(text_tips[i]["text"]);
+    }
+  }
+
+  $('button[data-target="modal-customtip"]').click();
 });
 
 var styles = `
