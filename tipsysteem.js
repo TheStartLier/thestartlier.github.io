@@ -300,7 +300,7 @@
   })
 
 $(document).on("click", "i.mdi-sync", function(){
-  $(this).parent("td").querySelector("button").removeAttr("disabled");
+  $(this).siblings("button").removeAttr("disabled");
 });
 
 var styles = `
@@ -324,7 +324,7 @@ var styles = `
       top: 20px;
       font-size: 1.5rem;
       cursor: pointer;
-      color: black;
+      color: #00947e;
     }
     td:has(> button:disabled) i.mdi-sync {
       display:block;
