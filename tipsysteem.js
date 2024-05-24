@@ -314,6 +314,9 @@ var styles = `
           display: block;
       }
     }
+    .content table tbody td { 
+        position: relative;
+    }
     td i.mdi-sync {
       display:none; 
       position: absolute;
