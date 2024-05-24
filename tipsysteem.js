@@ -321,6 +321,8 @@ var styles = `
       display:none; 
       position: absolute;
       right: 20px;
+      top: 20px;
+      font-size: 1.5rem;
       cursor: pointer;
       color: black;
     }
