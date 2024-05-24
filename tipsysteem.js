@@ -1,4 +1,3 @@
-
   var texticon = '<i class="mdi mdi-text"></i>&nbsp;';
   var movieicon = '<i class="mdi mdi-movie"></i>&nbsp;';
   var movietips = JSON.parse($("#movie_tips").val());
@@ -299,8 +298,11 @@
     $(this).append('<i class="mdi mdi-sync"></i>');
   })
 
-var styles = `
+$(document).on("click", "button i.mdi-sync", function(){
+  $(this).parent().removeAttr("disabled");
+});
 
+var styles = `
     @media only screen and (max-device-width: 1500px) {
       .button.is-large { 
           font-size: 1.3rem;
@@ -312,8 +314,11 @@ var styles = `
       }
     }
     button[data-type='movie'] i.mdi-sync, button[data-type='text'] i.mdi-sync {
-      display:none;
-      float:right;
+      display:none; 
+      position: absolute;
+      right: 20px;
+      cursor: pointer;
+      color: black;
     }
     button[data-type='movie']:disabled i.mdi-sync, button[data-type='text']:disabled i.mdi-sync {
       display:block;
