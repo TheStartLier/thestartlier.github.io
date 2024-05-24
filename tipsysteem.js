@@ -155,34 +155,34 @@
         $(this).html(texticon+"Fabriek - Trek niet aan de kokers");
         break;
       case "191":
-        $(this).html(texticon+"Fabriek - A stappen");
+        $(this).html(texticon+"Fabriek A - stappen");
         break;
       case "189":
-        $(this).html(texticon+"Fabriek - A knoppen wisselen");
+        $(this).html(texticon+"Fabriek A - knoppen wisselen");
         break;
       case "546":
-        $(this).html(texticon+"Fabriek - A achterzijde");
+        $(this).html(texticon+"Fabriek A - achterzijde");
         break;
       case "188":
-        $(this).html(texticon+"Fabriek - A 8 stappen");
+        $(this).html(texticon+"Fabriek A - 8 stappen");
         break;
       case "187":
-        $(this).html(texticon+"Fabriek - A formule");
+        $(this).html(texticon+"Fabriek A - formule");
         break;
       case "547":
-        $(this).html(texticon+"Fabriek - B kleurcodes blokkeren");
+        $(this).html(texticon+"Fabriek B - kleurcodes blokkeren");
         break;
       case "184":
-        $(this).html(texticon+"Fabriek - B bevriezen");
+        $(this).html(texticon+"Fabriek B - bevriezen");
         break;
       case "182":
-        $(this).html(texticon+"Fabriek - C panelen zoeken");
+        $(this).html(texticon+"Fabriek C - panelen zoeken");
         break;
       case "183":
-        $(this).html(texticon+"Fabriek - C werk als een team");
+        $(this).html(texticon+"Fabriek C - werk als een team");
         break;
       case "510":
-        $(this).html(texticon+"Fabriek - C witte vierkant inhouden");
+        $(this).html(texticon+"Fabriek C - witte vierkant inhouden");
         break;
       case "181":
         $(this).html(texticon+"Jerrycans - zet licht uit en wees stil");
