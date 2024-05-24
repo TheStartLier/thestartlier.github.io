@@ -26,6 +26,9 @@
       case "802":
         $(this).html(texticon+"R1 - Sleutel");
         break;
+      case "861":
+        $(this).html(texticon+"Handboeien uitdoen");
+        break;
       case "805":
         $(this).html(texticon+"R2 - Tel knipperingen");
         break;
