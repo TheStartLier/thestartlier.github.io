@@ -319,7 +319,7 @@ var styles = `
       }
     }
     @media only screen and (max-width: 700px) {
-      .content table tbody td { 
+      .column.is-12 .content table tbody td { 
           display: block;
       }
       .section.is-main-section[style*="position: fixed; right: 0; bottom: 0; z-index: 9999;"]{
