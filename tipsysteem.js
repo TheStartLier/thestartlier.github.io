@@ -299,8 +299,8 @@
     $(this).parent("td").append('<i class="mdi mdi-sync"></i>');
   })
 
-$(document).on("click", "button i.mdi-sync", function(){
-  $("button", this).removeAttr("disabled");
+$(document).on("click", "i.mdi-sync", function(){
+  $(this).parent("td").querySelector("button").removeAttr("disabled");
 });
 
 var styles = `
