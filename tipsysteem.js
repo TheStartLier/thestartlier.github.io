@@ -320,7 +320,7 @@ var styles = `
     td i.mdi-sync {
       display:none; 
       position: absolute;
-      right: 20px;
+      right: 25px;
       top: 20px;
       font-size: 1.5rem;
       cursor: pointer;
