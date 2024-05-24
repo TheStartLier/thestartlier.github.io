@@ -310,7 +310,7 @@ $(document).on("click", "i.mdi-sync", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
-$("#modal-session-finish .modal-card-body .content").innerHTML = '<div class="field"><p class="is-size-4">Are you sure?</p></div>';
+$("#modal-session-finish .modal-card-body .content").html('<div class="field"><p class="is-size-4">Are you sure?</p></div>');
 
 var styles = `
     @media only screen and (max-device-width: 1500px) {
