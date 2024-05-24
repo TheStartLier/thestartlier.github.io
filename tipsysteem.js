@@ -4,7 +4,8 @@
   var text_tips = JSON.parse($("#text_tips").val());
   
   for (var i = 0; i < movietips.length; i++){
-    $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").html(movieicon+movietips[i]["video"]+'<i class="mdi mdi-sync"></i>');
+    $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").html(movieicon+movietips[i]["video"]);
+    $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").parent("td").append('<i class="mdi mdi-sync"></i>');
   }
   
   for (var i = 0; i < text_tips.length; i++){
@@ -295,11 +296,11 @@
         $(this).html(texticon+"End - Verzamel objecten");
         break;
     }
-    $(this).append('<i class="mdi mdi-sync"></i>');
+    $(this).parent("td").append('<i class="mdi mdi-sync"></i>');
   })
 
 $(document).on("click", "button i.mdi-sync", function(){
-  $(this).parent().removeAttr("disabled");
+  $("button", this).removeAttr("disabled");
 });
 
 var styles = `
@@ -313,14 +314,14 @@ var styles = `
           display: block;
       }
     }
-    button[data-type='movie'] i.mdi-sync, button[data-type='text'] i.mdi-sync {
+    td i.mdi-sync {
       display:none; 
       position: absolute;
       right: 20px;
       cursor: pointer;
       color: black;
     }
-    button[data-type='movie']:disabled i.mdi-sync, button[data-type='text']:disabled i.mdi-sync {
+    td:has(> button:disabled) i.mdi-sync {
       display:block;
     }
 `;
