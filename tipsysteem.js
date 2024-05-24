@@ -319,8 +319,11 @@ var styles = `
       }
     }
     @media only screen and (max-width: 700px) {
-      .column.is-12 .content table tbody td { 
+      .content table tbody td { 
           display: block;
+      }
+      .column.is-6 .content table tbody td { 
+          display: table-cell;
       }
       .section.is-main-section[style*="position: fixed; right: 0; bottom: 0; z-index: 9999;"]{
         padding: 0;
