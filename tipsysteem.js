@@ -322,10 +322,16 @@ var styles = `
       .content table tbody td { 
           display: block;
       }
+      .section.is-main-section[style*="position:fixed"]{
+        padding: 0;
+      }
     }
     .content table tbody td { 
         position: relative;
     }
+      .section.is-main-section[style*="position:fixed"]{
+        padding: 0;
+      }
     td i.mdi-sync {
       display:none; 
       position: absolute;
