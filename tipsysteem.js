@@ -301,6 +301,10 @@
 
 $("button[data-target='modal-textmovietip'][data-type='text']").parent("td").append('<i class="mdi mdi-sync"></i>');
 
+$("#modal-session-finish .modal-card-body .content, #modal-session-pause .modal-card-body .content").html('<div class="field"><p class="is-size-4">Are you sure?</p></div>');
+
+$("#modal-textmovietip .modal-card-body .content").append('<i class="mdi mdi-pencil"></i>');
+
 $(document).on("click", "i.mdi-sync", function(){
   var tipID = $(this).siblings("button").attr("data-tip_id");
   
@@ -322,10 +326,6 @@ $(document).on("click", "#modal-textmovietip .session-form button[type='submit']
     $('#modal-customtip form').submit();
   }
 });
-
-$("#modal-session-finish .modal-card-body .content, #modal-session-pause .modal-card-body .content").html('<div class="field"><p class="is-size-4">Are you sure?</p></div>');
-
-$("#modal-textmovietip .modal-card-body .content").append('<i class="mdi mdi-pencil"></i>');
 
 var styles = `
     @media only screen and (max-device-width: 1500px) {
@@ -362,11 +362,15 @@ var styles = `
     #modal-textmovietip .modal-card-body .content {
       position: relative;
     }
+    #modal-textmovietip .modal-card-body .content .is-size-4{
+      padding-right: 25px;
+    }
     .mdi-pencil {
       position: absolute;
       right: 25px;
       top: 20px;
       font-size: 1.5rem;
+      cursor: pointer;
     }
 `;
 
