@@ -55,7 +55,7 @@
       case 274:
         tiptext = "R5 - 2 lasers tegelijk";
         break;
-      case 544":
+      case 544:
       case 278:
         tiptext = "Stress";
         break;
