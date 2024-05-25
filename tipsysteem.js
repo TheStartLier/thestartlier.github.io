@@ -317,6 +317,13 @@ $(document).on("click", "i.mdi-sync", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
+$(document).on("click", "i.mdi-pencil", function(){
+  var tipText = $(this).siblings(".is-size-4").text();
+  
+  $('#modal-customtip textarea[name="tip_text"]').val(tipText);
+  $('button[data-target="modal-customtip"]').click();
+});
+
 $(document).on("click", "#modal-textmovietip .session-form button[type='submit']", function(){
   var tipID = $("#modal-textmovietip form.session-form").attr("action");
   tipID = tipID.substring(tipID.length - 3);
@@ -363,12 +370,12 @@ var styles = `
       position: relative;
     }
     #modal-textmovietip .modal-card-body .content .is-size-4{
-      padding-right: 25px;
+      padding-right: 30px;
     }
     .mdi-pencil {
       position: absolute;
-      right: 25px;
-      top: 20px;
+      right: 0;
+      top: 0;
       font-size: 1.5rem;
       cursor: pointer;
     }
