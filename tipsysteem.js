@@ -334,7 +334,7 @@ $("#modal-textmovietip .session-form").submit(function(){
     $('#modal-customtip form').submit();
     setTimeout(function() {
       return true;
-    }, 2000);
+    }, 5000);
   }else{
     return true;
   }
