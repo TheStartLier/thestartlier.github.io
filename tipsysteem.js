@@ -325,19 +325,13 @@ $(document).on("click", "i.mdi-pencil", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
-$("#modal-textmovietip .session-form").submit(function(){
-  var tipID = $(this).attr("action");
-  tipID = tipID.substring(tipID.length - 3);
-  
-  if(tipID == "681"){
+$("#modal-textmovietip .session-form[action$='/tip/681']").one("submit", function(e){
+    e.preventDefault();
     $('#modal-customtip textarea[name="tip_text"]').val("Attention!");
     $('#modal-customtip form').submit();
     setTimeout(function() {
-      return true;
+      $(this).submit();
     }, 5000);
-  }else{
-    return true;
-  }
 });
 
 var styles = `
