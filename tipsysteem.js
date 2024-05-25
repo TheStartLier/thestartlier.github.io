@@ -321,6 +321,7 @@ $(document).on("click", "i.mdi-pencil", function(){
   var tipText = $(this).siblings(".is-size-4").text();
   
   $('#modal-customtip textarea[name="tip_text"]').val(tipText);
+  $('#modal-textmovietip.is-active').removeClass("is-active");
   $('button[data-target="modal-customtip"]').click();
 });
 
