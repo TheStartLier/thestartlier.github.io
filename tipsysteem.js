@@ -299,7 +299,7 @@
     $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").html(texticon+tiptext).attr("style", "justify-content: left;");
   }
 
-$("button[data-target="modal-textmovietip"][data-type='text']").parent("td").append('<i class="mdi mdi-sync"></i>');
+$("button[data-target='modal-textmovietip'][data-type='text']").parent("td").append('<i class="mdi mdi-sync"></i>');
 
 $(document).on("click", "i.mdi-sync", function(){
   var tipID = $(this).siblings("button").attr("data-tip_id");
