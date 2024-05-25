@@ -332,8 +332,12 @@ $("#modal-textmovietip .session-form").submit(function(){
   if(tipID == "681"){
     $('#modal-customtip textarea[name="tip_text"]').val("Attention!");
     $('#modal-customtip form').submit();
+    setTimeout(function() {
+      return true;
+    }, 1000);
+  }else{
+    return true;
   }
-  return true;
 });
 
 var styles = `
