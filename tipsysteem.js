@@ -325,7 +325,7 @@ $(document).on("click", "i.mdi-pencil", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
-$("#modal-textmovietip .session-form[action$='/tip/681']").submit(function(e){
+/*$("#modal-textmovietip .session-form[action$='/tip/681']").submit(function(e){
     e.preventDefault();
     var form = this;
     $('#modal-customtip textarea[name="tip_text"]').val("Attention!");
@@ -333,7 +333,7 @@ $("#modal-textmovietip .session-form[action$='/tip/681']").submit(function(e){
     setTimeout(function() {
       form.submit();
     }, 5000);
-});
+});*/
 
 var styles = `
     @media only screen and (max-device-width: 1500px) {
