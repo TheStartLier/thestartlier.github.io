@@ -13,281 +13,281 @@
       case 737:
         tiptext = "R1 - Tetris";
         break;
-      case "816":
+      case 816:
         tiptext = "R1 - Vormen samenvoegen";
         break;
-      case "802":
+      case 802:
         tiptext = "R1 - Sleutel";
         break;
-      case "861":
+      case 861:
         tiptext = "Handboeien uitdoen";
         break;
-      case "805":
+      case 805:
         tiptext = "R2 - Tel knipperingen";
         break;
-      case "815":
+      case 815:
         tiptext = "R2 - Tel opnieuw knipperingen";
         break;
-      case "541":
+      case 541:
         tiptext = "R2 - Reset (666)";
         break;
-      case "431":
+      case 431:
         tiptext = "R3 - Drugsinval";
         break;
-      case "330":
+      case 330:
         tiptext = "R3 - Som optellen";
         break;
-      case "832":
+      case 832:
         tiptext = "R3 - Crimineel opgepakt";
         break;
-      case "834":
+      case 834:
         tiptext = "R4 - 1 persoon zitten";
         break;
-      case "729":
+      case 729:
         tiptext = "R4 - Nicole waarheid";
         break;
-      case "819":
+      case 819:
         tiptext = "R4 - 3 personen liegen";
         break;
-      case "818":
+      case 818:
         tiptext = "R4 - Schilderijen";
         break;
-      case "274":
+      case 274:
         tiptext = "R5 - 2 lasers tegelijk";
         break;
-      case "544":
-      case "278":
+      case 544":
+      case 278:
         tiptext = "Stress";
         break;
-      case "561":
+      case 561:
         tiptext = "R6 - Start boven vlad";
         break;
-      case "325":
+      case 325:
         tiptext = "R6 - Stage 2";
         break;
-      case "437":
+      case 437:
         tiptext = "R7 - Algemene uitleg";
         break;
-      case "296":
+      case 296:
         tiptext = "R7 - Teamwork";
         break;
-      case "331":
+      case 331:
         tiptext = "R8 - Kijk op pillaar";
         break;
-      case "836":
+      case 836:
         tiptext = "R8 - Volgorde letters";
         break;
-      case "859":
+      case 859:
         tiptext = "R8 - Geen stemactivatie";
         break;
-      case "286":
+      case 286:
         tiptext = "R9 - Station vinden";
         break;
-      case "824":
+      case 824:
         tiptext = "R9 - Richtingenslot";
         break;
-      case "457":
+      case 457:
         tiptext = "R9 - Bom active";
         break;
-      case "206":
+      case 206:
         tiptext = "Besmettelijk - quarantine";
         break;
-      case "552":
+      case 552:
         tiptext = "Briefing - Onderstreepte / fluo text";
         break;
-      case "204":
+      case 204:
         tiptext = "Briefing - Correct jaar, foute maand";
         break;
-      case "205":
+      case 205:
         tiptext = "Briefing - ? 6 ? 1";
         break;
-      case "202":
+      case 202:
         tiptext = "Briefing - 2 6 ? ?";
         break;
-      case "203":
+      case 203:
         tiptext = "Briefing - Teams die zijn binnengegaan";
         break;
-      case "246":
+      case 246:
         tiptext = "Briefing - Sluit de deur";
         break;
-      case "200":
+      case 200:
         tiptext = "Lobby - Zoek ook in de briefingtent";
         break;
-      case "199":
+      case 199:
         tiptext = "Lobby - Gebruik de generator";
         break;
-      case "198":
+      case 198:
         tiptext = "Lobby - Boris boek";
         break;
-      case "197":
+      case 197:
         tiptext = "Lobby - Check onderhoudsrooster";
         break;
-      case "196":
+      case 196:
         tiptext = "Lobby - Onderhoudsrooster startpunten";
         break;
-      case "518":
+      case 518:
         tiptext = "Lobby - Helft van Andrey";
         break;
-      case "523":
+      case 523:
         tiptext = "Lobby - Mila 6 en Olek 9";
         break;
-      case "468":
+      case 468:
         tiptext = "Lobby - Stroompunten aan muur";
         break;
-      case "466":
+      case 466:
         tiptext = "Lobby - Ijzeren staven";
         break;
-      case "194":
+      case 194:
         tiptext = "Lobby - Gebruik de generator opnieuw";
         break;
-      case "527":
+      case 527:
         tiptext = "Pas op voor besmette persoon";
         break;
-      case "192":
+      case 192:
         tiptext = "Fabriek - kijk naar de 3 machines";
         break;
-      case "485":
+      case 485:
         tiptext = "Fabriek - Trek niet aan de kokers";
         break;
-      case "191":
+      case 191:
         tiptext = "Fabriek A - stappen";
         break;
-      case "189":
+      case 189:
         tiptext = "Fabriek A - knoppen wisselen";
         break;
-      case "546":
+      case 546:
         tiptext = "Fabriek A - achterzijde";
         break;
-      case "188":
+      case 188:
         tiptext = "Fabriek A - 8 stappen";
         break;
-      case "187":
+      case 187:
         tiptext = "Fabriek A - formule";
         break;
-      case "547":
+      case 547:
         tiptext = "Fabriek B - kleurcodes blokkeren";
         break;
-      case "184":
+      case 184:
         tiptext = "Fabriek B - bevriezen";
         break;
-      case "182":
+      case 182:
         tiptext = "Fabriek C - panelen zoeken";
         break;
-      case "183":
+      case 183:
         tiptext = "Fabriek C - werk als een team";
         break;
-      case "510":
+      case 510:
         tiptext = "Fabriek C - witte vierkant inhouden";
         break;
-      case "181":
+      case 181:
         tiptext = "Jerrycans - zet licht uit en wees stil";
         break;
-      case "441":
+      case 441:
         tiptext = "Zoek jerrycans in fabriek";
         break;
-      case "245":
+      case 245:
         tiptext = "Nucleaire opslag achter douche";
         break;
-      case "180":
+      case 180:
         tiptext = "Douche - Radioactief water";
         break;
-      case "179":
+      case 179:
         tiptext = "Jerrycans in fabriek bij Machine A";
         break;
-      case "178":
+      case 178:
         tiptext = "Check document achter douche";
         break;
-      case "177":
+      case 177:
         tiptext = "Jerrycan achter douche";
         break;
-      case "176":
+      case 176:
         tiptext = "Douche - metalen kratten";
         break;
-      case "175":
+      case 175:
         tiptext = "Douche - vind 3 documenten";
         break;
-      case "174":
+      case 174:
         tiptext = "Douche - Jerrycan D aan XXX";
         break;
-      case "243":
+      case 243:
         tiptext = "Douche - Jerrycan E en C";
         break;
-      case "244":
+      case 244:
         tiptext = "Douche - Jerrycans juist, zoek cijferslot";
         break;
-      case "549":
+      case 549:
         tiptext = "Douche - 4 cijfers nodig";
         break;
-      case "514":
+      case 514:
         tiptext = "Endgame - 4 noodknoppen";
         break;
-      case "173":
+      case 173:
         tiptext = "Endgame - hurry up";
         break;
-      case "172":
+      case 172:
         tiptext = "3 extra min";
         break;
-      case "171":
+      case 171:
         tiptext = "6 extra min";
         break;
-      case "169":
+      case 169:
         tiptext = "Endgame - 2 players 4 buttons";
         break;
-      case "170":
+      case 170:
         tiptext = "Endgame - kantel serum niet";
         break;
-      case "820":
+      case 820:
         tiptext = "Sleutel gebroken - forceer deur";
         break;
-      case "814":
+      case 814:
         tiptext = "Receptie - Kijk lamp";
         break;
-      case "756":
+      case 756:
         tiptext = "Receptie - Kijk klok";
         break;
-      case "418":
+      case 418:
         tiptext = "Gang - Deurhangers";
         break;
-      case "799":
+      case 799:
         tiptext = "Gang - Verstop Dieter";
         break;
-      case "713":
+      case 713:
         tiptext = "Werk sneller";
         break;
-      case "712":
+      case 712:
         tiptext = "Niet vloeken";
         break;
-      case "711":
+      case 711:
         tiptext = "SLPKMR - Kamerjas zak";
         break;
-      case "590":
+      case 590:
         tiptext = "SLPKMR - Steeksleutel";
         break;
-      case "792":
+      case 792:
         tiptext = "SLPKMR - Leer tellen";
         break;
-      case "451":
+      case 451:
         tiptext = "SLPKMR - Schilderij code";
         break;
-      case "680":
+      case 680:
         tiptext = "SLPKMR - Code start bij 6";
         break;
-      case "316":
+      case 316:
         tiptext = "Buizen - 10 richtingen";
         break;
-      case "566":
+      case 566:
         tiptext = "Buizen - Oplossing";
         break;
-      case "474":
+      case 474:
         tiptext = "Was - Handdoeken in slpkmr";
         break;
-      case "554":
+      case 554:
         tiptext = "Was - Lift kleuren";
         break;
-      case "319":
+      case 319:
         tiptext = "Was - Werk sneller";
         break;
-      case "308":
+      case 308:
         tiptext = "End - Verzamel objecten";
         break;
       default:
