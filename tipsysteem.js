@@ -325,14 +325,15 @@ $(document).on("click", "i.mdi-pencil", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
-$(document).on("click", "#modal-textmovietip .session-form button[type='submit']", function(){
-  var tipID = $("#modal-textmovietip form.session-form").attr("action");
+$("#modal-textmovietip .session-form").submit(function(){
+  var tipID = $(this).attr("action");
   tipID = tipID.substring(tipID.length - 3);
   
   if(tipID == "681"){
     $('#modal-customtip textarea[name="tip_text"]').val("Attention!");
     $('#modal-customtip form').submit();
   }
+  return true;
 });
 
 var styles = `
