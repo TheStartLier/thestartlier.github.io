@@ -313,6 +313,16 @@ $(document).on("click", "i.mdi-sync", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
+$(document).on("click", "#modal-textmovietip .session-form button[type='submit']", function(){
+  var tipID = $("#modal-textmovietip form.session-form").attr("action");
+  tipID = tipID.substring(tipID.length - 3);
+  
+  if(tipID == "681"){
+    $('#modal-customtip textarea[name="tip_text"]').val("Attention!");
+    $('#modal-customtip form').submit();
+  }
+});
+
 $("#modal-session-finish .modal-card-body .content, #modal-session-pause .modal-card-body .content").html('<div class="field"><p class="is-size-4">Are you sure?</p></div>');
 
 var styles = `
