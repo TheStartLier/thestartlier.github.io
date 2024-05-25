@@ -9,11 +9,8 @@
   
   for (var i = 0; i < text_tips.length; i++){
     var tiptext = text_tips[i]["text"];
-    if (tiptext.length > 30){
-      tiptext = tiptext.substring(0, 30) + "...";
-    }
     switch(text_tips[i]["id"]){
-      case "737":
+      case 737:
         tiptext = "R1 - Tetris";
         break;
       case "816":
@@ -293,10 +290,16 @@
       case "308":
         tiptext = "End - Verzamel objecten";
         break;
+      default:
+        if (tiptext.length > 30){
+          tiptext = tiptext.substring(0, 30) + "...";
+        }
+        break;
     }
     $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").html(texticon+tiptext).attr("style", "justify-content: left;");
-    $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").parent("td").append('<i class="mdi mdi-sync"></i>');
   }
+
+$("button[data-target="modal-textmovietip"][data-type='text']").parent("td").append('<i class="mdi mdi-sync"></i>');
 
 $(document).on("click", "i.mdi-sync", function(){
   var tipID = $(this).siblings("button").attr("data-tip_id");
