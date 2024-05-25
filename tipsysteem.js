@@ -12,294 +12,291 @@
     if (tiptext.length > 30){
       tiptext = tiptext.substring(0, 30) + "...";
     }
-    $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").html(texticon+tiptext).attr("style", "justify-content: left;");
-  }
-    
-  $("button[data-target='modal-textmovietip']").each(function(){
-    switch($(this).attr("data-tip_id")){
+    switch(text_tips[i]["id"]){
       case "737":
-        $(this).html(texticon+"R1 - Tetris");
+        tiptext = "R1 - Tetris";
         break;
       case "816":
-        $(this).html(texticon+"R1 - Vormen samenvoegen");
+        tiptext = "R1 - Vormen samenvoegen";
         break;
       case "802":
-        $(this).html(texticon+"R1 - Sleutel");
+        tiptext = "R1 - Sleutel";
         break;
       case "861":
-        $(this).html(texticon+"Handboeien uitdoen");
+        tiptext = "Handboeien uitdoen";
         break;
       case "805":
-        $(this).html(texticon+"R2 - Tel knipperingen");
+        tiptext = "R2 - Tel knipperingen";
         break;
       case "815":
-        $(this).html(texticon+"R2 - Tel opnieuw knipperingen");
+        tiptext = "R2 - Tel opnieuw knipperingen";
         break;
       case "541":
-        $(this).html(texticon+"R2 - Reset (666)");
+        tiptext = "R2 - Reset (666)";
         break;
       case "431":
-        $(this).html(texticon+"R3 - Drugsinval");
+        tiptext = "R3 - Drugsinval";
         break;
       case "330":
-        $(this).html(texticon+"R3 - Som optellen");
+        tiptext = "R3 - Som optellen";
         break;
       case "832":
-        $(this).html(texticon+"R3 - Crimineel opgepakt");
+        tiptext = "R3 - Crimineel opgepakt";
         break;
       case "834":
-        $(this).html(texticon+"R4 - 1 persoon zitten");
+        tiptext = "R4 - 1 persoon zitten";
         break;
       case "729":
-        $(this).html(texticon+"R4 - Nicole waarheid");
+        tiptext = "R4 - Nicole waarheid";
         break;
       case "819":
-        $(this).html(texticon+"R4 - 3 personen liegen");
+        tiptext = "R4 - 3 personen liegen";
         break;
       case "818":
-        $(this).html(texticon+"R4 - Schilderijen");
+        tiptext = "R4 - Schilderijen";
         break;
       case "274":
-        $(this).html(texticon+"R5 - 2 lasers tegelijk");
+        tiptext = "R5 - 2 lasers tegelijk";
         break;
       case "544":
       case "278":
-        $(this).html(texticon+"Stress");
+        tiptext = "Stress";
         break;
       case "561":
-        $(this).html(texticon+"R6 - Start boven vlad");
+        tiptext = "R6 - Start boven vlad";
         break;
       case "325":
-        $(this).html(texticon+"R6 - Stage 2");
+        tiptext = "R6 - Stage 2";
         break;
       case "437":
-        $(this).html(texticon+"R7 - Algemene uitleg");
+        tiptext = "R7 - Algemene uitleg";
         break;
       case "296":
-        $(this).html(texticon+"R7 - Teamwork");
+        tiptext = "R7 - Teamwork";
         break;
       case "331":
-        $(this).html(texticon+"R8 - Kijk op pillaar");
+        tiptext = "R8 - Kijk op pillaar";
         break;
       case "836":
-        $(this).html(texticon+"R8 - Volgorde letters");
+        tiptext = "R8 - Volgorde letters";
         break;
       case "859":
-        $(this).html(texticon+"R8 - Geen stemactivatie");
+        tiptext = "R8 - Geen stemactivatie";
         break;
       case "286":
-        $(this).html(texticon+"R9 - Station vinden");
+        tiptext = "R9 - Station vinden";
         break;
       case "824":
-        $(this).html(texticon+"R9 - Richtingenslot");
+        tiptext = "R9 - Richtingenslot";
         break;
       case "457":
-        $(this).html(texticon+"R9 - Bom active");
+        tiptext = "R9 - Bom active";
         break;
       case "206":
-        $(this).html(texticon+"Besmettelijk - quarantine");
+        tiptext = "Besmettelijk - quarantine";
         break;
       case "552":
-        $(this).html(texticon+"Briefing - Onderstreepte / fluo text");
+        tiptext = "Briefing - Onderstreepte / fluo text";
         break;
       case "204":
-        $(this).html(texticon+"Briefing - Correct jaar, foute maand");
+        tiptext = "Briefing - Correct jaar, foute maand";
         break;
       case "205":
-        $(this).html(texticon+"Briefing - ? 6 ? 1");
+        tiptext = "Briefing - ? 6 ? 1";
         break;
       case "202":
-        $(this).html(texticon+"Briefing - 2 6 ? ?");
+        tiptext = "Briefing - 2 6 ? ?";
         break;
       case "203":
-        $(this).html(texticon+"Briefing - Teams die zijn binnengegaan");
+        tiptext = "Briefing - Teams die zijn binnengegaan";
         break;
       case "246":
-        $(this).html(texticon+"Briefing - Sluit de deur");
+        tiptext = "Briefing - Sluit de deur";
         break;
       case "200":
-        $(this).html(texticon+"Lobby - Zoek ook in de briefingtent");
+        tiptext = "Lobby - Zoek ook in de briefingtent";
         break;
       case "199":
-        $(this).html(texticon+"Lobby - Gebruik de generator");
+        tiptext = "Lobby - Gebruik de generator";
         break;
       case "198":
-        $(this).html(texticon+"Lobby - Boris boek");
+        tiptext = "Lobby - Boris boek";
         break;
       case "197":
-        $(this).html(texticon+"Lobby - Check onderhoudsrooster");
+        tiptext = "Lobby - Check onderhoudsrooster";
         break;
       case "196":
-        $(this).html(texticon+"Lobby - Onderhoudsrooster startpunten");
+        tiptext = "Lobby - Onderhoudsrooster startpunten";
         break;
       case "518":
-        $(this).html(texticon+"Lobby - Helft van Andrey");
+        tiptext = "Lobby - Helft van Andrey";
         break;
       case "523":
-        $(this).html(texticon+"Lobby - Mila 6 en Olek 9");
+        tiptext = "Lobby - Mila 6 en Olek 9";
         break;
       case "468":
-        $(this).html(texticon+"Lobby - Stroompunten aan muur");
+        tiptext = "Lobby - Stroompunten aan muur";
         break;
       case "466":
-        $(this).html(texticon+"Lobby - Ijzeren staven");
+        tiptext = "Lobby - Ijzeren staven";
         break;
       case "194":
-        $(this).html(texticon+"Lobby - Gebruik de generator opnieuw");
+        tiptext = "Lobby - Gebruik de generator opnieuw";
         break;
       case "527":
-        $(this).html(texticon+"Pas op voor besmette persoon");
+        tiptext = "Pas op voor besmette persoon";
         break;
       case "192":
-        $(this).html(texticon+"Fabriek - kijk naar de 3 machines");
+        tiptext = "Fabriek - kijk naar de 3 machines";
         break;
       case "485":
-        $(this).html(texticon+"Fabriek - Trek niet aan de kokers");
+        tiptext = "Fabriek - Trek niet aan de kokers";
         break;
       case "191":
-        $(this).html(texticon+"Fabriek A - stappen");
+        tiptext = "Fabriek A - stappen";
         break;
       case "189":
-        $(this).html(texticon+"Fabriek A - knoppen wisselen");
+        tiptext = "Fabriek A - knoppen wisselen";
         break;
       case "546":
-        $(this).html(texticon+"Fabriek A - achterzijde");
+        tiptext = "Fabriek A - achterzijde";
         break;
       case "188":
-        $(this).html(texticon+"Fabriek A - 8 stappen");
+        tiptext = "Fabriek A - 8 stappen";
         break;
       case "187":
-        $(this).html(texticon+"Fabriek A - formule");
+        tiptext = "Fabriek A - formule";
         break;
       case "547":
-        $(this).html(texticon+"Fabriek B - kleurcodes blokkeren");
+        tiptext = "Fabriek B - kleurcodes blokkeren";
         break;
       case "184":
-        $(this).html(texticon+"Fabriek B - bevriezen");
+        tiptext = "Fabriek B - bevriezen";
         break;
       case "182":
-        $(this).html(texticon+"Fabriek C - panelen zoeken");
+        tiptext = "Fabriek C - panelen zoeken";
         break;
       case "183":
-        $(this).html(texticon+"Fabriek C - werk als een team");
+        tiptext = "Fabriek C - werk als een team";
         break;
       case "510":
-        $(this).html(texticon+"Fabriek C - witte vierkant inhouden");
+        tiptext = "Fabriek C - witte vierkant inhouden";
         break;
       case "181":
-        $(this).html(texticon+"Jerrycans - zet licht uit en wees stil");
+        tiptext = "Jerrycans - zet licht uit en wees stil";
         break;
       case "441":
-        $(this).html(texticon+"Zoek jerrycans in fabriek");
+        tiptext = "Zoek jerrycans in fabriek";
         break;
       case "245":
-        $(this).html(texticon+"Nucleaire opslag achter douche");
+        tiptext = "Nucleaire opslag achter douche";
         break;
       case "180":
-        $(this).html(texticon+"Douche - Radioactief water");
+        tiptext = "Douche - Radioactief water";
         break;
       case "179":
-        $(this).html(texticon+"Jerrycans in fabriek bij Machine A");
+        tiptext = "Jerrycans in fabriek bij Machine A";
         break;
       case "178":
-        $(this).html(texticon+"Check document achter douche");
+        tiptext = "Check document achter douche";
         break;
       case "177":
-        $(this).html(texticon+"Jerrycan achter douche");
+        tiptext = "Jerrycan achter douche";
         break;
       case "176":
-        $(this).html(texticon+"Douche - metalen kratten");
+        tiptext = "Douche - metalen kratten";
         break;
       case "175":
-        $(this).html(texticon+"Douche - vind 3 documenten");
+        tiptext = "Douche - vind 3 documenten";
         break;
       case "174":
-        $(this).html(texticon+"Douche - Jerrycan D aan XXX");
+        tiptext = "Douche - Jerrycan D aan XXX";
         break;
       case "243":
-        $(this).html(texticon+"Douche - Jerrycan E en C");
+        tiptext = "Douche - Jerrycan E en C";
         break;
       case "244":
-        $(this).html(texticon+"Douche - Jerrycans juist, zoek cijferslot");
+        tiptext = "Douche - Jerrycans juist, zoek cijferslot";
         break;
       case "549":
-        $(this).html(texticon+"Douche - 4 cijfers nodig");
+        tiptext = "Douche - 4 cijfers nodig";
         break;
       case "514":
-        $(this).html(texticon+"Endgame - 4 noodknoppen");
+        tiptext = "Endgame - 4 noodknoppen";
         break;
       case "173":
-        $(this).html(texticon+"Endgame - hurry up");
+        tiptext = "Endgame - hurry up";
         break;
       case "172":
-        $(this).html(texticon+"3 extra min");
+        tiptext = "3 extra min";
         break;
       case "171":
-        $(this).html(texticon+"6 extra min");
+        tiptext = "6 extra min";
         break;
       case "169":
-        $(this).html(texticon+"Endgame - 2 players 4 buttons");
+        tiptext = "Endgame - 2 players 4 buttons";
         break;
       case "170":
-        $(this).html(texticon+"Endgame - kantel serum niet");
+        tiptext = "Endgame - kantel serum niet";
         break;
       case "820":
-        $(this).html(texticon+"Sleutel gebroken - forceer deur");
+        tiptext = "Sleutel gebroken - forceer deur";
         break;
       case "814":
-        $(this).html(texticon+"Receptie - Kijk lamp");
+        tiptext = "Receptie - Kijk lamp";
         break;
       case "756":
-        $(this).html(texticon+"Receptie - Kijk klok");
+        tiptext = "Receptie - Kijk klok";
         break;
       case "418":
-        $(this).html(texticon+"Gang - Deurhangers");
+        tiptext = "Gang - Deurhangers";
         break;
       case "799":
-        $(this).html(texticon+"Gang - Verstop Dieter");
+        tiptext = "Gang - Verstop Dieter";
         break;
       case "713":
-        $(this).html(texticon+"Werk sneller");
+        tiptext = "Werk sneller";
         break;
       case "712":
-        $(this).html(texticon+"Niet vloeken");
+        tiptext = "Niet vloeken";
         break;
       case "711":
-        $(this).html(texticon+"SLPKMR - Kamerjas zak");
+        tiptext = "SLPKMR - Kamerjas zak";
         break;
       case "590":
-        $(this).html(texticon+"SLPKMR - Steeksleutel");
+        tiptext = "SLPKMR - Steeksleutel";
         break;
       case "792":
-        $(this).html(texticon+"SLPKMR - Leer tellen");
+        tiptext = "SLPKMR - Leer tellen";
         break;
       case "451":
-        $(this).html(texticon+"SLPKMR - Schilderij code");
+        tiptext = "SLPKMR - Schilderij code";
         break;
       case "680":
-        $(this).html(texticon+"SLPKMR - Code start bij 6");
+        tiptext = "SLPKMR - Code start bij 6";
         break;
       case "316":
-        $(this).html(texticon+"Buizen - 10 richtingen");
+        tiptext = "Buizen - 10 richtingen";
         break;
       case "566":
-        $(this).html(texticon+"Buizen - Oplossing");
+        tiptext = "Buizen - Oplossing";
         break;
       case "474":
-        $(this).html(texticon+"Was - Handdoeken in slpkmr");
+        tiptext = "Was - Handdoeken in slpkmr";
         break;
       case "554":
-        $(this).html(texticon+"Was - Lift kleuren");
+        tiptext = "Was - Lift kleuren";
         break;
       case "319":
-        $(this).html(texticon+"Was - Werk sneller");
+        tiptext = "Was - Werk sneller";
         break;
       case "308":
-        $(this).html(texticon+"End - Verzamel objecten");
+        tiptext = "End - Verzamel objecten";
         break;
     }
-    $(this).parent("td").append('<i class="mdi mdi-sync"></i>');
-  })
+    $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").html(texticon+tiptext).attr("style", "justify-content: left;");
+    $("button[data-type='text'][data-tip_id='" + text_tips[i]["id"] + "']").parent("td").append('<i class="mdi mdi-sync"></i>');
+  }
 
 $(document).on("click", "i.mdi-sync", function(){
   var tipID = $(this).siblings("button").attr("data-tip_id");
