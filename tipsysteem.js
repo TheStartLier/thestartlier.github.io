@@ -335,6 +335,91 @@ $(document).on("click", "i.mdi-pencil", function(){
     }, 5000);
 });*/
 
+$("#modal-open[data-target='modal-customtip']").parent("td").after(`<td style="border:none;">
+                        <button id="modal-open" type="button" class="button is-link is-large is-fullwidth" data-target="modal-autotranslate" aria-haspopup="true"><i class="mdi mdi-lightbulb"></i>&nbsp;Auto translate</button>
+                      </td>`);
+
+$("#modal-customtip").after(`<div id="modal-autotranslate" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title is-size-3">Send a tip</p>
+          <button id="modal-close" class="delete" aria-label="close"></button>
+        </header>
+        <form class="session-form">
+          <section class="modal-card-body is-12 columns">
+            <div class="content column is-10">
+              <p>
+                <textarea class="textarea is-large" id="to_translate" placeholder="Enter text to translate here.." style=""></textarea>
+              </p>
+              <h3>Translated content</h3>
+              <p>
+                <textarea class="textarea is-large" id="translated" placeholder="Auto-translated text will appear here.." style=""></textarea>
+              </p>
+            </div>
+            <div class="content column is-1">
+              <p>From
+                <select id="translate-from">
+                  <option>EN</option>
+                </select>
+              </p>
+              <p>To
+                <select id="translate-to">
+                  <option>NL</option>
+                </select>
+              </p>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+            <div class="buttons-submit">
+              <button type="submit" class="button is-success is-large">Send tip</button>
+              <button id="modal-close" class="button is-large">Cancel</button>
+            </div>
+            <div class="buttons-close" style="display: none;">
+              <button id="modal-close" class="button">Close</button>
+            </div>
+          </footer>
+        </form>
+      </div>
+    </div>`);
+    
+$("#modal-open[data-target='modal-autotranslate']").click(function(){
+  $("#modal-autotranslate").toggleClass("is-active");
+});
+
+$("#modal-autotranslate #modal-close").click(function(){
+  $("#modal-autotranslate").toggleClass("is-active");
+});
+
+var typingTimer;                //timer identifier
+var doneTypingInterval = 500;  //time in ms, 1.5 second for example
+var listen = true;
+
+$("#to_translate").on("keyup", function(){
+	clearTimeout(typingTimer);
+	if(listen){
+		typingTimer = setTimeout(function(){
+			listen = false;
+			translateText();
+			listen = true;
+		}, doneTypingInterval);
+	}
+});
+
+function translateText(){
+  var texttotranslate = $("#to_translate").val();
+    $.ajax({
+			url: 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=nl&dt=t&q=' + encodeURI(texttotranslate),
+			type: 'GET',
+			success: function(msg) {
+			  $("#translated").val(msg[0][0][0]);
+			},
+			error: function(msg){
+			  //console.log(msg);
+			}
+		});
+}
+
 var styles = `
     @media only screen and (max-device-width: 1500px) {
       .button.is-large { 
