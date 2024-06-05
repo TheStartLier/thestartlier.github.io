@@ -393,7 +393,7 @@ $(document).on("click", "i.mdi-pencil", function(){
 });*/
 
 
-/* Cool auto-googletranslate function which doesn't work because of CORS
+// Cool auto-googletranslate function which doesn't work because of CORS
 $("#modal-open[data-target='modal-customtip']").parent("td").after(`<td style="border:none;">
                         <button id="modal-open" type="button" class="button is-link is-large is-fullwidth" data-target="modal-autotranslate" aria-haspopup="true"><i class="mdi mdi-lightbulb"></i>&nbsp;Auto translate</button>
                       </td>`);
@@ -477,7 +477,7 @@ function translateText(){
 			  //console.log(msg);
 			}
 		});
-}*/
+}
 
 var styles = `
     @media only screen and (max-device-width: 1500px) {
