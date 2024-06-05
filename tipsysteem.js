@@ -10,50 +10,74 @@
   for (var i = 0; i < text_tips.length; i++){
     var tiptext = text_tips[i]["text"];
     switch(text_tips[i]["id"]){
+      case 351:
       case 737:
         tiptext = "R1 - Tetris";
         break;
       case 816:
+      case 352:
         tiptext = "R1 - Vormen samenvoegen";
         break;
       case 802:
+      case 349:
         tiptext = "R1 - Sleutel";
         break;
       case 861:
+      case 860:
+      case 350:
         tiptext = "Handboeien uitdoen";
         break;
       case 805:
+      case 353:
         tiptext = "R2 - Tel knipperingen";
         break;
       case 815:
+      case 354:
         tiptext = "R2 - Tel opnieuw knipperingen";
         break;
       case 541:
         tiptext = "R2 - Reset (666)";
         break;
       case 431:
+      case 355:
         tiptext = "R3 - Drugsinval";
         break;
       case 330:
         tiptext = "R3 - Som optellen";
         break;
       case 832:
+      case 831:
         tiptext = "R3 - Crimineel opgepakt";
         break;
+      case 361:
+        tiptext = "R4 - Briefing";
+        break;
       case 834:
+      case 833:
         tiptext = "R4 - 1 persoon zitten";
         break;
       case 729:
         tiptext = "R4 - Nicole waarheid";
         break;
       case 819:
+      case 428:
         tiptext = "R4 - 3 personen liegen";
         break;
       case 818:
+      case 817:
         tiptext = "R4 - Schilderijen";
+        break;
+      case 425:
+        tiptext = "R4 - Schuif dichter";
+        break;
+      case 362:
+        tiptext = "R4 - Tweede kans";
         break;
       case 274:
         tiptext = "R5 - 2 lasers tegelijk";
+        break;
+      case 363:
+        tiptext = "R5 - Slow but steady";
         break;
       case 544:
       case 278:
