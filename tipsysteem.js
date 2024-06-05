@@ -176,6 +176,9 @@
       case 198:
         tiptext = "Lobby - Boris boek";
         break;
+      case 863:
+        tiptext = "Lobby - Trek aan slot";
+        break;
       case 197:
         tiptext = "Lobby - Check onderhoudsrooster";
         break;
