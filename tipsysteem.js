@@ -42,6 +42,24 @@
       case 355:
         tiptext = "R3 - Drugsinval";
         break;
+      case 356:
+        tiptext = "R3 - Don't open pots";
+        break;
+      case 432:
+        tiptext = "R3 - Block the door";
+        break;
+      case 357:
+        tiptext = "R3 - 881 is correct";
+        break;
+      case 358:
+        tiptext = "R3 - 604 is correct";
+        break;
+      case 359:
+        tiptext = "R3 - First code is 881";
+        break;
+      case 360:
+        tiptext = "R3 - First code is 604";
+        break;
       case 330:
         tiptext = "R3 - Som optellen";
         break;
@@ -81,36 +99,51 @@
         break;
       case 544:
       case 278:
+      case 374:
         tiptext = "Stress";
+        break;
+      case 436:
+        tiptext = "Don't go back";
         break;
       case 561:
         tiptext = "R6 - Start boven vlad";
         break;
       case 325:
+      case 367:
         tiptext = "R6 - Stage 2";
         break;
       case 437:
+      case 370:
         tiptext = "R7 - Algemene uitleg";
         break;
       case 296:
+      case 369:
         tiptext = "R7 - Teamwork";
         break;
       case 331:
         tiptext = "R8 - Kijk op pillaar";
         break;
+      case 835:
       case 836:
         tiptext = "R8 - Volgorde letters";
         break;
       case 859:
+      case 858:
         tiptext = "R8 - Geen stemactivatie";
         break;
       case 286:
+      case 375:
         tiptext = "R9 - Station vinden";
         break;
       case 824:
+      case 438:
         tiptext = "R9 - Richtingenslot";
         break;
+      case 376:
+        tiptext = "R9 - Hammels Gate";
+        break;
       case 457:
+      case 856:
         tiptext = "R9 - Bom active";
         break;
       case 206:
