@@ -385,9 +385,8 @@ $(document).on("click", "i.mdi-pencil", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
-$("#modal-textmovietip .session-form[action$='/tip/681']").submit(function(e){
+$(document).on("click", "#modal-textmovietip .session-form[action$='/tip/681'] button[type='submit']", function(e){
     e.preventDefault();
-    var form = this;
 
     $.ajax({
 	url: window.location.href + '/customTip',
@@ -398,8 +397,8 @@ $("#modal-textmovietip .session-form[action$='/tip/681']").submit(function(e){
 	},
 	success: function(){
 	  setTimeout(function() {
-	      form.submit();
-	  }, 5000);
+	      $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
+	  }, 3000);
 	},
 	error: function(msg){
 	  console.log(msg);
