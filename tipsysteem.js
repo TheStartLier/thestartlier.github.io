@@ -396,12 +396,11 @@ $(document).on("click", "#modal-textmovietip .session-form[action$='/tip/681'] b
 	    "tip_text": "Attention!"
 	},
 	success: function(){
-	  setTimeout(function() {
-	      $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
-	  }, 3000);
+	  $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
 	},
 	error: function(msg){
 	  console.log(msg);
+	  $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
 	}
     });
 });
