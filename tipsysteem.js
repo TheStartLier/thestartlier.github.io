@@ -396,7 +396,9 @@ $(document).on("click", "#modal-textmovietip .session-form[action$='/tip/681'] b
 	    "tip_text": "Attention!"
 	},
 	success: function(){
-	  $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
+	  setTimeout(function() {
+	      $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
+	  }, 1000);
 	},
 	error: function(msg){
 	  console.log(msg);
