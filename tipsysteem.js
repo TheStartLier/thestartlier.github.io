@@ -398,7 +398,7 @@ $(document).on("click", "#modal-textmovietip .session-form[action$='/tip/681'] b
 	success: function(){
 	  setTimeout(function() {
 	      $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
-	  }, 1000);
+	  }, 2000);
 	},
 	error: function(msg){
 	  console.log(msg);
