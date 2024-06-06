@@ -396,13 +396,15 @@ $("#modal-textmovietip .session-form[action$='/tip/681']").submit(function(e){
 	    "_token": $('input[name="_token"]').val(),
 	    "tip_text": "Attention!"
 	},
+	success: function(){
+	  setTimeout(function() {
+	      form.submit();
+	  }, 5000);
+	},
 	error: function(msg){
 	  console.log(msg);
 	}
     });
-    setTimeout(function() {
-      form.submit();
-    }, 500);
 });
 
 
