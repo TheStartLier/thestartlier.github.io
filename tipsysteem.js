@@ -387,6 +387,7 @@ $(document).on("click", "i.mdi-pencil", function(){
 
 $(document).on("click", "#modal-textmovietip .session-form[action$='/tip/681'] button[type='submit']", function(e){
     e.preventDefault();
+    $("#modal-textmovietip").removeClass("is-active");
 
     $.ajax({
 	url: window.location.href + '/customTip',
