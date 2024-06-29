@@ -116,6 +116,10 @@
       case 370:
         tiptext = "R7 - Algemene uitleg";
         break;
+      case 867:
+      case 866:
+        tiptext = "R7 - Box andere kant";
+        break;
       case 296:
       case 369:
         tiptext = "R7 - Teamwork";
