@@ -112,6 +112,10 @@
       case 367:
         tiptext = "R6 - Stage 2";
         break;
+      case 869:
+      case 868:
+        tiptext = "R6 - Defibrillator";
+        break;
       case 437:
       case 370:
         tiptext = "R7 - Algemene uitleg";
