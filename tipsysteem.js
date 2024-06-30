@@ -75,6 +75,7 @@
         tiptext = "R4 - 1 persoon zitten";
         break;
       case 729:
+      case 870:
         tiptext = "R4 - Nicole waarheid";
         break;
       case 819:
