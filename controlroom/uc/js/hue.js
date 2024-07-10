@@ -38,7 +38,7 @@ let difficulty = 1;
 let rooms = [
 	{
 		name: "firstRoom",
-		IP: "http://192.168.0.215:5000",
+		IP: "https://192.168.0.215:5000",
 		reset: false,
 		newPi: true
 	},
@@ -50,13 +50,13 @@ let rooms = [
 	},
 	{
 		name: "drugsLab",
-		IP: "http://192.168.0.110:5000",
+		IP: "https://192.168.0.110:5000",
 		reset: false,
 		newPi: true
 	},
 	{
 		name: "diningRoom",
-		IP: "http://192.168.0.232:5000",
+		IP: "https://192.168.0.232:5000",
 		reset: false,
 		newPi: true
 	},
@@ -80,7 +80,7 @@ let rooms = [
 	},
 	{
 		name: "bombRoom",
-		IP: "http://192.168.0.112:5000",
+		IP: "https://192.168.0.112:5000",
 		reset: false,
 		newPi: true
 	}
