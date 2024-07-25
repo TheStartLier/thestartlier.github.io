@@ -117,6 +117,10 @@
       case 868:
         tiptext = "R6 - Defibrillator";
         break;
+      case 871:
+      case 872:
+        tiptext = "R6 - Deur";
+        break;
       case 437:
       case 370:
         tiptext = "R7 - Algemene uitleg";
