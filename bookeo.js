@@ -124,6 +124,8 @@ var styles = `
     }
     .box_icons span{
       margin-right: 3px;
+      font-weight: bold;
+      font-size: 11px;
     }
 `;
 
