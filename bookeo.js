@@ -4,6 +4,7 @@ var saveddata = [];
 var queueddata = [];
 var verjaardagen = [];
 var vlaaikes = [];
+var engels = [];
 
 setInterval(fetchBookingDetails, 5000);
 
@@ -20,6 +21,9 @@ function fetchBookingDetails(){
       }
       if(vlaaikes.indexOf(bookingid) > -1 && $(".box_icons .fa-cutlery", bookingslot).length == 0){
         $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
+      }
+      if(engels.indexOf(bookingid) > -1 && $(".box_icons span", bookingslot).length == 0){
+        $(".box_icons", bookingslot).prepend('<span>EN</span>');
       }
     }else{
       if(queueddata.indexOf(bookingid) < 0){
@@ -44,10 +48,14 @@ function fetchBookingDetails(){
               if(data.indexOf("Verjaardag") > 0){
                 $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
                 verjaardagen.push(bookingid);
-              };
+              }
               if(data.indexOf("Lekker. Dit mag je ons allemaal serveren (te betalen ter plaatse)") > 0){
                 $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
                 vlaaikes.push(bookingid);
+              }
+              if(data.indexOf("Engels") > 0){
+                $(".box_icons", bookingslot).prepend('<span>EN</span>');
+                engels.push(bookingid);
               }
             }
           });
@@ -112,6 +120,9 @@ $(document).on("click", "#ui3tab_beb_history", function(){
 
 var styles = `
     i.fa{
+      margin-right: 3px;
+    }
+    .box_icons span{
       margin-right: 3px;
     }
 `;
