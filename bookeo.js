@@ -68,16 +68,11 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
             engels.push(bookingid);
           }
           let ervaring = data.split("Hoeveel escape rooms heeft je team")[1];
-          console.log(ervaring);
-          ervaring = ervaring.substring(ervaring.indexOf("<td>")+1, ervaring.indexOf("</td>"));
+          ervaring = ervaring.substring(ervaring.indexOf("<td >")+1, ervaring.indexOf("</td>"));
           if(ervaring.length > 15){
             ervaring = ervaring.substring(0, 15) + "...";
           }
-          console.log(ervaring);
-          console.log(bookingslot);
-          console.log($(".b_detailsText", bookingslot));
-          console.log($(".b_detailsText", bookingslot)[0].innerHTML);
-          $(".b_detailsText", bookingslot).innerHTML = $(".b_detailsText", bookingslot).innerHTML.replace("0 available", "Ervaring: " + ervaring);
+          $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", "Ervaring: " + ervaring);
         },
         error: function(){
           alreadyLoading = false;
