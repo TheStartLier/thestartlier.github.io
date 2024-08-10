@@ -6,10 +6,10 @@ var vlaaikes = [];
 var engels = [];
 var alreadyLoading = false;
 
-setInterval(fetchBookingDetails, 5000);
+setInterval(buildIcons, 5000);
 
 // Verjaardag en vlaaikes icons
-function fetchBookingDetails(){
+function buildIcons(){
   $(".ctev.b_fullWB").each(function(i){
     let bookingslot = this;
     let bookingid = $(bookingslot).attr("onclick");
@@ -26,12 +26,12 @@ function fetchBookingDetails(){
         $(".box_icons", bookingslot).prepend('<span>EN</span>');
       }
     }else{
-      fetchCustomerDetails(battr, bdate, bookingid, bookingslot);
+      fetchBookingDetails(battr, bdate, bookingid, bookingslot);
     }
   })
 }
 
-function fetchCustomerDetails(battr, bdate, bookingid, bookingslot){
+function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
   if(alreadyLoading){
     setTimeout(function(){
       fetchBookingDetails(battr, bdate, bookingid, bookingslot);
