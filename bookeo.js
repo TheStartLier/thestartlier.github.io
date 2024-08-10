@@ -28,7 +28,7 @@ function buildIcons(){
         $(".box_icons", bookingslot).prepend('<span>EN</span>');
       }
       if(ervaringen[bookingid] != undefined){
-        $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
+        $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaringen[bookingid]);
       }
     }else{
       fetchBookingDetails(battr, bdate, bookingid, bookingslot);
