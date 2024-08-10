@@ -69,6 +69,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
           }
           let ervaring = data.split("Hoeveel escape rooms heeft je team")[1];
           ervaring = ervaring.substring(ervaring.indexOf("<td >")+5, ervaring.indexOf("</td>")).trim();
+          console.log(ervaring);
           if(ervaring.length > 15){
             ervaring = ervaring.substring(0, 15) + "...";
           }
