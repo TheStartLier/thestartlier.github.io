@@ -38,6 +38,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
     }, 1000);
   }else{
     if(saveddata.indexOf(bookingid) < 0){
+      console.log(battr);
       alreadyLoading = true;
       $.ajax({
         type: "POST",
