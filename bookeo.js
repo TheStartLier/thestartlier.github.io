@@ -69,6 +69,9 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
           }
           let ervaring = data.split("<th>Hoeveel escape rooms heeft je team ongeveer al gedaan?:</th><td>")[1];
           ervaring = ervaring.split("</td>")[0];
+          if(ervaring.length > 15){
+            ervaring = ervaring.substring(0, 15) + "...";
+          }
           $(".b_detailsText", bookingslot).innerHTML = $(".b_detailsText", bookingslot).innerHTML.replace("0 available", "Ervaring: " + ervaring);
         },
         error: function(){
