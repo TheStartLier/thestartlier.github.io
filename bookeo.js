@@ -26,6 +26,8 @@ function fetchBookingDetails(){
         $(".box_icons", bookingslot).prepend('<span>EN</span>');
       }
     }else{
+      console.log(battr);
+      console.log(bookingid);
       fetchBookingDetails(battr, bdate, bookingid, bookingslot);
     }
   })
