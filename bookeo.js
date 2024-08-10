@@ -5,6 +5,7 @@ var verjaardagen = [];
 var vlaaikes = [];
 var engels = [];
 var alreadyLoading = false;
+var ervaringen = new Array();
 
 setInterval(buildIcons, 3000);
 
@@ -80,6 +81,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
             ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
           }
           $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
+          ervaringen[bookingid] = ervaring;
         },
         error: function(){
           alreadyLoading = false;
