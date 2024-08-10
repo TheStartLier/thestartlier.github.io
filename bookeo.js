@@ -49,7 +49,7 @@ function fetchBookingDetails(){
                 $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
                 verjaardagen.push(bookingid);
               }
-              if(data.indexOf("Lekker. Dit mag je ons allemaal serveren (te betalen ter plaatse)") > 0){
+              if(data.indexOf("Lekker. Dit mag je ons allemaal serveren") > 0){
                 $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
                 vlaaikes.push(bookingid);
               }
