@@ -32,13 +32,14 @@ function fetchBookingDetails(){
 }
 
 function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
+      console.log(battr);
+      console.log(bookingid);
   if(alreadyLoading){
     setTimeout(function(){
       fetchBookingDetails(battr, bdate, bookingid, bookingslot);
     }, 1000);
   }else{
     if(saveddata.indexOf(bookingid) < 0){
-      console.log(battr);
       alreadyLoading = true;
       $.ajax({
         type: "POST",
