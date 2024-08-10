@@ -11,10 +11,10 @@ setInterval(fetchBookingDetails, 5000);
 // Verjaardag en vlaaikes icons
 function fetchBookingDetails(){
   $(".ctev.b_fullWB").each(function(i){
-    var bookingslot = this;
-    var bookingid = $(bookingslot).attr("onclick");
-    var battr = bookingid.split(',');
-    var bdate = battr[3].split("'")[1];
+    let bookingslot = this;
+    let bookingid = $(bookingslot).attr("onclick");
+    let battr = bookingid.split(',');
+    let bdate = battr[3].split("'")[1];
     if(saveddata.indexOf(bookingid) > -1){
       if(verjaardagen.indexOf(bookingid) > -1 && $(".box_icons .fa-birthday-cake", bookingslot).length == 0){
         $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
@@ -26,16 +26,12 @@ function fetchBookingDetails(){
         $(".box_icons", bookingslot).prepend('<span>EN</span>');
       }
     }else{
-      console.log(battr);
-      console.log(bookingid);
-      fetchBookingDetails(battr, bdate, bookingid, bookingslot);
+      fetchCustomerDetails(battr, bdate, bookingid, bookingslot);
     }
   })
 }
 
-function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
-      console.log(battr);
-      console.log(bookingid);
+function fetchCustomerDetails(battr, bdate, bookingid, bookingslot){
   if(alreadyLoading){
     setTimeout(function(){
       fetchBookingDetails(battr, bdate, bookingid, bookingslot);
