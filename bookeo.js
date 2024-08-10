@@ -6,15 +6,16 @@ var vlaaikes = [];
 var engels = [];
 var alreadyLoading = false;
 
-setInterval(buildIcons, 5000);
+setInterval(buildIcons, 3000);
 
-// Verjaardag en vlaaikes icons
+// Nieuwe icons toevoegen
 function buildIcons(){
   $(".ctev.b_fullWB").each(function(i){
     let bookingslot = this;
     let bookingid = $(bookingslot).attr("onclick");
     let battr = bookingid.split(',');
     let bdate = battr[3].split("'")[1];
+    
     if(saveddata.indexOf(bookingid) > -1){
       if(verjaardagen.indexOf(bookingid) > -1 && $(".box_icons .fa-birthday-cake", bookingslot).length == 0){
         $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
@@ -66,6 +67,9 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
             $(".box_icons", bookingslot).prepend('<span>EN</span>');
             engels.push(bookingid);
           }
+          let ervaring = data.split("<th>Hoeveel escape rooms heeft je team ongeveer al gedaan?:</th><td>")[1];
+          ervaring = ervaring.split("</td>")[0];
+          $(".b_detailsText", bookingslot).innerHTML = $(".b_detailsText", bookingslot).innerHTML.replace("0 available", "Ervaring: " + ervaring);
         },
         error: function(){
           alreadyLoading = false;
