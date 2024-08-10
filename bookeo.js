@@ -67,9 +67,9 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
             $(".box_icons", bookingslot).prepend('<span>EN</span>');
             engels.push(bookingid);
           }
-          let ervaring = data.split("<th>Hoeveel escape rooms heeft je team ongeveer al gedaan?:</th><td>")[1];
+          let ervaring = data.split("<th>Hoeveel escape rooms heeft je team ongeveer al gedaan?:</th>")[1];
           console.log(ervaring);
-          ervaring = ervaring.split("</td>")[0];
+          ervaring = ervaring.substring(ervaring.indexOf("<td>"), ervaring.indexOf("</td>"));
           if(ervaring.length > 15){
             ervaring = ervaring.substring(0, 15) + "...";
           }
