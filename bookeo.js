@@ -72,6 +72,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
           if(ervaring.length > 15){
             ervaring = ervaring.substring(0, 15) + "...";
           }
+          console.log($(".b_detailsText", bookingslot).innerHTML);
           $(".b_detailsText", bookingslot).innerHTML = $(".b_detailsText", bookingslot).innerHTML.replace("0 available", "Ervaring: " + ervaring);
         },
         error: function(){
