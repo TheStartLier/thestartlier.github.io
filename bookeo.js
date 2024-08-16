@@ -29,7 +29,7 @@ function buildIcons(){
         $(".box_icons", bookingslot).prepend('<span>EN</span>');
       }
       if(zonderacteur.indexOf(bookingid) > -1 && !$(bookingslot).hasClass("cyan")){
-        $(bookingslot).addClass('cyan');
+        $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
       }
       if(ervaringen[bookingid] != undefined){
         $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaringen[bookingid]);
@@ -76,7 +76,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
             engels.push(bookingid);
           }
           if(data.indexOf("ZONDER LIVE ACTEUR") > 0){
-            $(bookingslot).addClass('cyan');
+            $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
             zonderacteur.push(bookingid);
           }
           let datasplit = data.split("Hoeveel escape rooms heeft je team");
