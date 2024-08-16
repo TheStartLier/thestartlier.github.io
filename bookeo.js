@@ -164,7 +164,7 @@ var styles = `
       font-weight: bold;
       font-size: 11px;
     }
-    .cyan{
+    .bookeocss.nav_schedule .b_fullWB.cyan{
       background: cyan;
     }
 `;
