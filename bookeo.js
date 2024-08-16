@@ -4,6 +4,7 @@ var saveddata = [];
 var verjaardagen = [];
 var vlaaikes = [];
 var engels = [];
+var zonderacteur = [];
 var alreadyLoading = false;
 var ervaringen = new Array();
 
@@ -26,6 +27,9 @@ function buildIcons(){
       }
       if(engels.indexOf(bookingid) > -1 && $(".box_icons span", bookingslot).length == 0){
         $(".box_icons", bookingslot).prepend('<span>EN</span>');
+      }
+      if(zonderacteur.indexOf(bookingid) > -1 && !$(bookingslot).hasClass("cyan")){
+        $(bookingslot).addClass('cyan');
       }
       if(ervaringen[bookingid] != undefined){
         $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaringen[bookingid]);
@@ -70,6 +74,10 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
           if(data.indexOf("Engels") > 0){
             $(".box_icons", bookingslot).prepend('<span>EN</span>');
             engels.push(bookingid);
+          }
+          if(data.indexOf("ZONDER LIVE ACTEUR") > 0){
+            $(bookingslot).addClass('cyan');
+            zonderacteur.push(bookingid);
           }
           let datasplit = data.split("Hoeveel escape rooms heeft je team");
           let ervaring = "";
@@ -155,6 +163,9 @@ var styles = `
       margin-right: 3px;
       font-weight: bold;
       font-size: 11px;
+    }
+    .cyan{
+      background: cyan;
     }
 `;
 
