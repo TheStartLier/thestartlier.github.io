@@ -44,7 +44,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
   if(alreadyLoading){
     setTimeout(function(){
       fetchBookingDetails(battr, bdate, bookingid, bookingslot);
-    }, 1000);
+    }, 1500);
   }else{
     if(saveddata.indexOf(bookingid) < 0){
       alreadyLoading = true;
