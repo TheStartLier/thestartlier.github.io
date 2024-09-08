@@ -1,3 +1,12 @@
+var applicationID = "EKME9AJ7A4KN";
+var secretKey = "pNmQLwC136snFgryymt3m8WGnmQjRRlC";
+var apiKey = "AYYXK7TKREKME9AJ7A4KN42556WMW6RH16E378B095C";
+var accountID = "42556WMW6RH16E378B095C";
+
+/* Example of a working API call:
+https://api.bookeo.com/v2/bookings?apiKey=AYYXK7TKREKME9AJ7A4KN42556WMW6RH16E378B095C&secretKey=pNmQLwC136snFgryymt3m8WGnmQjRRlC&startTime=2024-09-08T00:00:00Z&endTime=2024-09-08T23:59:59Z
+*/
+
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">');
 
 var baseUrl = window.location.origin;
