@@ -1,7 +1,6 @@
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">');
 
-var url = window.location.href.split("/");
-var baseUrl = "https://" + url[2];
+var baseUrl = window.location.origin;
   
 var saveddata = [];
 var verjaardagen = [];
