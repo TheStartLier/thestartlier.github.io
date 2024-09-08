@@ -1,5 +1,8 @@
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">');
 
+var url = window.location.href.split("/");
+var baseUrl = "https://" + url[2];
+  
 var saveddata = [];
 var verjaardagen = [];
 var vlaaikes = [];
@@ -107,7 +110,7 @@ $(document).on("click", "#ui3tab_beb_history", function(){
   let cusemail = $("#emailAddress-IdFC").val();
   $.ajax({
     type: "POST",
-    url: "https://web-2556h.bookeo.com/bookeo/dwr/call/plaincall/DWRCustomers.getCustomersReduced.dwr",
+    url: baseUrl + "/bookeo/dwr/call/plaincall/DWRCustomers.getCustomersReduced.dwr",
     data: {
       "callCount":1,
       "page":"/bookeo/cust_viewCustomers.html?ncs="+_axiom_nocsrfid,
