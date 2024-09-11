@@ -61,7 +61,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
       alreadyLoading = true;
       $.ajax({
         type: "POST",
-        url: "https://web-2556h.bookeo.com/bookeo/book_viewEventSlotDetails.html",
+        url: baseUrl + "/bookeo/book_viewEventSlotDetails.html",
         data: {
           "rid": battr[1],
           "esid": battr[2],
@@ -147,7 +147,7 @@ $(document).on("click", "#ui3tab_beb_history", function(){
         setTimeout(function() {
           $.ajax({
             type: "POST",
-            url: "https://web-2556h.bookeo.com/bookeo/cust_viewCustomerBookings.html",
+            url: baseUrl + "/bookeo/cust_viewCustomerBookings.html",
             data: {
               "cid": userids[i],
               "ncs": _axiom_nocsrfid
