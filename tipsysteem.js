@@ -183,11 +183,19 @@
       case 200:
         tiptext = "Lobby - Zoek ook in de briefingtent";
         break;
-      case 199:
+      case 46:
+      case 194:
         tiptext = "Lobby - Gebruik de generator";
+        break;
+      case 199:
+        tiptext = "Lobby - Objecten 6813";
         break;
       case 198:
         tiptext = "Lobby - Boris boek";
+        break;
+      case 873:
+      case 874:
+        tiptext = "Lobby - Boris vodka";
         break;
       case 863:
         tiptext = "Lobby - Trek aan slot";
