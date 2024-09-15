@@ -218,9 +218,6 @@
       case 466:
         tiptext = "Lobby - Ijzeren staven";
         break;
-      case 194:
-        tiptext = "Lobby - Gebruik de generator opnieuw";
-        break;
       case 527:
         tiptext = "Pas op voor besmette persoon";
         break;
