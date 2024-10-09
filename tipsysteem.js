@@ -350,6 +350,9 @@
       case 680:
         tiptext = "SLPKMR - Code start bij 6";
         break;
+      case 875:
+        tiptext = "Buizen - Dieter badge";
+        break;
       case 316:
         tiptext = "Buizen - 10 richtingen";
         break;
