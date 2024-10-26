@@ -95,6 +95,10 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
           if(datasplit.length > 1){
             ervaring = datasplit[1]
           }
+          let datasplitVR = data.split("Hoeveel VR escape rooms heb je al gedaan");
+          if(datasplitVR.length > 1){
+            ervaring = datasplitVR[1]
+          }
           ervaring = ervaring.substring(ervaring.indexOf("<td >")+5, ervaring.indexOf("</td>")).trim();
           if(ervaring.length > 15){
             ervaring = ervaring.substring(0, 15) + "...";
