@@ -41,8 +41,7 @@ function buildIcons(){
       }
       
       let naam = $(".b_detailsText", bookingslot)[0].innerHTML;
-      naam = naam.substring(naam.indexOf('<b>'), naam.indexOf("</b>")).trim();
-      console.log(naam);
+      naam = naam.substring(naam.indexOf('<b>')+3, naam.indexOf("</b>")).trim();
       if($("#dataTable")[0].innerHTML.split(naam).length > 2){
         // Player has booked more than 1 room today
         $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
