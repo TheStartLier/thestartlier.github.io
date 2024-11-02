@@ -39,6 +39,15 @@ function buildIcons(){
       if(engels.indexOf(bookingid) > -1 && $(".box_icons span", bookingslot).length == 0){
         $(".box_icons", bookingslot).prepend('<span>EN</span>');
       }
+      
+      let naam = $(".b_detailsText", bookingslot)[0].innerHTML;
+      naam = naam.substring(naam.indexOf('<b>'), naam.indexOf("</b>")).trim();
+      console.log(naam);
+      if($("#dataTable")[0].innerHTML.split(naam).length > 2){
+        // Player has booked more than 1 room today
+        $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
+      }
+      
       if(zonderacteur.indexOf(bookingid) > -1 && !$(bookingslot).hasClass("cyan")){
         $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
       }
@@ -93,11 +102,11 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
           let datasplit = data.split("Hoeveel escape rooms heeft je team");
           let ervaring = "";
           if(datasplit.length > 1){
-            ervaring = datasplit[1]
+            ervaring = datasplit[1];
           }
           let datasplitVR = data.split("Hoeveel VR escape rooms heb je al gedaan");
           if(datasplitVR.length > 1){
-            ervaring = datasplitVR[1]
+            ervaring = datasplitVR[1];
           }
           ervaring = ervaring.substring(ervaring.indexOf("<td >")+5, ervaring.indexOf("</td>")).trim();
           if(ervaring.length > 15){
@@ -181,6 +190,9 @@ var styles = `
     }
     .bookeocss.nav_schedule .b_fullWB.cyan{
       background: cyan;
+    }
+    .bookeocss.nav_schedule .b_fullWB.pink{
+      background: pink;
     }
 `;
 
