@@ -92,6 +92,10 @@
       case 362:
         tiptext = "R4 - Tweede kans";
         break;
+      case 876:
+      case 877:
+        tiptext = "R4 - Walter dood";
+        break;
       case 274:
         tiptext = "R5 - 2 lasers tegelijk";
         break;
