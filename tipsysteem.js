@@ -410,7 +410,8 @@ $(document).on("click", "i.mdi-pencil", function(){
   $('button[data-target="modal-customtip"]').click();
 });
 
-$(document).on("click", "#modal-textmovietip .session-form[action$='/tip/681'] button[type='submit']", function(e){
+// Drugslab tip sound
+$(document).on("click", "#modal-textmovietip .session-form[action$='/tip/681'] button[type='submit'], #modal-textmovietip .session-form[action$='/tip/878'] button[type='submit'], #modal-textmovietip .session-form[action$='/tip/879'] button[type='submit']", function(e){
     e.preventDefault();
     $("#modal-textmovietip").removeClass("is-active");
 
