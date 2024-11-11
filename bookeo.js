@@ -187,11 +187,11 @@ var styles = `
       font-weight: bold;
       font-size: 11px;
     }
-    .bookeocss.nav_schedule .b_fullWB.cyan{
-      background: cyan;
-    }
     .bookeocss.nav_schedule .b_fullWB.pink{
       background: pink;
+    }
+    .bookeocss.nav_schedule .b_fullWB.cyan{
+      background: cyan;
     }
 `;
 
