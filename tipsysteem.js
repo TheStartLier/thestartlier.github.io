@@ -411,7 +411,7 @@ $(document).on("click", "i.mdi-pencil", function(){
 });
 
 // Drugslab tip sound
-$(document).on("click", `#modal-textmovietip .session-form[action$='/tip/681'] button[type='submit'], 
+$(document).on("click", `#modal-textmovietip .session-form[action$='/tip/887'] button[type='submit'], 
 	       #modal-textmovietip .session-form[action$='/tip/885'] button[type='submit'], 
 		#modal-textmovietip .session-form[action$='/tip/884'] button[type='submit'], 
 		#modal-textmovietip .session-form[action$='/tip/882'] button[type='submit'], 
