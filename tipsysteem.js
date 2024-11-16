@@ -417,9 +417,9 @@ $(document).on("click", `#modal-textmovietip .session-form[action$='/tip/681'] b
 		#modal-textmovietip .session-form[action$='/tip/882'] button[type='submit'], 
 		#modal-textmovietip .session-form[action$='/tip/886'] button[type='submit']`, function(e){
     e.preventDefault();
-	var tipid = $(this).closest('.session-form')[0].action.split("/tip/");
-	tipid = tipid[1];
-	console.log(tipid);
+	var tipID = $(this).closest('.session-form')[0].action.split("/tip/");
+	tipID = tipID[1];
+	console.log(tipID);
     $("#modal-textmovietip").removeClass("is-active");
 
     $.ajax({
@@ -431,12 +431,12 @@ $(document).on("click", `#modal-textmovietip .session-form[action$='/tip/681'] b
 	},
 	success: function(){
 	  setTimeout(function() {
-	      $("#modal-textmovietip .session-form[action$='/tip/" + tipid + "']").submit();
+	      $("#modal-textmovietip .session-form[action$='/tip/" + tipID + "']").submit();
 	  }, 2000);
 	},
 	error: function(msg){
 	  console.log(msg);
-	  $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
+	  $("#modal-textmovietip .session-form[action$='/tip/" + tipID + "']").submit();
 	}
     });
 });
