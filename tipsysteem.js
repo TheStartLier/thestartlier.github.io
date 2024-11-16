@@ -417,8 +417,8 @@ $(document).on("click", `#modal-textmovietip .session-form[action$='/tip/681'] b
 		#modal-textmovietip .session-form[action$='/tip/882'] button[type='submit'], 
 		#modal-textmovietip .session-form[action$='/tip/886'] button[type='submit']`, function(e){
     e.preventDefault();
-	console.log(this);
-	console.log($(this));
+	console.log($(this).closest('.session-form'));
+	var tipid = 681;
     $("#modal-textmovietip").removeClass("is-active");
 
     $.ajax({
@@ -430,7 +430,7 @@ $(document).on("click", `#modal-textmovietip .session-form[action$='/tip/681'] b
 	},
 	success: function(){
 	  setTimeout(function() {
-	      $("#modal-textmovietip .session-form[action$='/tip/681']").submit();
+	      $("#modal-textmovietip .session-form[action$='/tip/" + tipid + "']").submit();
 	  }, 2000);
 	},
 	error: function(msg){
