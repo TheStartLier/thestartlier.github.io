@@ -417,6 +417,8 @@ $(document).on("click", `#modal-textmovietip .session-form[action$='/tip/681'] b
 		#modal-textmovietip .session-form[action$='/tip/882'] button[type='submit'], 
 		#modal-textmovietip .session-form[action$='/tip/886'] button[type='submit']`, function(e){
     e.preventDefault();
+	console.log(this);
+	console.log($(this));
     $("#modal-textmovietip").removeClass("is-active");
 
     $.ajax({
