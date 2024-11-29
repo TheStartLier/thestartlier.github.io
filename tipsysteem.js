@@ -81,6 +81,9 @@
       case 428:
         tiptext = "R4 - 3 personen liegen";
         break;
+      case 896:
+        tiptext = "R4 - Ilse lamp";
+        break;
       case 818:
       case 817:
         tiptext = "R4 - Schilderijen";
