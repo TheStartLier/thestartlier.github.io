@@ -22,8 +22,7 @@
       case 349:
         tiptext = "R1 - Sleutel";
         break;
-      case 861:
-      case 860:
+      case 895:
       case 350:
         tiptext = "Handboeien uitdoen";
         break;
