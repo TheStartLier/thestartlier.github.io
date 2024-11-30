@@ -45,7 +45,14 @@
         tiptext = "R3 - Don't open pots";
         break;
       case 432:
-        tiptext = "R3 - Block the door";
+      case 897:
+        tiptext = "R3 - Blokkeer de deur";
+        break;
+      case 898:
+        tiptext = "R3 - Verstop jullie";
+        break;
+      case 898:
+        tiptext = "R3 - Blokkeer de deur";
         break;
       case 357:
         tiptext = "R3 - 881 is correct";
