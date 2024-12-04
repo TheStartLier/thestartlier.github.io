@@ -168,6 +168,9 @@
       case 376:
         tiptext = "R9 - Hammels Gate";
         break;
+      case 899:
+        tiptext = "R9 - Tijd";
+        break;
       case 457:
       case 856:
         tiptext = "R9 - Bom active";
