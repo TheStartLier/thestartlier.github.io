@@ -7,7 +7,7 @@
   if(room.includes("9Kamers")){
 	  // Undercover
 	  $("legend:contains('Statistics')").parent(".content").parent(".column").parent(".columns").addClass("statistics");
-	  var teamname = $(".statistics tbody td:contains('Team')").innerText;
+	  var teamname = $(".statistics tbody td:contains('Team')")[0].innerText;
 	  $('head title', window.parent.document).text(teamname);
   }
   
