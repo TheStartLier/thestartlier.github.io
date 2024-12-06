@@ -607,7 +607,7 @@ var styles = `
   if(!room.includes("CHRNBL")){
 	  // Hide tip help request from non-Cherno rooms
 	  styles += `
-		#websocketNotificationShow {
+		#websocketNotificationShow, .section.is-main-section:has(> .notification.is-warning) {
   			display: none !important;
   		}
    	`
