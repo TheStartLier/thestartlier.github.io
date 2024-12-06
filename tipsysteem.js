@@ -17,31 +17,33 @@ if($("#movie_tips").length){
 
 // Rewrite notification script so it doesn't bother other sessions
 console.log($("script:contains('notification.mp3')")[0].innerHTML);
-$("script:contains('notification.mp3')")[0].innerHTML = `
-document.addEventListener('DOMContentLoaded', function(){
-    // Echo.private('notifyTipRequest').listen('.event.notifyTipRequest', e => {
-    Echo.channel('notifyTipRequest').listen('.event.notifyTipRequest', e => {
-
-      // Variables
-      var websocketNotificationShow = $('#websocketNotificationShow');
-      var websocketNotification = $('#websocketNotification');
-      var sessionId = e.data.session_id;
-      var sessionLink = "http://128.199.55.42/sessions/" + sessionId;
-      var currentSession = window.location.pathname.split("/").pop();
-
-      if(sessionId == currentSession){
-	      // Response
-	      websocketNotification.html('<a href="' + sessionLink + '">New tip requested (click to view)</a>');
-	      websocketNotificationShow.show();
+setTimeout(function() { 
+	$("script:contains('notification.mp3')")[0].innerHTML = `
+	document.addEventListener('DOMContentLoaded', function(){
+	    // Echo.private('notifyTipRequest').listen('.event.notifyTipRequest', e => {
+	    Echo.channel('notifyTipRequest').listen('.event.notifyTipRequest', e => {
 	
-	      // Sound
-	      var audio = new Audio( "http://128.199.55.42/audio/notification.mp3" );
-	      audio.play();
-      }
-
-    })
-  }, false);
-`
+	      // Variables
+	      var websocketNotificationShow = $('#websocketNotificationShow');
+	      var websocketNotification = $('#websocketNotification');
+	      var sessionId = e.data.session_id;
+	      var sessionLink = "http://128.199.55.42/sessions/" + sessionId;
+	      var currentSession = window.location.pathname.split("/").pop();
+	
+	      if(sessionId == currentSession){
+		      // Response
+		      websocketNotification.html('<a href="' + sessionLink + '">New tip requested (click to view)</a>');
+		      websocketNotificationShow.show();
+		
+		      // Sound
+		      var audio = new Audio( "http://128.199.55.42/audio/notification.mp3" );
+		      audio.play();
+	      }
+	
+	    })
+	  }, false);
+	`;
+}, 2000);
   
   for (var i = 0; i < movietips.length; i++){
     $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").html(movieicon+movietips[i]["video"]);
