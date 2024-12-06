@@ -2,6 +2,14 @@
   var movieicon = '<i class="mdi mdi-movie"></i>&nbsp;';
   var movietips = JSON.parse($("#movie_tips").val());
   var text_tips = JSON.parse($("#text_tips").val());
+  var room = $(".title")[0].innerText;
+
+  if(room.includes("9Kamers")){
+	  // Undercover
+	  $("legend:contains('Statistics')").parent(".content").parent(".column").parent(".columns").addClass("statistics");
+	  var teamname = $(".statistics tbody td:contains('Team')").innerText;
+	  $('head title', window.parent.document).text(teamname);
+  }
   
   for (var i = 0; i < movietips.length; i++){
     $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").html(movieicon+movietips[i]["video"]);
