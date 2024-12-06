@@ -26,6 +26,9 @@
       case 350:
         tiptext = "Handboeien uitdoen";
         break;
+      case 900:
+        tiptext = "R2 - Begin in de schachten";
+        break;
       case 805:
       case 353:
         tiptext = "R2 - Tel knipperingen";
@@ -93,6 +96,7 @@
         break;
       case 818:
       case 817:
+      case 901:
         tiptext = "R4 - Schilderijen";
         break;
       case 425:
