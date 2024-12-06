@@ -11,7 +11,7 @@ if($("#movie_tips").length){
   if(room.includes("9Kamers")){
 	  // Undercover
 	  $("legend:contains('Statistics')").parent(".content").parent(".column").parent(".columns").addClass("statistics");
-	  var teamname = $(".statistics tbody td:contains('Team')")[0].innerText;
+	  var teamname = $(".statistics tbody td:contains('Team'), .statistics tbody td:contains('team')")[0].innerText;
 	  $('head title', window.parent.document).text(teamname);
   }
   
