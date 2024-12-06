@@ -11,8 +11,10 @@ if($("#movie_tips").length){
   if(room.includes("NNRMS")){
 	  // Undercover
 	  $("legend:contains('Statistics')").parent(".content").parent(".column").parent(".columns").addClass("statistics");
-	  var teamname = $(".statistics tbody td:contains('Team'), .statistics tbody td:contains('team')")[0].innerText;
-	  $('head title', window.parent.document).text(teamname);
+	  var teamname = $(".statistics tbody td:contains('Team'), .statistics tbody td:contains('team')");
+	  if(teamname.length){
+		  $('head title', window.parent.document).text(teamname[0].innerText);
+	  }
   }
 
 // Rewrite notification script so it doesn't bother other sessions
