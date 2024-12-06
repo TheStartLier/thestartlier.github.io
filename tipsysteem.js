@@ -633,6 +633,15 @@ var styles = `
     }
 `;
 
+if(!room.includes("CHRNBL")){
+  // Hide tip help request from non-Cherno rooms
+  styles += `
+	#websocketNotificationShow, .section.is-main-section:has(> .notification.is-warning) {
+		display: none !important;
+	}
+  `
+}
+
 var styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);
