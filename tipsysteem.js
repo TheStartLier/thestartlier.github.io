@@ -8,7 +8,7 @@ if($("#movie_tips").length){
 }
   var room = $(".title")[0].innerText;
 
-  if(room.includes("9Kamers")){
+  if(room.includes("NNRMS")){
 	  // Undercover
 	  $("legend:contains('Statistics')").parent(".content").parent(".column").parent(".columns").addClass("statistics");
 	  var teamname = $(".statistics tbody td:contains('Team'), .statistics tbody td:contains('team')")[0].innerText;
@@ -602,6 +602,16 @@ var styles = `
       cursor: pointer;
     }
 `;
+
+
+  if(!room.includes("CHRNBL")){
+	  // Hide tip help request from non-Cherno rooms
+	  styles += `
+		#websocketNotificationShow {
+  			display: none !important;
+  		}
+   	`
+  }
 
 var styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
