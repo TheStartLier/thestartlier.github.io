@@ -1,7 +1,11 @@
   var texticon = '<i class="mdi mdi-text"></i>&nbsp;';
   var movieicon = '<i class="mdi mdi-movie"></i>&nbsp;';
-  var movietips = JSON.parse($("#movie_tips").val());
-  var text_tips = JSON.parse($("#text_tips").val());
+  var movietips = [];
+  var text_tips = [];
+if($("#movie_tips").length){
+  movietips = JSON.parse($("#movie_tips").val());
+  text_tips = JSON.parse($("#text_tips").val());
+}
   var room = $(".title")[0].innerText;
 
   if(room.includes("9Kamers")){
