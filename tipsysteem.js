@@ -14,6 +14,33 @@ if($("#movie_tips").length){
 	  var teamname = $(".statistics tbody td:contains('Team'), .statistics tbody td:contains('team')")[0].innerText;
 	  $('head title', window.parent.document).text(teamname);
   }
+
+// Rewrite notification script so it doesn't bother other sessions
+$("script:contains('notification.mp3')")[0].innerHTML = `
+document.addEventListener('DOMContentLoaded', function(){
+    // Echo.private('notifyTipRequest').listen('.event.notifyTipRequest', e => {
+    Echo.channel('notifyTipRequest').listen('.event.notifyTipRequest', e => {
+
+      // Variables
+      var websocketNotificationShow = $('#websocketNotificationShow');
+      var websocketNotification = $('#websocketNotification');
+      var sessionId = e.data.session_id;
+      var sessionLink = "http://128.199.55.42/sessions/" + sessionId;
+      var currentSession = window.location.pathname.split("/").pop();
+
+      if(sessionId == currentSession){
+	      // Response
+	      websocketNotification.html('<a href="' + sessionLink + '">New tip requested (click to view)</a>');
+	      websocketNotificationShow.show();
+	
+	      // Sound
+	      var audio = new Audio( "http://128.199.55.42/audio/notification.mp3" );
+	      audio.play();
+      }
+
+    })
+  }, false);
+`
   
   for (var i = 0; i < movietips.length; i++){
     $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").html(movieicon+movietips[i]["video"]);
@@ -602,16 +629,6 @@ var styles = `
       cursor: pointer;
     }
 `;
-
-
-  if(!room.includes("CHRNBL")){
-	  // Hide tip help request from non-Cherno rooms
-	  styles += `
-		#websocketNotificationShow, .section.is-main-section:has(> .notification.is-warning) {
-  			display: none !important;
-  		}
-   	`
-  }
 
 var styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
