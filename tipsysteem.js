@@ -16,7 +16,6 @@ if($("#movie_tips").length){
   }
 
 // Rewrite notification script so it doesn't bother other sessions
-console.log($("script:contains('notification.mp3')")[0].innerHTML);
 setTimeout(function() { 
 	$("script:contains('notification.mp3')")[0].innerHTML = `
 	document.addEventListener('DOMContentLoaded', function(){
