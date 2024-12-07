@@ -11,7 +11,7 @@ if($("#movie_tips").length){
   if(room.includes("NNRMS")){
 	  // Undercover
 	  $("legend:contains('Statistics')").parent(".content").parent(".column").parent(".columns").addClass("statistics");
-	  var teamname = $(".statistics tbody td:contains('Team'), .statistics tbody td:contains('team')");
+	  var teamname = $(".statistics tbody td:contains('Team'), .statistics tbody td:contains('team'), .statistics tbody td:contains('Groep'), .statistics tbody td:contains('groep')");
 	  if(teamname.length){
 		  $('head title', window.parent.document).text(teamname[0].innerText);
 	  }
