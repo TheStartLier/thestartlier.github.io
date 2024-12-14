@@ -202,6 +202,7 @@ setTimeout(function() {
         break;
       case 859:
       case 858:
+      case 902:
         tiptext = "R8 - Geen stemactivatie";
         break;
       case 286:
