@@ -47,6 +47,13 @@ function buildIcons(){
         $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
       }
       
+      let ppl = $(".b_detailsText", bookingslot)[0].innerHTML;
+      ppl = ppl.substring(ppl.indexOf('<br>')+9, ppl.indexOf(" booked")).trim();
+      if(Number(ppl) > 7){
+        // Battle
+        $(bookingslot).addClass('pink').attr("title", "Battle");
+      }
+      
       if(zonderacteur.indexOf(bookingid) > -1 && !$(bookingslot).hasClass("cyan")){
         $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
       }
