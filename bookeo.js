@@ -93,7 +93,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
             $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
             verjaardagen.push(bookingid);
           }
-          if(data.indexOf("Lekker. Dit mag je ons allemaal serveren") > 0){
+          if(data.indexOf("Lekker. Dit mag je ons allemaal serveren") > 0 || data.indexOf("Ja, perfect voor na onze escape") > 0 || data.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > 0){
             $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
             vlaaikes.push(bookingid);
           }
