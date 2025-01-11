@@ -30,6 +30,8 @@ setTimeout(function() {
 	      var sessionId = e.data.session_id;
 	      var sessionLink = "http://128.199.55.42/sessions/" + sessionId;
 	      var currentSession = window.location.pathname.split("/").pop();
+
+       		console.log("sessionID: " + sessionId + ", currentSession: " + currentSession);
 	
 	      if(sessionId == currentSession){
 		      // Response
