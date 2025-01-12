@@ -16,38 +16,6 @@ if($("#movie_tips").length){
 		  $('head title', window.parent.document).text(teamname[0].innerText);
 	  }
   }
-
-// Rewrite notification script so it doesn't bother other sessions
-console.log("Page reloaded");
-setTimeout(function() { 
-	$("script:contains('notification.mp3')")[0].innerHTML = `
-	document.addEventListener('DOMContentLoaded', function(){
-	    // Echo.private('notifyTipRequest').listen('.event.notifyTipRequest', e => {
-	    Echo.channel('notifyTipRequest').listen('.event.notifyTipRequest', e => {
-	
-	      // Variables
-	      var websocketNotificationShow = $('#websocketNotificationShow');
-	      var websocketNotification = $('#websocketNotification');
-	      var sessionId = e.data.session_id;
-	      var sessionLink = "http://128.199.55.42/sessions/" + sessionId;
-	      var currentSession = window.location.pathname.split("/").pop();
-
-       		console.log("sessionID: " + sessionId + ", currentSession: " + currentSession);
-	
-	      if(sessionId == currentSession){
-		      // Response
-		      websocketNotification.html('<a href="' + sessionLink + '">New tip requested (click to view)</a>');
-		      websocketNotificationShow.show();
-		
-		      // Sound
-		      var audio = new Audio( "http://128.199.55.42/audio/notification.mp3" );
-		      audio.play();
-	      }
-	
-	    })
-	  }, false);
-	`;
-}, 2000);
   
   for (var i = 0; i < movietips.length; i++){
     $("button[data-type='movie'][data-tip_id='" + movietips[i]["id"] + "']").html(movieicon+movietips[i]["video"]);
@@ -503,6 +471,46 @@ $(document).on("click", `#modal-textmovietip .session-form[action$='/tip/887'] b
 	}
     });
 });
+
+
+// Rewrite notification script so it doesn't bother other sessions
+removeAudioNotification();
+
+function removeAudioNotification(){
+	if($("script:contains('notification.mp3')").length){
+		$("script:contains('notification.mp3')")[0].innerHTML = `
+		document.addEventListener('DOMContentLoaded', function(){
+		    // Echo.private('notifyTipRequest').listen('.event.notifyTipRequest', e => {
+		    Echo.channel('notifyTipRequest').listen('.event.notifyTipRequest', e => {
+		
+		      // Variables
+		      var websocketNotificationShow = $('#websocketNotificationShow');
+		      var websocketNotification = $('#websocketNotification');
+		      var sessionId = e.data.session_id;
+		      var sessionLink = "http://128.199.55.42/sessions/" + sessionId;
+		      var currentSession = window.location.pathname.split("/").pop();
+	
+	       		console.log("sessionID: " + sessionId + ", currentSession: " + currentSession);
+		
+		      if(sessionId == currentSession){
+			      // Response
+			      websocketNotification.html('<a href="' + sessionLink + '">New tip requested (click to view)</a>');
+			      websocketNotificationShow.show();
+			
+			      // Sound
+			      var audio = new Audio( "http://128.199.55.42/audio/notification.mp3" );
+			      audio.play();
+		      }
+		
+		    })
+		  }, false);
+		`;
+	}else{
+		setTimeout(function() { 
+			removeAudioNotification();
+		}, 100);
+	}
+}
 
 
 /* Cool auto-googletranslate function which doesn't work because of CORS
