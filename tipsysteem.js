@@ -38,7 +38,7 @@ if($("#movie_tips").length){
         break;
       case 895:
       case 350:
-        tiptext = "Handboeien uitdoen";
+        tiptext = "Blinddoeken afzetten";
         break;
       case 900:
         tiptext = "R2 - Begin in de schachten";
