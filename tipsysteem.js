@@ -51,6 +51,10 @@ if($("#movie_tips").length){
       case 354:
         tiptext = "R2 - Tel opnieuw knipperingen";
         break;
+      case 904:
+      case 903:
+        tiptext = "R2 - Telefoonnummer";
+        break;
       case 541:
         tiptext = "R2 - Reset (666)";
         break;
@@ -70,6 +74,10 @@ if($("#movie_tips").length){
         break;
       case 898:
         tiptext = "R3 - Blokkeer de deur";
+        break;
+      case 905:
+      case 906:
+        tiptext = "R3 - Groene elementen";
         break;
       case 357:
         tiptext = "R3 - 881 is correct";
