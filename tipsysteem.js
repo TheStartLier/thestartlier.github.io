@@ -179,6 +179,10 @@ if($("#movie_tips").length){
       case 836:
         tiptext = "R8 - Volgorde letters";
         break;
+      case 908:
+      case 907:
+        tiptext = "R8 - U";
+        break;
       case 859:
       case 858:
       case 902:
