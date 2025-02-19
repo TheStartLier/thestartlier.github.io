@@ -109,6 +109,12 @@ if($("#movie_tips").length){
       case 870:
         tiptext = "R4 - Nicole waarheid";
         break;
+      case 909:
+        tiptext = "R4 Kids - Moordwapen";
+        break;
+      case 910:
+        tiptext = "Kids - Agent komt langs";
+        break;
       case 819:
       case 428:
         tiptext = "R4 - 3 personen liegen";
