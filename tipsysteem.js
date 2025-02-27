@@ -208,6 +208,9 @@ if($("#movie_tips").length){
       case 899:
         tiptext = "R9 - Tijd";
         break;
+      case 911:
+        tiptext = "R9 - Slot";
+        break;
       case 457:
       case 856:
         tiptext = "R9 - Bom active";
