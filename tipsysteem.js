@@ -94,6 +94,9 @@ if($("#movie_tips").length){
       case 330:
         tiptext = "R3 - Som optellen";
         break;
+      case 912:
+        tiptext = "R3 - Gespot";
+        break;
       case 832:
       case 831:
         tiptext = "R3 - Crimineel opgepakt";
@@ -209,7 +212,10 @@ if($("#movie_tips").length){
         tiptext = "R9 - Tijd";
         break;
       case 911:
-        tiptext = "R9 - Slot";
+        tiptext = "R9 - Slot trekken";
+        break;
+      case 913:
+        tiptext = "R3 - Slot zwarte lijn";
         break;
       case 457:
       case 856:
