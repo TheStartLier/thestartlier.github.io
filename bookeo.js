@@ -132,9 +132,6 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
   }
 }
 
-$(document).on("change", "#ui3tab_beb_booking", function(){
-});
-
 // Customer history
 
 // Select the node that will be observed for mutations
