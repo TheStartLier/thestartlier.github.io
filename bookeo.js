@@ -135,7 +135,7 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
 // Customer history
 
 // Select the node that will be observed for mutations
-const targetNode = document.getElementById("ui3tab_beb_booking");
+const targetNode = document.documentElement || document.body;
 
 // Callback function to execute when mutations are observed
 const callback = (mutationList, observer) => {
