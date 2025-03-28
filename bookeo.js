@@ -132,7 +132,27 @@ function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
   }
 }
 
+$(document).on("change", "#ui3tab_beb_booking", function(){
+});
+
 // Customer history
+
+// Select the node that will be observed for mutations
+const targetNode = document.getElementById("ui3tab_beb_booking");
+
+// Callback function to execute when mutations are observed
+const callback = (mutationList, observer) => {
+  if($("#ui3tab_beb_customer").length && !$("#ui3tab_beb_history").length){
+    $(`<div class="ui3tab" id="ui3tab_beb_history"><span class="btxt">History</span></div>`).insertAfter($("#ui3tab_beb_customer"));
+  }
+};
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
+
+// Start observing the target node for configured mutations
+observer.observe(targetNode, { attributes: true, childList: true, subtree: true });
+
 $(document).on("click", "#ui3tab_beb_history", function(){
   let cusemail = $("#emailAddress-IdFC").val();
   $.ajax({
