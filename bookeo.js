@@ -152,6 +152,7 @@ observer.observe(targetNode, { attributes: true, childList: true, subtree: true 
 
 $(document).on("click", "#ui3tab_beb_history", function(){
   let cusemail = $("#emailAddress-IdFC").val();
+  console.log(cusemail);
   $.ajax({
     type: "POST",
     url: baseUrl + "/bookeo/dwr/call/plaincall/DWRCustomers.getCustomersReduced.dwr",
