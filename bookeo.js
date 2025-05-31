@@ -105,12 +105,12 @@ function buildIcons(){
         $(bookingslot).addClass('pink').attr("title", "Battle");
       }
 
-      $(bookingslot).addClass("done");
-      /*
       if($("#dataTable")[0].innerHTML.split(naam).length > 2){
         // Player has booked more than 1 room today
         $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
-      }*/
+      }
+
+      $(bookingslot).addClass("done");
     }else{
       fetchBookeoDetails(bdate);
     }
