@@ -47,10 +47,7 @@ function buildIcons(){
         }
         if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
-          console.log("We have a match!");
-
           item.options.forEach(function(value, key) {
-            console.log(value);
             if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
               $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
             }
