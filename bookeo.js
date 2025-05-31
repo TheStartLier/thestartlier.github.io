@@ -21,105 +21,84 @@ var gamecategories = {
 
 setInterval(buildIcons, 3000);
 
-// Select the target node to observe 
-const targetNode = document.getElementById('calendarContent_c'); 
- 
-// Options for the observer (which mutations to observe) 
-const config = { attributes: true, childList: true, subtree: true }; 
- 
-// Callback function to execute when mutations are observed 
-const callback = function(mutationsList, observer) { 
-    if(mutationsList.length > 100){
-      console.log("Date changed");
-      let selectedDate = $("#scheduleTitle").text().trim().split("\n- ")[1];
-      let curDate = new Date(selectedDate + " UTC").toISOString().split("T")[0];
-      if(!saveddata[curDate]){
-        fetchBookeoDetails(curDate);
-      }
-    }
-}; 
-
-const observer = new MutationObserver(callback); 
- 
-// Start observing the target node for configured mutations 
-observer.observe(targetNode, config); 
-
 // Nieuwe icons toevoegen
 function buildIcons(){
-  $(".ctev.b_fullWB:not(.done)").each(function(i){
-    let bookingslot = this;
+  let selectedDate = $("#scheduleTitle").text().trim().split("\n- ")[1];
+  let curDate = new Date(selectedDate + " UTC").toISOString().split("T")[0];
+  if(saveddata[curDate]){
+    $(".ctev.b_fullWB:not(.done)").each(function(i){
+      let bookingslot = this;
+        
+      let timeslot = $(".b_fixedSlotTitle", bookingslot)[0].innerHTML.trim();
+      let naam = $(".b_detailsText", bookingslot)[0].innerHTML;
+      naam = naam.substring(naam.indexOf('<b>')+3, naam.indexOf("</b>")).trim();
+      let ppl = $(".b_detailsText", bookingslot)[0].innerHTML;
+      ppl = ppl.substring(ppl.indexOf('<br>')+9, ppl.indexOf(" booked")).trim();
+
+      let bookingid = $(bookingslot).attr("onclick");
+      let battr = bookingid.split(',');
+      let bdate = battr[3].split("'")[1];
+      let bcategory = battr[1];
       
-    let timeslot = $(".b_fixedSlotTitle", bookingslot)[0].innerHTML.trim();
-    let naam = $(".b_detailsText", bookingslot)[0].innerHTML;
-    naam = naam.substring(naam.indexOf('<b>')+3, naam.indexOf("</b>")).trim();
-    let ppl = $(".b_detailsText", bookingslot)[0].innerHTML;
-    ppl = ppl.substring(ppl.indexOf('<br>')+9, ppl.indexOf(" booked")).trim();
+          console.log(ppl);
+          console.log(naam);
+          console.log(timeslot);
+          console.log(gamecategories[bcategory]);
+        saveddata[bdate].forEach(function(item, index) {
+          let startTime = item.startTime.split(":00+")[0].split("T")[1];
+          console.log(item);
+          if(item.participants.number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
+            // We have a match!
 
-    let bookingid = $(bookingslot).attr("onclick");
-    let battr = bookingid.split(',');
-    let bdate = battr[3].split("'")[1];
-    let bcategory = battr[1];
-    
-    if(saveddata[bdate]){
-        console.log(ppl);
-        console.log(naam);
-        console.log(timeslot);
-        console.log(gamecategories[bcategory]);
-      saveddata[bdate].forEach(function(item, index) {
-        let startTime = item.startTime.split(":00+")[0].split("T")[1];
-        console.log(item);
-        if(item.participants.number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
-          // We have a match!
-
-          item.options.forEach(function(value, key) {
-            console.log(value);
-            if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
-              $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
-            }
-
-            if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
-              value.value.indexOf("Ja, perfect voor na onze escape") > -1 || 
-              value.value.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > -1){
-              $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
-            }
-
-            if(value.value.indexOf("Engels") > -1){
-              $(".box_icons", bookingslot).prepend('<span>EN</span>');
-            }
-
-            if(value.value.indexOf("ZONDER LIVE ACTEUR") > -1){
-              $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
-            }
-
-            if(value.name.indexOf("Hoeveel") > -1){
-              let ervaring = value.value;
-              if(ervaring.length > 15){
-                ervaring = ervaring.substring(0, 15) + "...";
+            item.options.forEach(function(value, key) {
+              console.log(value);
+              if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
+                $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
               }
-              if(ervaring){
-                ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
+
+              if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
+                value.value.indexOf("Ja, perfect voor na onze escape") > -1 || 
+                value.value.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > -1){
+                $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
               }
-              $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
-            }
-          });
+
+              if(value.value.indexOf("Engels") > -1){
+                $(".box_icons", bookingslot).prepend('<span>EN</span>');
+              }
+
+              if(value.value.indexOf("ZONDER LIVE ACTEUR") > -1){
+                $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
+              }
+
+              if(value.name.indexOf("Hoeveel") > -1){
+                let ervaring = value.value;
+                if(ervaring.length > 15){
+                  ervaring = ervaring.substring(0, 15) + "...";
+                }
+                if(ervaring){
+                  ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
+                }
+                $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
+              }
+            });
+          }
+        });
+
+        if(Number(ppl) > 7){
+          // Battle
+          $(bookingslot).addClass('pink').attr("title", "Battle");
         }
-      });
 
-      if(Number(ppl) > 7){
-        // Battle
-        $(bookingslot).addClass('pink').attr("title", "Battle");
-      }
+        if($("#dataTable")[0].innerHTML.split(naam).length > 2){
+          // Player has booked more than 1 room today
+          $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
+        }
 
-      if($("#dataTable")[0].innerHTML.split(naam).length > 2){
-        // Player has booked more than 1 room today
-        $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
-      }
-
-      $(bookingslot).addClass("done");
-    }else{
-      fetchBookeoDetails(bdate);
-    }
-  })
+        $(bookingslot).addClass("done");
+    })
+  }else{
+    fetchBookeoDetails(curDate);
+  }
 }
 
 function fetchBookeoDetails(curDate){
