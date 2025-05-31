@@ -40,62 +40,60 @@ function buildIcons(){
       let bdate = battr[3].split("'")[1];
       let bcategory = battr[1];
       
-          console.log(ppl);
-          console.log(naam);
-          console.log(timeslot);
-          console.log(gamecategories[bcategory]);
-        saveddata[bdate].forEach(function(item, index) {
-          let startTime = item.startTime.split(":00+")[0].split("T")[1];
-          console.log(item);
-          if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
-            // We have a match!
-            console.log("We have a match!");
-
-            item.options.forEach(function(value, key) {
-              console.log(value);
-              if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
-                $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
-              }
-
-              if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
-                value.value.indexOf("Ja, perfect voor na onze escape") > -1 || 
-                value.value.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > -1){
-                $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
-              }
-
-              if(value.value.indexOf("Engels") > -1){
-                $(".box_icons", bookingslot).prepend('<span>EN</span>');
-              }
-
-              if(value.value.indexOf("ZONDER LIVE ACTEUR") > -1){
-                $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
-              }
-
-              if(value.name.indexOf("Hoeveel") > -1){
-                let ervaring = value.value;
-                if(ervaring.length > 15){
-                  ervaring = ervaring.substring(0, 15) + "...";
-                }
-                if(ervaring){
-                  ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
-                }
-                $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
-              }
-            });
-          }
-        });
-
-        if(Number(ppl) > 7){
-          // Battle
-          $(bookingslot).addClass('pink').attr("title", "Battle");
+      saveddata[bdate].forEach(function(item, index) {
+        let startTime = item.startTime.split(":00+")[0].split("T")[1];
+        if(startTime.substring(0, 1) == "0"){
+          startTime = startTime.substring(1);
         }
+        if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
+          // We have a match!
+          console.log("We have a match!");
 
-        if($("#dataTable")[0].innerHTML.split(naam).length > 2){
-          // Player has booked more than 1 room today
-          $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
+          item.options.forEach(function(value, key) {
+            console.log(value);
+            if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
+              $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
+            }
+
+            if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
+              value.value.indexOf("Ja, perfect voor na onze escape") > -1 || 
+              value.value.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > -1){
+              $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
+            }
+
+            if(value.value.indexOf("Engels") > -1){
+              $(".box_icons", bookingslot).prepend('<span>EN</span>');
+            }
+
+            if(value.value.indexOf("ZONDER LIVE ACTEUR") > -1){
+              $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
+            }
+
+            if(value.name.indexOf("Hoeveel") > -1){
+              let ervaring = value.value;
+              if(ervaring.length > 15){
+                ervaring = ervaring.substring(0, 15) + "...";
+              }
+              if(ervaring){
+                ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
+              }
+              $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
+            }
+          });
         }
+      });
 
-        $(bookingslot).addClass("done");
+      if(Number(ppl) > 7){
+        // Battle
+        $(bookingslot).addClass('pink').attr("title", "Battle");
+      }
+
+      if($("#dataTable")[0].innerHTML.split(naam).length > 2){
+        // Player has booked more than 1 room today
+        $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
+      }
+
+      $(bookingslot).addClass("done");
     })
   }else{
     fetchBookeoDetails(curDate);
