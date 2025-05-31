@@ -14,7 +14,7 @@ var gamecategories = {
   "24825668": "42556W7PC9W1904AFECC0E"
 };
 
-setInterval(buildIcons, 3000);
+setInterval(buildIcons, 1000);
 
 // Nieuwe icons toevoegen
 function buildIcons(){
@@ -42,6 +42,7 @@ function buildIcons(){
         }
         if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
+          let ervaring = "";
           item.options.forEach(function(value, key) {
             if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
               $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
@@ -62,16 +63,16 @@ function buildIcons(){
             }
 
             if(value.name.indexOf("Hoeveel") > -1){
-              let ervaring = value.value;
+              ervaring = value.value;
               if(ervaring.length > 15){
                 ervaring = ervaring.substring(0, 15) + "...";
               }
-              if(ervaring){
-                ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
-              }
-              $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
             }
           });
+          if(ervaring){
+            ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
+          }
+          $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
         }
       });
 
