@@ -67,6 +67,7 @@ function buildIcons(){
           // We have a match!
 
           item.options.forEach(function(value, key) {
+            console.log(value);
             if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
               $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
             }
@@ -98,33 +99,20 @@ function buildIcons(){
           });
         }
       });
-      /*if(verjaardagen.indexOf(bookingid) > -1 && $(".box_icons .fa-birthday-cake", bookingslot).length == 0){
-        $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
-      }
-      if(vlaaikes.indexOf(bookingid) > -1 && $(".box_icons .fa-cutlery", bookingslot).length == 0){
-        $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
-      }
-      if(engels.indexOf(bookingid) > -1 && $(".box_icons span", bookingslot).length == 0){
-        $(".box_icons", bookingslot).prepend('<span>EN</span>');
-      }
-      if($("#dataTable")[0].innerHTML.split(naam).length > 2){
-        // Player has booked more than 1 room today
-        $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
-      }
-      
+
       if(Number(ppl) > 7){
         // Battle
         $(bookingslot).addClass('pink').attr("title", "Battle");
       }
-      
-      if(zonderacteur.indexOf(bookingid) > -1 && !$(bookingslot).hasClass("cyan")){
-        $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
-      }
-      if(ervaringen[bookingid] != undefined){
-        $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaringen[bookingid]);
+
+      $(bookingslot).addClass("done");
+      /*
+      if($("#dataTable")[0].innerHTML.split(naam).length > 2){
+        // Player has booked more than 1 room today
+        $(bookingslot).addClass('pink').attr("title", "Hebben meerdere kamers geboekt vandaag");
       }*/
     }else{
-      fetchBookeoDetails(curDate);
+      fetchBookeoDetails(bdate);
     }
   })
 }
