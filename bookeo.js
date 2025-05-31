@@ -25,23 +25,7 @@ const callback = function(mutationsList, observer) {
       let selectedDate = $("#scheduleTitle").text().trim().split("\n- ")[1];
       let curDate = new Date(selectedDate + " UTC").toISOString().split("T")[0];
       if(!saveddata[curDate]){
-        $.ajax({
-            url : 'https://intern.thestart.be/api.php',
-            type : 'GET',
-            data : {
-                'type' : "bookings",
-                'startTime' : curDate + "T00:00:00Z",
-                'endTime' : curDate + "T23:59:59Z"
-            },
-            dataType:'json',
-            success : function(data) {
-              saveddata[curDate] = data;
-            },
-            error : function(request,error)
-            {
-                console.log("Request: "+JSON.stringify(request));
-            }
-        });
+        fetchBookeoDetails(curDate);
       }
     }
 }; 
@@ -96,9 +80,31 @@ function buildIcons(){
         $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaringen[bookingid]);
       }*/
     }else{
-      //fetchBookingDetails(battr, bdate, bookingid, bookingslot);
+      fetchBookeoDetails(curDate);
     }
   })
+}
+
+function fetchBookeoDetails(curDate){
+  $.ajax({
+      url : 'https://intern.thestart.be/api.php',
+      type : 'GET',
+      data : {
+          'type' : "bookings",
+          'startTime' : curDate + "T00:00:00Z",
+          'endTime' : curDate + "T23:59:59Z",
+          'source' : "bookeo"
+      },
+      dataType:'json',
+      success : function(data) {
+        saveddata[curDate] = data.data;
+      },
+      error : function(request,error)
+      {
+          console.log("Request: "+JSON.stringify(request));
+      }
+  });
+
 }
 
 function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
