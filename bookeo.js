@@ -3,12 +3,7 @@ $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax
 var baseUrl = window.location.origin;
   
 var saveddata = [];
-var verjaardagen = [];
-var vlaaikes = [];
-var engels = [];
-var zonderacteur = [];
 var alreadyLoading = false;
-var ervaringen = new Array();
 
 var gamecategories = {
   "3461702": "42556XHK796170DA4D0A5F",
@@ -98,17 +93,21 @@ function buildIcons(){
 }
 
 function fetchBookeoDetails(curDate){
+  if(alreadyLoading){
+    return;
+  }
+  alreadyLoading = true;
   $.ajax({
       url : 'https://intern.thestart.be/api.php',
       type : 'GET',
       data : {
           'type' : "bookings",
           'startTime' : curDate + "T00:00:00Z",
-          'endTime' : curDate + "T23:59:59Z",
-          'source' : "bookeo"
+          'endTime' : curDate + "T23:59:59Z"
       },
       dataType:'json',
       success : function(data) {
+        alreadyLoading = false;
         saveddata[curDate] = data.data;
       },
       error : function(request,error)
@@ -117,72 +116,6 @@ function fetchBookeoDetails(curDate){
       }
   });
 
-}
-
-function fetchBookingDetails(battr, bdate, bookingid, bookingslot){
-  if(alreadyLoading){
-    setTimeout(function(){
-      fetchBookingDetails(battr, bdate, bookingid, bookingslot);
-    }, 1500);
-  }else{
-    if(saveddata.indexOf(bookingid) < 0){
-      alreadyLoading = true;
-      $.ajax({
-        type: "POST",
-        url: baseUrl + "/bookeo/book_viewEventSlotDetails.html",
-        data: {
-          "rid": battr[1],
-          "esid": battr[2],
-          "date": bdate,
-          "refresh_schedule_next": true,
-          "refresh_startDate": bdate,
-          "ncs": _axiom_nocsrfid,
-          "ncs2": _axiom_nocsrfid2
-        },
-        success: function(data){
-          alreadyLoading = false;
-          saveddata.push(bookingid);
-          if(data.indexOf("Verjaardag") > 0){
-            $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
-            verjaardagen.push(bookingid);
-          }
-          if(data.indexOf("Lekker. Dit mag je ons allemaal serveren") > 0 || data.indexOf("Ja, perfect voor na onze escape") > 0 || data.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > 0){
-            $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
-            vlaaikes.push(bookingid);
-          }
-          if(data.indexOf("Engels") > 0){
-            $(".box_icons", bookingslot).prepend('<span>EN</span>');
-            engels.push(bookingid);
-          }
-          if(data.indexOf("ZONDER LIVE ACTEUR") > 0){
-            $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
-            zonderacteur.push(bookingid);
-          }
-          let datasplit = data.split("Hoeveel escape rooms heeft je team");
-          let ervaring = "";
-          if(datasplit.length > 1){
-            ervaring = datasplit[1];
-          }
-          let datasplitVR = data.split("Hoeveel VR escape rooms heb je al gedaan");
-          if(datasplitVR.length > 1){
-            ervaring = datasplitVR[1];
-          }
-          ervaring = ervaring.substring(ervaring.indexOf("<td >")+5, ervaring.indexOf("</td>")).trim();
-          if(ervaring.length > 15){
-            ervaring = ervaring.substring(0, 15) + "...";
-          }
-          if(ervaring){
-            ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
-          }
-          $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
-          ervaringen[bookingid] = ervaring;
-        },
-        error: function(){
-          alreadyLoading = false;
-        }
-      });
-    }
-  }
 }
 
 // Customer history
