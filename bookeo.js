@@ -47,8 +47,9 @@ function buildIcons(){
         saveddata[bdate].forEach(function(item, index) {
           let startTime = item.startTime.split(":00+")[0].split("T")[1];
           console.log(item);
-          if(item.participants.number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
+          if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
             // We have a match!
+            console.log("We have a match!");
 
             item.options.forEach(function(value, key) {
               console.log(value);
