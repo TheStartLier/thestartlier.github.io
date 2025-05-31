@@ -61,9 +61,13 @@ function buildIcons(){
     let bcategory = battr[1];
     
     if(saveddata[bdate]){
+        console.log(ppl);
+        console.log(naam);
+        console.log(timeslot);
+        console.log(gamecategories[bcategory]);
       saveddata[bdate].forEach(function(item, index) {
-            console.log(item);
         let startTime = item.startTime.split(":00+")[0].split("T")[1];
+        console.log(item);
         if(item.participants.number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
 
