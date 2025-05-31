@@ -10,6 +10,15 @@ var zonderacteur = [];
 var alreadyLoading = false;
 var ervaringen = new Array();
 
+var gamecategories = {
+  "3461702": "42556XHK796170DA4D0A5F",
+  "3951928": "425564T7UW617242435EBD",
+  "3951519": "42556EM36J617241F5016B",
+  "6113921": "42556YLHPTF177256777C2",
+  "14171703": "42556AJNX791845EEA313E",
+  "24825668": "42556W7PC9W1904AFECC0E"
+};
+
 setInterval(buildIcons, 3000);
 
 // Select the target node to observe 
@@ -49,11 +58,46 @@ function buildIcons(){
     let bookingid = $(bookingslot).attr("onclick");
     let battr = bookingid.split(',');
     let bdate = battr[3].split("'")[1];
+    let bcategory = battr[1];
     
     if(saveddata[bdate]){
-      for (var item in saveddata[bdate]){
-        console.log(item);
-      };
+      saveddata[bdate].forEach(function(item, index) {
+        let startTime = item.startTime.split(":00+")[0].split("T")[1];
+        if(item.participants.number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
+          // We have a match!
+
+          item.options.forEach(function(value, key) {
+            if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
+              $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
+            }
+
+            if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
+              value.value.indexOf("Ja, perfect voor na onze escape") > -1 || 
+              value.value.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > -1){
+              $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
+            }
+
+            if(value.value.indexOf("Engels") > -1){
+              $(".box_icons", bookingslot).prepend('<span>EN</span>');
+            }
+
+            if(value.value.indexOf("ZONDER LIVE ACTEUR") > -1){
+              $(bookingslot).addClass('cyan').attr("title", "Zonder live acteur");
+            }
+
+            if(value.name.indexOf("Hoeveel") > -1){
+              let ervaring = value.value;
+              if(ervaring.length > 15){
+                ervaring = ervaring.substring(0, 15) + "...";
+              }
+              if(ervaring){
+                ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
+              }
+              $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
+            }
+          });
+        }
+      });
       /*if(verjaardagen.indexOf(bookingid) > -1 && $(".box_icons .fa-birthday-cake", bookingslot).length == 0){
         $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
       }
