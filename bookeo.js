@@ -234,6 +234,11 @@ var styles = `
     .bookeocss.nav_schedule .b_fullWB.cyan{
       background: cyan;
     }
+    .ctev_in .numBookings{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
 `;
 
 var styleSheet = document.createElement("style");
