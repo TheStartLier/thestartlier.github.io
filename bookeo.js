@@ -104,7 +104,8 @@ function fetchBookeoDetails(curDate){
       data : {
           'type' : "bookings",
           'startTime' : curDate + "T00:00:00Z",
-          'endTime' : curDate + "T23:59:59Z"
+          'endTime' : curDate + "T23:59:59Z",
+          'allCustomerBookings' : true
       },
       dataType:'json',
       success : function(data) {
