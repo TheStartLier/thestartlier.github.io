@@ -278,6 +278,7 @@ var styles = `
       padding: 15px;
     }
     #bookingHistory h2{
+      background-color: rgb(45, 99, 165);
       color: white;
       margin: 0;
     }
