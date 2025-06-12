@@ -106,7 +106,7 @@ function buildIcons(){
         $(bookingslot).addClass("numBookingsdone");
       }
       if(savedcustomers[email]["totalBookings"] > 1){
-        $(".ctev_in", bookingslot).append('<div class="numBookings" data-customerIDs="' + savedcustomers[email]["customerIDs"] + '" title="Deze klant heeft al ' + savedcustomers[email]["totalBookings"] + ' keer geboekt bij TheStart.">(' + savedcustomers[email]["totalBookings"] + ')</div>');
+        $(".ctev_in", bookingslot).append('<div class="numBookings" onclick="event.stopPropagation();loadCustomerHistory(' + savedcustomers[email]["customerIDs"] + ');" title="Deze klant heeft al ' + savedcustomers[email]["totalBookings"] + ' keer geboekt bij TheStart.">(' + savedcustomers[email]["totalBookings"] + ')</div>');
       }
     }else{
       fetchCustomer(email);
@@ -171,11 +171,7 @@ function fetchCustomer(email){
 }
 
 // Customer history
-$(document).on("click", ".numBookings", function(e){
-  console.log(this);
-  console.log(e);
-   e.stopPropagation();
-  let customerIDs = $(this).attr("data-customerids");
+async function loadCustomerHistory(customerIDs){
   $.ajax({
       url : 'https://intern.thestart.be/api.php',
       type : 'GET',
@@ -192,7 +188,7 @@ $(document).on("click", ".numBookings", function(e){
           console.log("Request: "+JSON.stringify(request));
       }
   });
-});
+}
 
 var styles = `
     i.fa{
