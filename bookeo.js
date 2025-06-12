@@ -201,7 +201,7 @@ async function loadCustomerHistory(email){
             }else{
               let bookingdate = row.startTimeOfPreviousBooking ? row.startTimeOfPreviousBooking : row.startTimeOfNextBooking;
               $("#bookingHistory table tbody").append('<tr>' +
-                                                      '<td>Too long ago to retrieve</td>' +
+                                                      '<td>- Te lang geleden -</td>' +
                                                       '<td>' + bookingdate.split(":00+")[0].replace("T", " ") + '</td>' +
                                                       '<td></td>' +
                                                       '</tr>');
