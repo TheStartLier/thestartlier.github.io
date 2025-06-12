@@ -140,7 +140,7 @@ function fetchBookeoDetails(curDate){
 }
 
 function fetchCustomer(email){
-  if(!savedcustomers[email] && !savedcustomers[email][totalBookings] != "loading"){
+  if(!savedcustomers[email]){
     savedcustomers[email] = array();
     savedcustomers[email][totalBookings] == "loading";
     $.ajax({
