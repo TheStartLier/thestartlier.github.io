@@ -140,28 +140,29 @@ function fetchBookeoDetails(curDate){
 }
 
 function fetchCustomer(email){
-  savedcustomers[email] = "loading";
-  $.ajax({
-      url : 'https://intern.thestart.be/api.php',
-      type : 'GET',
-      data : {
-          'type' : "totalBookings",
-          'email' : email
-      },
-      dataType:'json',
-      success : function(data) {
-        var totalBookings = 0;
-        for(var row in data.data) {
-           totalBookings+= row.numBookings;
+  if(!savedcustomers[email]){
+    savedcustomers[email] = "loading";
+    $.ajax({
+        url : 'https://intern.thestart.be/api.php',
+        type : 'GET',
+        data : {
+            'type' : "totalBookings",
+            'email' : email
+        },
+        dataType:'json',
+        success : function(data) {
+          var totalBookings = 0;
+          for(var row in data.data) {
+             totalBookings+= row.numBookings;
+          }
+          savedcustomers[email] = totalBookings;
+        },
+        error : function(request,error)
+        {
+            console.log("Request: "+JSON.stringify(request));
         }
-        savedcustomers[email] = totalBookings;
-      },
-      error : function(request,error)
-      {
-          console.log("Request: "+JSON.stringify(request));
-      }
-  });
-
+    });
+  }
 }
 
 // Customer history
