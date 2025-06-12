@@ -171,7 +171,8 @@ function fetchCustomer(email){
 }
 
 // Customer history
-$(document).on("click", ".numBookings", function(){
+$(document).on("click", ".numBookings", function(e){
+   e.stopPropagation();
   let customerIDs = $(this).attr("data-customerids");
   $.ajax({
       url : 'https://intern.thestart.be/api.php',
