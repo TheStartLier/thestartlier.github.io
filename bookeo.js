@@ -106,7 +106,9 @@ function buildIcons(){
         $(bookingslot).addClass("numBookingsdone");
       }
       if(savedcustomers[email]["totalBookings"] > 1){
-        $(".ctev_in", bookingslot).append('<div class="numBookings" onclick="event.stopPropagation();loadCustomerHistory(' + savedcustomers[email]["customerIDs"] + ');" title="Deze klant heeft al ' + savedcustomers[email]["totalBookings"] + ' keer geboekt bij TheStart.">(' + savedcustomers[email]["totalBookings"] + ')</div>');
+        $(".ctev_in", bookingslot).append(`<div class="numBookings" onclick="event.stopPropagation();loadCustomerHistory('` + savedcustomers[email]["customerIDs"] + 
+                                          `');" title="Deze klant heeft al ` + savedcustomers[email]["totalBookings"] + ` keer geboekt bij TheStart.">(`
+                                          + savedcustomers[email]["totalBookings"] + `)</div>`);
       }
     }else{
       fetchCustomer(email);
