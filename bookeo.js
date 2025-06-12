@@ -250,6 +250,11 @@ var styles = `
       position: absolute;
       top: 5px;
       right: 5px;
+      transition: all 0.4s ease 0s;
+    }
+    .ctev_in .numBookings:hover{
+      color: black;
+      font-weight: bold;
     }
     .hidden{
       display: none;
