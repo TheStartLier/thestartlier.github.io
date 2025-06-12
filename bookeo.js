@@ -268,10 +268,10 @@ var styles = `
     #bookingHistory{
       position: absolute;
       top: calc(50% - 110px);
-      left: calc(50% - 150px);
+      left: calc(50% - 200px);
       background-color: white;
       z-index: 100;
-      width: 300px;
+      width: 400px;
       border-radius: 5px;
       overflow: hidden;
       border: 1px solid #263346;
@@ -280,7 +280,9 @@ var styles = `
     #bookingHistory .close{
       cursor: pointer;
       float: right;
-      padding: 5px;
+      padding: 0 5px;
+      color: white;
+      font-size: 20px;
     }
     #bookingHistory h2{
       background-color: rgb(45, 99, 165);
@@ -291,7 +293,7 @@ var styles = `
     #bookingHistory table{
       margin: 15px;
     }
-    #bookingHistory table thead{
+    #bookingHistory table th{
       background-color: rgb(45, 99, 165);
       color: white;
       text-align: left;
