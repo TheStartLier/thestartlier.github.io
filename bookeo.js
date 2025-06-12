@@ -171,55 +171,23 @@ function fetchCustomer(email){
 }
 
 // Customer history
-$(document).on("click", "#ui3tab_beb_history", function(){
-  let cusemail = $("#emailAddress-IdFC").val();
+$(document).on("click", ".numBookings", function(){
+  let customerIDs = $(this).attr("data-customerids");
   $.ajax({
-    type: "POST",
-    url: baseUrl + "/bookeo/dwr/call/plaincall/DWRCustomers.getCustomersReduced.dwr",
-    data: {
-      "callCount":1,
-      "page":"/bookeo/cust_viewCustomers.html?ncs="+_axiom_nocsrfid,
-      "httpSessionId":dwr.engine._getJSessionId(),
-      "scriptSessionId":dwr.engine._getScriptSessionId(),
-      "c0-scriptName":"DWRCustomers",
-      "c0-methodName":"getCustomersReduced",
-      "c0-id":0,
-      "c0-param0":"string:"+cusemail,
-      "c0-param1":"string:NAME",
-      "c0-param2":"string:ALL",
-      "c0-param3":"boolean:true",
-      "c0-param4":"number:0",
-      "c0-param5":"number:50",
-      "batchId":2
-    },
-    success: function(data){
-      let idsplit = data.split(".id=");
-      let userids = [];
-      idsplit.forEach((item) => {
-        userids.push(item.split(";")[0]);
-      });
-      console.log(userids);
-      for (let i = 1; i < userids.length; i++) {
-        $("#historyDiv .bookingHistoryRecords").html("<p id='loading'>Loading...</p>");
-        setTimeout(function() {
-          $.ajax({
-            type: "POST",
-            url: baseUrl + "/bookeo/cust_viewCustomerBookings.html",
-            data: {
-              "cid": userids[i],
-              "ncs": _axiom_nocsrfid
-            },
-            success: function(bookingdata){
-              let bookings = bookingdata.substring(bookingdata.indexOf('<div class="bookingInfo">'), bookingdata.indexOf("bcbookings_Init();") - 44);
-              $("#historyDiv .bookingHistoryRecords").append(bookings);
-              if(i == userids.length-1){
-                $("#historyDiv .bookingHistoryRecords #loading").remove();
-              }
-            }
-          });
-        }, i * 1000);
+      url : 'https://intern.thestart.be/api.php',
+      type : 'GET',
+      data : {
+          'type' : "bookingHistory",
+          'customerIDs' : customerIDs
+      },
+      dataType:'json',
+      success : function(data) {
+        console.log(data);
+      },
+      error : function(request,error)
+      {
+          console.log("Request: "+JSON.stringify(request));
       }
-    }
   });
 });
 
