@@ -114,6 +114,10 @@ function buildIcons(){
       fetchCustomer(email);
     }
   });
+
+  if(!$("#bookingHistory_wrapper").length){
+    $("body").append('<div id="bookingHistory_wrapper" class="hidden"><div id="bookingHistory"></div></div>');
+  }
 }
 
 function fetchBookeoDetails(curDate){
@@ -214,6 +218,32 @@ var styles = `
       position: absolute;
       top: 5px;
       right: 5px;
+    }
+    .hidden{
+      display: none;
+    }
+    #bookingHistory_wrapper{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 99;
+    }
+    #bookingHistory{
+      position: absolute;
+      top: calc(50% - 110px);
+      left: calc(50% - 150px);
+      background-color: #131E30;
+      z-index: 100;
+      width: 300px;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid #263346;
+      padding: 15px;
     }
 `;
 
