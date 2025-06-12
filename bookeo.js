@@ -175,8 +175,12 @@ function fetchCustomer(email){
 
 // Customer history
 async function loadCustomerHistory(email){
+  $("#bookingHistory").empty();
   if(savedcustomers[email] && savedcustomers[email]["customerdata"]){
     savedcustomers[email]["customerdata"].forEach(function(row, index) {
+      if(index == 0){
+        $("#bookingHistory").html('<h3>Booking History: ' + row.firstName + ' ' + row.lastName + '</h3><table><thead><tr><th>Room</th><th>Datum</th><th>Spelers</th></tr></thead><tbody></tbody></table>');
+      }
       $.ajax({
           url : 'https://intern.thestart.be/api.php',
           type : 'GET',
@@ -188,6 +192,21 @@ async function loadCustomerHistory(email){
           success : function(data) {
             console.log(row);
             console.log(data);
+            if(data.data){
+              $("#bookingHistory table tbody").append('<tr>' +
+                                                      '<td>' + data.data[0].productName + '</td>' +
+                                                      '<td>' + data.data[0].startTime.split(":00+")[0].replace("T", " ") + '</td>' +
+                                                      '<td>' + data.data[0].participants.numbers[0].number + '</td>' +
+                                                      '</tr>');
+            }else{
+              let bookingdate = row.startTimeOfPreviousBooking ? row.startTimeOfPreviousBooking : row.startTimeOfNextBooking;
+              $("#bookingHistory table tbody").append('<tr>' +
+                                                      '<td>Too long ago to retrieve</td>' +
+                                                      '<td>' + bookingdate.split(":00+")[0].replace("T", " ") + '</td>' +
+                                                      '<td></td>' +
+                                                      '</tr>');
+            }
+            $("#bookingHistory_wrapper").removeClass("hidden");
           },
           error : function(request,error)
           {
