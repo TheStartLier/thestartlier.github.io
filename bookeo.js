@@ -101,7 +101,6 @@ function buildIcons(){
     let bookingslot = this;
     let email = $(bookingslot).attr("data-email");
     if(savedcustomers[email]){
-      console.log(email + ": " + savedcustomers[email]["totalBookings"]);
       if(savedcustomers[email]["totalBookings"] != "loading"){
         $(bookingslot).addClass("numBookingsdone");
       }
