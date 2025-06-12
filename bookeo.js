@@ -141,7 +141,7 @@ function fetchBookeoDetails(curDate){
 
 function fetchCustomer(email){
   if(!savedcustomers[email]){
-    savedcustomers[email] = array();
+    savedcustomers[email] = new Array();
     savedcustomers[email][totalBookings] == "loading";
     $.ajax({
         url : 'https://intern.thestart.be/api.php',
