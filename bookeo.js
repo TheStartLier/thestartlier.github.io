@@ -271,7 +271,6 @@ var styles = `
       left: calc(50% - 200px);
       background-color: white;
       z-index: 100;
-      width: 400px;
       border-radius: 5px;
       overflow: hidden;
       border: 1px solid #263346;
@@ -283,6 +282,7 @@ var styles = `
       padding: 0 5px;
       color: white;
       font-size: 20px;
+      margin-left: 15px;
     }
     #bookingHistory h2{
       background-color: rgb(45, 99, 165);
