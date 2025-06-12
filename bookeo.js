@@ -101,12 +101,11 @@ function buildIcons(){
     let bookingslot = this;
     let email = $(bookingslot).attr("data-email");
     if(savedcustomers[email]){
-      if(savedcustomers[email] != "loading"){
+      if(savedcustomers[email][totalBookings] != "loading"){
         $(bookingslot).addClass("numBookingsdone");
       }
-      if(savedcustomers[email] > 1){
-        console.log("here");
-        $(".ctev_in", bookingslot).append('<div class="numBookings" title="Deze klant heeft al ' + savedcustomers[email] + ' keer geboekt bij TheStart.">(' + savedcustomers[email] + ')</div>');
+      if(savedcustomers[email][totalBookings] > 1){
+        $(".ctev_in", bookingslot).append('<div class="numBookings" data-customerIDs="' + savedcustomers[email][customerIDs] + '" title="Deze klant heeft al ' + savedcustomers[email][totalBookings] + ' keer geboekt bij TheStart.">(' + savedcustomers[email][totalBookings] + ')</div>');
       }
     }else{
       fetchCustomer(email);
@@ -141,8 +140,9 @@ function fetchBookeoDetails(curDate){
 }
 
 function fetchCustomer(email){
-  if(!savedcustomers[email] && savedcustomers[email] != "loading"){
-    savedcustomers[email] = "loading";
+  if(!savedcustomers[email] && !savedcustomers[email][totalBookings] != "loading"){
+    savedcustomers[email] = array();
+    savedcustomers[email][totalBookings] == "loading";
     $.ajax({
         url : 'https://intern.thestart.be/api.php',
         type : 'GET',
@@ -153,10 +153,13 @@ function fetchCustomer(email){
         dataType:'json',
         success : function(data) {
           var totalBookings = 0;
+          var customerIDs = [];
           data.data.forEach(function(row, index) {
              totalBookings+= row.numBookings;
+              customerIDs.push(row.id);
           });
-          savedcustomers[email] = totalBookings;
+          savedcustomers[email][totalBookings] = totalBookings;
+          savedcustomers[email][customerIDs] = customerIDs;
         },
         error : function(request,error)
         {
