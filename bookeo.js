@@ -108,7 +108,7 @@ function buildIcons(){
     }else{
       fetchCustomer(email);
     }
-  }
+  });
 }
 
 function fetchBookeoDetails(curDate){
