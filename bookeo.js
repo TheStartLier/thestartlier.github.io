@@ -153,6 +153,8 @@ function fetchCustomer(email){
         success : function(data) {
           var totalBookings = 0;
           for(var row in data.data) {
+            console.log(row);
+            console.log(row.numBookings);
              totalBookings+= row.numBookings;
           }
           savedcustomers[email] = totalBookings;
