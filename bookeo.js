@@ -157,7 +157,7 @@ function fetchCustomer(email){
             console.log(row);
             console.log(row.numBookings);
              totalBookings+= row.numBookings;
-          }
+          });
           console.log(totalBookings);
           savedcustomers[email] = 1;
         },
