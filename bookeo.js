@@ -106,7 +106,7 @@ function buildIcons(){
         $(bookingslot).addClass("numBookingsdone");
       }
       if(savedcustomers[email]["totalBookings"] > 1){
-        $(".ctev_in", bookingslot).append(`<div class="numBookings" onclick="event.stopPropagation();loadCustomerHistory('` + savedcustomers[email]["customerIDs"] + 
+        $(".ctev_in", bookingslot).append(`<div class="numBookings" onclick="event.stopPropagation();loadCustomerHistory('` + email + 
                                           `');" title="Deze klant heeft al ` + savedcustomers[email]["totalBookings"] + ` keer geboekt bij TheStart.">(`
                                           + savedcustomers[email]["totalBookings"] + `)</div>`);
       }
@@ -156,13 +156,11 @@ function fetchCustomer(email){
         dataType:'json',
         success : function(data) {
           var totalBookings = 0;
-          var customerIDs = [];
           data.data.forEach(function(row, index) {
              totalBookings+= row.numBookings;
-              customerIDs.push(row.id);
           });
           savedcustomers[email]["totalBookings"] = totalBookings;
-          savedcustomers[email]["customerIDs"] = customerIDs;
+          savedcustomers[email]["customerdata"] = data.data;
         },
         error : function(request,error)
         {
@@ -173,23 +171,28 @@ function fetchCustomer(email){
 }
 
 // Customer history
-async function loadCustomerHistory(customerIDs){
-  $.ajax({
-      url : 'https://intern.thestart.be/api.php',
-      type : 'GET',
-      data : {
-          'type' : "bookingHistory",
-          'customerIDs' : customerIDs
-      },
-      dataType:'json',
-      success : function(data) {
-        console.log(data);
-      },
-      error : function(request,error)
-      {
-          console.log("Request: "+JSON.stringify(request));
-      }
-  });
+async function loadCustomerHistory(email){
+  if(savedcustomers[email] && savedcustomers[email]["customerdata"]){
+    savedcustomers[email]["customerdata"].forEach(function(row, index) {
+      $.ajax({
+          url : 'https://intern.thestart.be/api.php',
+          type : 'GET',
+          data : {
+              'type' : "bookingHistory",
+              'customerIDs' : row.id
+          },
+          dataType:'json',
+          success : function(data) {
+            console.log(row);
+            console.log(data);
+          },
+          error : function(request,error)
+          {
+              console.log("Request: "+JSON.stringify(request));
+          }
+      });
+    });
+  }
 }
 
 var styles = `
@@ -211,7 +214,6 @@ var styles = `
       position: absolute;
       top: 5px;
       right: 5px;
-      z-index: 100;
     }
 `;
 
