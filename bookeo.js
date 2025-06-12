@@ -114,8 +114,8 @@ function buildIcons(){
     }
   });
 
-  if(!$("#bookingHistory_wrapper").length){
-    $("body").append('<div id="bookingHistory_wrapper" class="hidden"><div id="bookingHistory"></div></div>');
+  if(!$(".hidden_wrapper").length){
+    $("body").append('<div class="hidden_wrapper hidden"><div id="bookingHistory"></div></div>');
   }
 }
 
@@ -206,7 +206,7 @@ async function loadCustomerHistory(email){
                                                       '<td></td>' +
                                                       '</tr>');
             }
-            $("#bookingHistory_wrapper").removeClass("hidden");
+            $(".hidden_wrapper").removeClass("hidden");
           },
           error : function(request,error)
           {
@@ -216,6 +216,20 @@ async function loadCustomerHistory(email){
     });
   }
 }
+
+$(document).on("mousedown", ".hidden_wrapper .close, .hidden_wrapper", function (e) {
+  if(e.target.classList.contains("hidden_wrapper") || e.target.classList.contains("close")){
+    $(".hidden_wrapper").fadeOut(400);
+  }
+});
+$(document).keyup(function (e) {
+  if (e.key === "Escape") {
+    $(".hidden_wrapper").fadeOut(400);
+  }
+});
+$(document).on("click", ".hidden_wrapper div", function (e) {
+  e.stopPropagation();
+});
 
 var styles = `
     i.fa{
@@ -240,7 +254,7 @@ var styles = `
     .hidden{
       display: none;
     }
-    #bookingHistory_wrapper{
+    .hidden_wrapper{
       position: fixed;
       width: 100%;
       height: 100%;
