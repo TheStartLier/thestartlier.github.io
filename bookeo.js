@@ -151,13 +151,15 @@ function fetchCustomer(email){
         },
         dataType:'json',
         success : function(data) {
+            console.log(data);
           var totalBookings = 0;
           for(var row in data.data) {
             console.log(row);
             console.log(row.numBookings);
              totalBookings+= row.numBookings;
           }
-          savedcustomers[email] = totalBookings;
+          console.log(totalBookings);
+          savedcustomers[email] = 1;
         },
         error : function(request,error)
         {
