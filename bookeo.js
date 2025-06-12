@@ -101,7 +101,9 @@ function buildIcons(){
     let bookingslot = this;
     let email = $(bookingslot).attr("data-email");
     if(savedcustomers[email]){
-      $(bookingslot).addClass("numBookingsdone");
+      if(savedcustomers[email] != "loading"){
+        $(bookingslot).addClass("numBookingsdone");
+      }
       if(savedcustomers[email] > 1){
         $(".ctev_in", bookingslot).append('<div class="numBookings" title="Deze klant heeft al ' + savedcustomers[email] + ' keer geboekt bij TheStart.">' + savedcustomers[email] + '</div>');
       }
@@ -138,6 +140,7 @@ function fetchBookeoDetails(curDate){
 }
 
 function fetchCustomer(email){
+  savedcustomers[email] = "loading";
   $.ajax({
       url : 'https://intern.thestart.be/api.php',
       type : 'GET',
