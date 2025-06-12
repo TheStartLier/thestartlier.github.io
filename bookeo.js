@@ -106,7 +106,7 @@ function buildIcons(){
       }
       if(savedcustomers[email] > 1){
         console.log("here");
-        $(".ctev_in", bookingslot).append('<div class="numBookings" title="Deze klant heeft al ' + savedcustomers[email] + ' keer geboekt bij TheStart.">' + savedcustomers[email] + '</div>');
+        $(".ctev_in", bookingslot).append('<div class="numBookings" title="Deze klant heeft al ' + savedcustomers[email] + ' keer geboekt bij TheStart.">(' + savedcustomers[email] + ')</div>');
       }
     }else{
       fetchCustomer(email);
