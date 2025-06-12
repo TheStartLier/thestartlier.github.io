@@ -3,6 +3,7 @@ $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax
 var baseUrl = window.location.origin;
   
 var saveddata = [];
+var savedcustomers = [];
 var alreadyLoading = false;
 
 var gamecategories = {
@@ -42,6 +43,10 @@ function buildIcons(){
         }
         if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
+          if(item.customer.emailAddress){
+            $(bookingslot).attr("data-email", item.customer.emailAddress);
+          }
+          
           let ervaring = "";
           item.options.forEach(function(value, key) {
             if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
@@ -91,6 +96,19 @@ function buildIcons(){
   }else{
     fetchBookeoDetails(curDate);
   }
+  
+  $(".ctev.b_fullWB[data-email]:not(.numBookingsdone)").each(function(i){
+    let bookingslot = this;
+    let email = $(bookingslot).attr("data-email");
+    if(savedcustomers[email]){
+      $(bookingslot).addClass("numBookingsdone");
+      if(savedcustomers[email] > 1){
+        $(".ctev_in", bookingslot).append('<div class="numBookings" title="Deze klant heeft al ' + savedcustomers[email] + ' keer geboekt bij TheStart.">' + savedcustomers[email] + '</div>');
+      }
+    }else{
+      fetchCustomer(email);
+    }
+  }
 }
 
 function fetchBookeoDetails(curDate){
@@ -104,13 +122,36 @@ function fetchBookeoDetails(curDate){
       data : {
           'type' : "bookings",
           'startTime' : curDate + "T00:00:00Z",
-          'endTime' : curDate + "T23:59:59Z",
-          'allCustomerBookings' : true
+          'endTime' : curDate + "T23:59:59Z"
       },
       dataType:'json',
       success : function(data) {
         alreadyLoading = false;
         saveddata[curDate] = data.data;
+      },
+      error : function(request,error)
+      {
+          console.log("Request: "+JSON.stringify(request));
+      }
+  });
+
+}
+
+function fetchCustomer(email){
+  $.ajax({
+      url : 'https://intern.thestart.be/api.php',
+      type : 'GET',
+      data : {
+          'type' : "totalBookings",
+          'email' : email
+      },
+      dataType:'json',
+      success : function(data) {
+        var totalBookings = 0;
+        for(var row in data.data) {
+           totalBookings+= row.numBookings;
+        }
+        savedcustomers[email] = totalBookings;
       },
       error : function(request,error)
       {
