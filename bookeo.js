@@ -179,7 +179,7 @@ async function loadCustomerHistory(email){
   if(savedcustomers[email] && savedcustomers[email]["customerdata"]){
     savedcustomers[email]["customerdata"].forEach(function(row, index) {
       if(index == 0){
-        $("#bookingHistory").html('<h2>Booking History: ' + row.firstName + ' ' + row.lastName + '</h2><table><thead><tr><th>Room</th><th>Datum</th><th>Spelers</th></tr></thead><tbody></tbody></table>');
+        $("#bookingHistory").html('<h2>Booking History: ' + row.firstName + ' ' + row.lastName + '<span class="close">X</span></h2><table><thead><tr><th>Room</th><th>Datum</th><th>Spelers</th></tr></thead><tbody></tbody></table>');
       }
       $.ajax({
           url : 'https://intern.thestart.be/api.php',
@@ -206,7 +206,7 @@ async function loadCustomerHistory(email){
                                                       '<td></td>' +
                                                       '</tr>');
             }
-            $(".hidden_wrapper").removeClass("hidden");
+            $(".hidden_wrapper").removeClass("hidden").fadeIn(400);
           },
           error : function(request,error)
           {
@@ -275,12 +275,29 @@ var styles = `
       border-radius: 5px;
       overflow: hidden;
       border: 1px solid #263346;
-      padding: 15px;
+      padding: 0;
+    }
+    #bookingHistory .close{
+      cursor: pointer;
+      float: right;
+      padding: 5px;
     }
     #bookingHistory h2{
       background-color: rgb(45, 99, 165);
       color: white;
       margin: 0;
+      padding: 15px;
+    }
+    #bookingHistory table{
+      margin: 15px;
+    }
+    #bookingHistory table thead{
+      background-color: rgb(45, 99, 165);
+      color: white;
+      text-align: left;
+    }
+    #bookingHistory table th, #bookingHistory table td{
+      padding: 3px 10px;
     }
 `;
 
