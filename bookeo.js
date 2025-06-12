@@ -172,6 +172,8 @@ function fetchCustomer(email){
 
 // Customer history
 $(document).on("click", ".numBookings", function(e){
+  console.log(this);
+  console.log(e);
    e.stopPropagation();
   let customerIDs = $(this).attr("data-customerids");
   $.ajax({
