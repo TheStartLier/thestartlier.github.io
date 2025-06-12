@@ -192,7 +192,7 @@ async function loadCustomerHistory(email){
           success : function(data) {
             console.log(row);
             console.log(data);
-            if(data.data){
+            if(data.data.length()){
               $("#bookingHistory table tbody").append('<tr>' +
                                                       '<td>' + data.data[0].productName + '</td>' +
                                                       '<td>' + data.data[0].startTime.split(":00+")[0].replace("T", " ") + '</td>' +
