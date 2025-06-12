@@ -183,7 +183,7 @@ async function loadCustomerHistory(email){
           type : 'GET',
           data : {
               'type' : "bookingHistory",
-              'customerIDs' : row.id
+              'customerID' : row.id
           },
           dataType:'json',
           success : function(data) {
