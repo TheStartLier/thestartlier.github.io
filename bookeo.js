@@ -151,9 +151,9 @@ function fetchCustomer(email){
         },
         dataType:'json',
         success : function(data) {
-            console.log(data);
+            console.log(data.data);
           var totalBookings = 0;
-          for(var row in data.data) {
+          data.data.forEach(function(row, index) {
             console.log(row);
             console.log(row.numBookings);
              totalBookings+= row.numBookings;
