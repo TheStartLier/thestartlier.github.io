@@ -193,11 +193,13 @@ async function loadCustomerHistory(email){
             console.log(row);
             console.log(data);
             if(data.data.length){
-              $("#bookingHistory table tbody").append('<tr>' +
-                                                      '<td>' + data.data[0].productName + '</td>' +
-                                                      '<td>' + data.data[0].startTime.split(":00+")[0].replace("T", " ") + '</td>' +
-                                                      '<td>' + data.data[0].participants.numbers[0].number + '</td>' +
+              data.data.forEach(function(item, i) {
+                $("#bookingHistory table tbody").append('<tr>' +
+                                                      '<td>' + item.productName + '</td>' +
+                                                      '<td>' + item.startTime.split(":00+")[0].replace("T", " ") + '</td>' +
+                                                      '<td>' + item.participants.numbers[0].number + '</td>' +
                                                       '</tr>');
+              });
             }else{
               let bookingdate = row.startTimeOfPreviousBooking ? row.startTimeOfPreviousBooking : row.startTimeOfNextBooking;
               $("#bookingHistory table tbody").append('<tr>' +
