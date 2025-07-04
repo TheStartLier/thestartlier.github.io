@@ -256,7 +256,7 @@ $(document).on("click", ".waiverinfo", function (e) {
           dataType:'json',
           success : function(data) {
             console.log(data);
-            $(".bookingInfo").after('<div class="customtable"></div><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table>');
+            $(".bookingInfo").after('<div class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
                                     
             if(data.length){
               data.forEach(function(item, i) {
