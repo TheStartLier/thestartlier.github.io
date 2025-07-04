@@ -238,7 +238,7 @@ $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
 async function loadWaivers(){
-  if($(".bookingInfo").length && $(".winTitle").length() && !$(".customtable").length){
+  if($(".bookingInfo").length && $(".winTitle").length && !$(".customtable").length){
     var bookingID = $(".bookingInfo .details tbody tr:last-of-type td").text();
     var datum = $(".winTitle").text().split("\n")[3].trim();
     var newdatum = new Date(datum + " UTC");
