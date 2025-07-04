@@ -237,7 +237,7 @@ $(document).keyup(function (e) {
 $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
-$(document).on("click", ".waiverinfo", function (e) {
+$(document).on("click", ".ctev_in", function (e) {
   console.log("here");
   setTimeout(function(){
     console.log($(".bookingInfo").length);
