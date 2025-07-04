@@ -43,6 +43,7 @@ function buildIcons(){
         }
         if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
+          $(bookingslot).attr("booking-id", item.bookingNumber);
           if(item.customer.emailAddress){
             $(bookingslot).attr("data-email", item.customer.emailAddress);
           }
