@@ -235,7 +235,7 @@ $(document).keyup(function (e) {
 $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
-$(document).on("click", ".ctev.b_fullWB", function (e) {
+$(document).on("click", ".box_icons", function (e) {
   console.log("here");
   setTimeout(function(){
     console.log($(".bookingInfo").length);
@@ -255,6 +255,20 @@ $(document).on("click", ".ctev.b_fullWB", function (e) {
           success : function(data) {
             console.log(data);
             $(".bookingInfo").after('<div class="customtable"></div><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table>");
+                                    
+            if(data.data.length){
+              data.data.forEach(function(item, i) {
+                $(".customtable table tbody").append('<tr>' +
+                                                      '<td>' + item.productName + '</td>' +
+                                                      '<td>' + item.startTime.split(":00+")[0].replace("T", " ") + '</td>' +
+                                                      '<td>' + item.participants.numbers[0].number + '</td>' +
+                                                      '</tr>');
+              });
+            }else{
+                $(".customtable table tbody").append('<tr>' +
+                                                      '<td colspan="3">Geen gebruikers gevonden</td>' +
+                                                      '</tr>');
+            }
           },
           error : function(request,error)
           {
