@@ -235,6 +235,32 @@ $(document).keyup(function (e) {
 $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
+$(document).on("click", ".ctev.b_fullWB", function (e) {
+  setTimeout(function(){
+    if($(".bookingInfo").length){
+      var bookingID = $(".bookingInfo .details tbody tr:last-of-type td").text();
+      var datum = $(".winTitle").text().split("\n")[3].trim();
+      var newdatum = new Date(datum + " UTC");
+      $.ajax({
+          url : 'https://intern.thestart.be/api.php',
+          type : 'GET',
+          data : {
+  	        'type' : "waivers",
+  	        'datum' : newdatum.toISOString().split("T")[0],
+  	        'bookingNumber' : bookingNumber
+          },
+          dataType:'json',
+          success : function(data) {
+            console.log(data);
+          },
+          error : function(request,error)
+          {
+              console.log("Request: "+JSON.stringify(request));
+          }
+      });
+    }
+  }, 3000);
+});
 
 var styles = `
     i.fa{
