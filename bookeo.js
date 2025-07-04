@@ -256,12 +256,12 @@ $(document).on("click", ".box_icons", function (e) {
             console.log(data);
             $(".bookingInfo").after('<div class="customtable"></div><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table>");
                                     
-            if(data.data.length){
-              data.data.forEach(function(item, i) {
+            if(data.length){
+              data.forEach(function(item, i) {
                 $(".customtable table tbody").append('<tr>' +
-                                                      '<td>' + item.productName + '</td>' +
-                                                      '<td>' + item.startTime.split(":00+")[0].replace("T", " ") + '</td>' +
-                                                      '<td>' + item.participants.numbers[0].number + '</td>' +
+                                                      '<td>' + item.first_name + '</td>' +
+                                                      '<td>' + item.last_name + '</td>' +
+                                                      '<td>' + item.email + '</td>' +
                                                       '</tr>');
               });
             }else{
