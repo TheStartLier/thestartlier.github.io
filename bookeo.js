@@ -44,7 +44,7 @@ function buildIcons(){
         if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
           $(bookingslot).attr("booking-id", item.bookingNumber);
-          $(".box_icons", bookingslot).before('<i class="fa fa-user waiverinfo"></i>');
+          $(".box_icons", bookingslot).before('<div class="waiverinfo"><i class="fa fa-user"></i></div>');
           
           if(item.customer.emailAddress){
             $(bookingslot).attr("data-email", item.customer.emailAddress);
@@ -303,6 +303,16 @@ var styles = `
       transition: all 0.4s ease 0s;
     }
     .ctev_in .numBookings:hover{
+      color: black;
+      font-weight: bold;
+    }
+    .ctev_in .waiverinfo{
+      position: absolute;
+      top: 25px;
+      right: 5px;
+      transition: all 0.4s ease 0s;
+    }
+    .ctev_in .waiverinfo:hover{
       color: black;
       font-weight: bold;
     }
