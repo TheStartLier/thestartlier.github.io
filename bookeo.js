@@ -193,8 +193,6 @@ async function loadCustomerHistory(email){
           },
           dataType:'json',
           success : function(data) {
-            console.log(row);
-            console.log(data);
             if(data.data.length){
               data.data.forEach(function(item, i) {
                 $("#bookingHistory table tbody").append('<tr>' +
@@ -253,7 +251,6 @@ async function loadWaivers(){
         },
         dataType:'json',
         success : function(data) {
-          console.log(data);
           $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
                                   
           if(data.length){
