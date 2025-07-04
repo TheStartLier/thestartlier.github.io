@@ -116,7 +116,7 @@ function buildIcons(){
   });
 
   if(!$(".hidden_wrapper").length){
-    $("body").append('<div class="hidden_wrapper hidden"><div id="bookingHistory"></div></div>');
+    $("body").append('<div class="hidden_wrapper hidden"><div id="bookingHistory" class="customtable"></div></div>');
   }
 }
 
@@ -236,7 +236,9 @@ $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
 $(document).on("click", ".ctev.b_fullWB", function (e) {
+  console.log("here");
   setTimeout(function(){
+    console.log($(".bookingInfo").length);
     if($(".bookingInfo").length){
       var bookingID = $(".bookingInfo .details tbody tr:last-of-type td").text();
       var datum = $(".winTitle").text().split("\n")[3].trim();
@@ -252,6 +254,7 @@ $(document).on("click", ".ctev.b_fullWB", function (e) {
           dataType:'json',
           success : function(data) {
             console.log(data);
+            $(".bookingInfo").after('<div class="customtable"></div><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table>");
           },
           error : function(request,error)
           {
@@ -301,7 +304,7 @@ var styles = `
       background: rgba(0, 0, 0, 0.7);
       z-index: 99;
     }
-    #bookingHistory{
+    .customtable{
       position: absolute;
       top: calc(50% - 110px);
       left: calc(50% - 200px);
@@ -312,7 +315,7 @@ var styles = `
       border: 1px solid #263346;
       padding: 0;
     }
-    #bookingHistory .close{
+    .customtable .close{
       cursor: pointer;
       float: right;
       padding: 0 5px;
@@ -320,21 +323,21 @@ var styles = `
       font-size: 20px;
       margin-left: 15px;
     }
-    #bookingHistory h2{
+    .customtable h2{
       background-color: rgb(45, 99, 165);
       color: white;
       margin: 0;
       padding: 15px;
     }
-    #bookingHistory table{
+    .customtable table{
       margin: 15px;
     }
-    #bookingHistory table th{
+    .customtable table th{
       background-color: rgb(45, 99, 165);
       color: white;
       text-align: left;
     }
-    #bookingHistory table th, #bookingHistory table td{
+    .customtable table th, .customtable table td{
       padding: 3px 10px;
     }
 `;
