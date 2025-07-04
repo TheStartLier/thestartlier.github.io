@@ -266,7 +266,7 @@ async function loadWaivers(){
             });
           }else{
               $(".customtable table tbody").append('<tr>' +
-                                                    '<td colspan="3">Geen gebruikers gevonden</td>' +
+                                                    '<td colspan="3">Deze groep heeft het formulier nog niet ingevuld</td>' +
                                                     '</tr>');
           }
         },
@@ -327,12 +327,14 @@ var styles = `
       background: rgba(0, 0, 0, 0.7);
       z-index: 99;
     }
-    .customtable{
+    #bookingHistory{
       position: absolute;
       top: calc(50% - 110px);
       left: calc(50% - 200px);
-      background-color: white;
       z-index: 100;
+    }
+    .customtable{
+      background-color: white;
       border-radius: 5px;
       overflow: hidden;
       border: 1px solid #263346;
