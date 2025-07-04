@@ -249,7 +249,7 @@ $(document).on("click", ".ctev.b_fullWB", function (e) {
           data : {
   	        'type' : "waivers",
   	        'datum' : newdatum.toISOString().split("T")[0],
-  	        'bookingNumber' : bookingNumber
+  	        'bookingNumber' : bookingID
           },
           dataType:'json',
           success : function(data) {
