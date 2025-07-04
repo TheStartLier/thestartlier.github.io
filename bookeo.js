@@ -16,7 +16,7 @@ var gamecategories = {
 };
 
 setInterval(buildIcons, 1000);
-setInterval(loadWaivers, 3000);
+setInterval(loadWaivers, 1500);
 
 // Nieuwe icons toevoegen
 function buildIcons(){
