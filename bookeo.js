@@ -239,7 +239,7 @@ $(document).on("click", ".hidden_wrapper div", function (e) {
 });
 
 async function loadWaivers(){
-  if($(".bookingInfo").length && $(".winTitle").length && !$(".customtable").length){
+  if($(".bookingInfo").length && $(".winTitle").length && !$("#waivers").length){
     var bookingID = $(".bookingInfo .details tbody tr:last-of-type td").text();
     var datum = $(".winTitle").text().split("\n")[3].trim();
     var newdatum = new Date(datum + " UTC");
@@ -254,7 +254,7 @@ async function loadWaivers(){
         dataType:'json',
         success : function(data) {
           console.log(data);
-          $(".bookingInfo").after('<div class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
+          $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
                                   
           if(data.length){
             data.forEach(function(item, i) {
