@@ -44,7 +44,8 @@ function buildIcons(){
         if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
           $(bookingslot).attr("booking-id", item.bookingNumber);
-          $(".box_icons", bookingslot).before('<div class="waiverinfo"><i class="fa fa-user"></i></div>');
+          $(bookingslot).attr("onclick", "loadWaivers()");
+          //$(".box_icons", bookingslot).before('<div class="waiverinfo"><i class="fa fa-user"></i></div>');
           
           if(item.customer.emailAddress){
             $(bookingslot).attr("data-email", item.customer.emailAddress);
@@ -237,7 +238,7 @@ $(document).keyup(function (e) {
 $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
-$(document).on("click", ".ctev_in", function (e) {
+async function loadWaivers(){
   console.log("here");
   setTimeout(function(){
     console.log($(".bookingInfo").length);
@@ -279,7 +280,7 @@ $(document).on("click", ".ctev_in", function (e) {
       });
     }
   }, 3000);
-});
+}
 
 var styles = `
     i.fa{
