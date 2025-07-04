@@ -16,6 +16,7 @@ var gamecategories = {
 };
 
 setInterval(buildIcons, 1000);
+setInterval(loadWaivers, 3000);
 
 // Nieuwe icons toevoegen
 function buildIcons(){
@@ -44,8 +45,6 @@ function buildIcons(){
         if(item.participants.numbers[0].number == ppl && item.title == naam && timeslot == startTime && gamecategories[bcategory] == item.productId){
           // We have a match!
           $(bookingslot).attr("booking-id", item.bookingNumber);
-          $(bookingslot).attr("onclick", "loadWaivers()");
-          //$(".box_icons", bookingslot).before('<div class="waiverinfo"><i class="fa fa-user"></i></div>');
           
           if(item.customer.emailAddress){
             $(bookingslot).attr("data-email", item.customer.emailAddress);
@@ -239,47 +238,43 @@ $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
 async function loadWaivers(){
-  console.log("here");
-  setTimeout(function(){
-    console.log($(".bookingInfo").length);
-    if($(".bookingInfo").length){
-      var bookingID = $(".bookingInfo .details tbody tr:last-of-type td").text();
-      var datum = $(".winTitle").text().split("\n")[3].trim();
-      var newdatum = new Date(datum + " UTC");
-      $.ajax({
-          url : 'https://intern.thestart.be/api.php',
-          type : 'GET',
-          data : {
-  	        'type' : "waivers",
-  	        'datum' : newdatum.toISOString().split("T")[0],
-  	        'bookingNumber' : bookingID
-          },
-          dataType:'json',
-          success : function(data) {
-            console.log(data);
-            $(".bookingInfo").after('<div class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
-                                    
-            if(data.length){
-              data.forEach(function(item, i) {
-                $(".customtable table tbody").append('<tr>' +
-                                                      '<td>' + item.first_name + '</td>' +
-                                                      '<td>' + item.last_name + '</td>' +
-                                                      '<td>' + item.email + '</td>' +
-                                                      '</tr>');
-              });
-            }else{
-                $(".customtable table tbody").append('<tr>' +
-                                                      '<td colspan="3">Geen gebruikers gevonden</td>' +
-                                                      '</tr>');
-            }
-          },
-          error : function(request,error)
-          {
-              console.log("Request: "+JSON.stringify(request));
+  if($(".bookingInfo").length && $(".winTitle").length() && !$(".customtable").length){
+    var bookingID = $(".bookingInfo .details tbody tr:last-of-type td").text();
+    var datum = $(".winTitle").text().split("\n")[3].trim();
+    var newdatum = new Date(datum + " UTC");
+    $.ajax({
+        url : 'https://intern.thestart.be/api.php',
+        type : 'GET',
+        data : {
+          'type' : "waivers",
+          'datum' : newdatum.toISOString().split("T")[0],
+          'bookingNumber' : bookingID
+        },
+        dataType:'json',
+        success : function(data) {
+          console.log(data);
+          $(".bookingInfo").after('<div class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
+                                  
+          if(data.length){
+            data.forEach(function(item, i) {
+              $(".customtable table tbody").append('<tr>' +
+                                                    '<td>' + item.first_name + '</td>' +
+                                                    '<td>' + item.last_name + '</td>' +
+                                                    '<td>' + item.email + '</td>' +
+                                                    '</tr>');
+            });
+          }else{
+              $(".customtable table tbody").append('<tr>' +
+                                                    '<td colspan="3">Geen gebruikers gevonden</td>' +
+                                                    '</tr>');
           }
-      });
-    }
-  }, 3000);
+        },
+        error : function(request,error)
+        {
+            console.log("Request: "+JSON.stringify(request));
+        }
+    });
+  }
 }
 
 var styles = `
