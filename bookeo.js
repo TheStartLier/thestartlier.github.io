@@ -52,7 +52,7 @@ function buildIcons(){
           
           let ervaring = "";
           item.options.forEach(function(value, key) {
-            if(value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")){
+            if((value.value.indexOf("Verjaardag") > -1 || (value.name.indexOf("verjaardag") > -1 && value.value != "")) && $(".box_icons .fa-birthday-cake", bookingslot).length == 0){
               $(".box_icons", bookingslot).prepend('<i class="fa fa-birthday-cake"></i>');
             }
 
