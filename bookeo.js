@@ -1,10 +1,12 @@
+if(window.location.href.includes("book_viewSchedules")){
+  
+
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">');
 
-var baseUrl = window.location.origin;
-  
 var saveddata = [];
 var savedcustomers = [];
 var alreadyLoading = false;
+var baseUrl = window.location.origin;
 
 var gamecategories = {
   "3461702": "42556XHK796170DA4D0A5F",
@@ -367,3 +369,5 @@ var styles = `
 var styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);
+
+}
