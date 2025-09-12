@@ -20,6 +20,154 @@ var gamecategories = {
 setInterval(buildIcons, 1000);
 setInterval(loadWaivers, 1500);
 
+
+$(document).on("mousedown", ".hidden_wrapper .close, .hidden_wrapper", function (e) {
+  if(e.target.classList.contains("hidden_wrapper") || e.target.classList.contains("close")){
+    $(".hidden_wrapper").fadeOut(400);
+  }
+});
+$(document).keyup(function (e) {
+  if (e.key === "Escape") {
+    $(".hidden_wrapper").fadeOut(400);
+  }
+});
+$(document).on("click", ".hidden_wrapper div", function (e) {
+  e.stopPropagation();
+});
+
+var styles = `
+    i.fa{
+      margin-right: 3px;
+    }
+    .box_icons span{
+      margin-right: 3px;
+      font-weight: bold;
+      font-size: 11px;
+    }
+    .bookeocss.nav_schedule .b_fullWB.pink{
+      background: pink;
+    }
+    .bookeocss.nav_schedule .b_fullWB.cyan{
+      background: cyan;
+    }
+    .ctev_in .numBookings{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      transition: all 0.4s ease 0s;
+    }
+    .ctev_in .numBookings:hover{
+      color: black;
+      font-weight: bold;
+    }
+    .ctev_in .waiverinfo{
+      position: absolute;
+      top: 25px;
+      right: 5px;
+      transition: all 0.4s ease 0s;
+    }
+    .ctev_in .waiverinfo:hover{
+      color: black;
+      font-weight: bold;
+    }
+    .hidden{
+      display: none;
+    }
+    .hidden_wrapper{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 99;
+    }
+    #bookingHistory{
+      position: absolute;
+      top: calc(50% - 110px);
+      left: calc(50% - 200px);
+      z-index: 100;
+    }
+    .customtable{
+      background-color: white;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid #263346;
+      padding: 0;
+    }
+    .customtable .close{
+      cursor: pointer;
+      float: right;
+      padding: 0 5px;
+      color: white;
+      font-size: 20px;
+      margin-left: 15px;
+    }
+    .customtable h2{
+      background-color: rgb(45, 99, 165);
+      color: white;
+      margin: 0;
+      padding: 15px;
+    }
+    .customtable table{
+      margin: 15px;
+    }
+    .customtable table th{
+      background-color: rgb(45, 99, 165);
+      color: white;
+      text-align: left;
+    }
+    .customtable table th, .customtable table td{
+      padding: 3px 10px;
+    }
+`;
+
+var styleSheet = document.createElement("style");
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
+
+}
+
+async function loadWaivers(){
+  if($(".bookingInfo").length && $(".winTitle").length && !$("#waivers").length){
+    var bookingID = $(".bookingInfo .details tbody tr:contains('Booking number') td").text();
+    var datum = $(".winTitle").text().split("\n")[3].trim();
+    var newdatum = new Date(datum + " UTC");
+    $.ajax({
+        url : 'https://intern.thestart.be/api.php',
+        type : 'GET',
+        data : {
+          'type' : "waivers",
+          'datum' : newdatum.toISOString().split("T")[0],
+          'bookingNumber' : bookingID
+        },
+        dataType:'json',
+        success : function(data) {
+          $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
+                                  
+          if(data.length){
+            data.forEach(function(item, i) {
+              $(".customtable table tbody").append('<tr>' +
+                                                    '<td>' + item.first_name + '</td>' +
+                                                    '<td>' + item.last_name + '</td>' +
+                                                    '<td>' + item.email + '</td>' +
+                                                    '</tr>');
+            });
+          }else{
+              $(".customtable table tbody").append('<tr>' +
+                                                    '<td colspan="3">Deze groep heeft het formulier nog niet ingevuld</td>' +
+                                                    '</tr>');
+          }
+        },
+        error : function(request,error)
+        {
+            console.log("Request: "+JSON.stringify(request));
+        }
+    });
+  }
+}
 // Nieuwe icons toevoegen
 function buildIcons(){
   let selectedDate = $("#scheduleTitle").text().trim().split("\n- ")[1];
@@ -222,152 +370,4 @@ async function loadCustomerHistory(email){
       });
     });
   }
-}
-
-$(document).on("mousedown", ".hidden_wrapper .close, .hidden_wrapper", function (e) {
-  if(e.target.classList.contains("hidden_wrapper") || e.target.classList.contains("close")){
-    $(".hidden_wrapper").fadeOut(400);
-  }
-});
-$(document).keyup(function (e) {
-  if (e.key === "Escape") {
-    $(".hidden_wrapper").fadeOut(400);
-  }
-});
-$(document).on("click", ".hidden_wrapper div", function (e) {
-  e.stopPropagation();
-});
-
-async function loadWaivers(){
-  if($(".bookingInfo").length && $(".winTitle").length && !$("#waivers").length){
-    var bookingID = $(".bookingInfo .details tbody tr:contains('Booking number') td").text();
-    var datum = $(".winTitle").text().split("\n")[3].trim();
-    var newdatum = new Date(datum + " UTC");
-    $.ajax({
-        url : 'https://intern.thestart.be/api.php',
-        type : 'GET',
-        data : {
-          'type' : "waivers",
-          'datum' : newdatum.toISOString().split("T")[0],
-          'bookingNumber' : bookingID
-        },
-        dataType:'json',
-        success : function(data) {
-          $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
-                                  
-          if(data.length){
-            data.forEach(function(item, i) {
-              $(".customtable table tbody").append('<tr>' +
-                                                    '<td>' + item.first_name + '</td>' +
-                                                    '<td>' + item.last_name + '</td>' +
-                                                    '<td>' + item.email + '</td>' +
-                                                    '</tr>');
-            });
-          }else{
-              $(".customtable table tbody").append('<tr>' +
-                                                    '<td colspan="3">Deze groep heeft het formulier nog niet ingevuld</td>' +
-                                                    '</tr>');
-          }
-        },
-        error : function(request,error)
-        {
-            console.log("Request: "+JSON.stringify(request));
-        }
-    });
-  }
-}
-
-var styles = `
-    i.fa{
-      margin-right: 3px;
-    }
-    .box_icons span{
-      margin-right: 3px;
-      font-weight: bold;
-      font-size: 11px;
-    }
-    .bookeocss.nav_schedule .b_fullWB.pink{
-      background: pink;
-    }
-    .bookeocss.nav_schedule .b_fullWB.cyan{
-      background: cyan;
-    }
-    .ctev_in .numBookings{
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      transition: all 0.4s ease 0s;
-    }
-    .ctev_in .numBookings:hover{
-      color: black;
-      font-weight: bold;
-    }
-    .ctev_in .waiverinfo{
-      position: absolute;
-      top: 25px;
-      right: 5px;
-      transition: all 0.4s ease 0s;
-    }
-    .ctev_in .waiverinfo:hover{
-      color: black;
-      font-weight: bold;
-    }
-    .hidden{
-      display: none;
-    }
-    .hidden_wrapper{
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 99;
-    }
-    #bookingHistory{
-      position: absolute;
-      top: calc(50% - 110px);
-      left: calc(50% - 200px);
-      z-index: 100;
-    }
-    .customtable{
-      background-color: white;
-      border-radius: 5px;
-      overflow: hidden;
-      border: 1px solid #263346;
-      padding: 0;
-    }
-    .customtable .close{
-      cursor: pointer;
-      float: right;
-      padding: 0 5px;
-      color: white;
-      font-size: 20px;
-      margin-left: 15px;
-    }
-    .customtable h2{
-      background-color: rgb(45, 99, 165);
-      color: white;
-      margin: 0;
-      padding: 15px;
-    }
-    .customtable table{
-      margin: 15px;
-    }
-    .customtable table th{
-      background-color: rgb(45, 99, 165);
-      color: white;
-      text-align: left;
-    }
-    .customtable table th, .customtable table td{
-      padding: 3px 10px;
-    }
-`;
-
-var styleSheet = document.createElement("style");
-styleSheet.innerText = styles;
-document.head.appendChild(styleSheet);
-
 }
