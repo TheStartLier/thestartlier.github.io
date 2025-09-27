@@ -314,7 +314,7 @@ function fetchCustomer(email){
         success : function(data) {
           var totalBookings = 0;
           data.data.forEach(function(row, index) {
-             totalBookings+= row.numBookings;
+             totalBookings+= row.numBookings - row.numCancelations;
           });
           savedcustomers[email]["totalBookings"] = totalBookings;
           savedcustomers[email]["customerdata"] = data.data;
