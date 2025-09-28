@@ -152,7 +152,7 @@ async function loadWaivers(){
               let print = "";
               if(item.game_played == "uc"){
                 let naam = item.first_name.replace(" ", "%20") + "%20" + item.last_name.replace(" ", "%20");
-                print = '<a href="https://intern.thestart.be/strafblad.php?name=' + naam + '">Strafblad</a>';
+                print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + naam + '">Strafblad</a>';
               }
               $(".customtable table tbody").append('<tr>' +
                                                     '<td>' + item.first_name + '</td>' +
