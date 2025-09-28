@@ -151,7 +151,8 @@ async function loadWaivers(){
             data.forEach(function(item, i) {
               let print = "";
               if(item.game_played == "uc"){
-                let naam = item.first_name.replace(" ", "%20") + "%20" + item.last_name.replace(" ", "%20");
+                let naam = item.first_name.charAt(0).toUpperCase() + item.first_name.slice(1).replace(" ", "%20") + "%20" + 
+                  item.last_name.charAt(0).toUpperCase() + item.last_name.slice(1).replace(" ", "%20");
                 print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + naam + '">Strafblad</a>';
               }
               $(".customtable table tbody").append('<tr>' +
