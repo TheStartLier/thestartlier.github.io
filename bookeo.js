@@ -145,14 +145,21 @@ async function loadWaivers(){
         },
         dataType:'json',
         success : function(data) {
-          $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th></tr></thead><tbody></tbody></table></div>');
+          $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th><th>Taal</th><th>Print</th></tr></thead><tbody></tbody></table></div>');
                                   
           if(data.length){
             data.forEach(function(item, i) {
+              let print = "";
+              if(item.game_played == "uc"){
+                let naam = item.first_name.replace(" ", "%20") + "%20" + item.last_name.replace(" ", "%20");
+                print = '<a href="https://intern.thestart.be/strafblad.php?name=' + naam + '">Strafblad</a>';
+              }
               $(".customtable table tbody").append('<tr>' +
                                                     '<td>' + item.first_name + '</td>' +
                                                     '<td>' + item.last_name + '</td>' +
                                                     '<td>' + item.email + '</td>' +
+                                                    '<td>' + item.lang.toUpperCase() + '</td>' +
+                                                    '<td>' + print + '</td>' +
                                                     '</tr>');
             });
           }else{
