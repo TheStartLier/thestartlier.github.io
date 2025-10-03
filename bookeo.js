@@ -204,7 +204,13 @@ function buildIcons(){
       switch(bcategory){
         case "3951928":
           // Harbor Hotel
-          $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/HH_gang.php?name=` + naam.substring(naam.indexOf(' ') + 1) + 
+          let thisdate = new Date(bdate);
+          let dow = thisdate.getDay();
+          if(dow == 0){
+            dow = 7;
+          }
+          $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/HH_gang.php?name=` 
+                                            + naam.substring(naam.indexOf(' ') + 1) + `&day=` + dow + 
                                           `','_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
           break;
       }
