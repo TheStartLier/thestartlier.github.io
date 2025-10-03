@@ -60,6 +60,11 @@ var styles = `
       color: black;
       font-weight: bold;
     }
+    .ctev_in .print{
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+    }
     .ctev_in .waiverinfo{
       position: absolute;
       top: 25px;
@@ -194,6 +199,14 @@ function buildIcons(){
       let battr = bookingid.split(',');
       let bdate = battr[3].split("'")[1];
       let bcategory = battr[1];
+
+      switch(bcategory){
+        case "3951928":
+          // Harbor Hotel
+          $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open(https://intern.thestart.be/HH_gang.php?name=` + naam.substring(naam.indexOf(' ') + 1) + 
+                                          `,'_blank');" title="Print Gang document."><i class="fa-solid fa-print"></i></div>`);
+          break;
+      }
       
       saveddata[bdate].forEach(function(item, index) {
         let startTime = item.startTime.split(":00+")[0].split("T")[1];
