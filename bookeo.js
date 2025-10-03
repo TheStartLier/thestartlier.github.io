@@ -171,7 +171,7 @@ async function loadWaivers(){
             });
           }else{
               $(".customtable table tbody").append(`<tr>
-                                                    <td colspan="3">Deze groep heeft het formulier nog niet ingevuld<br><br>
+                                                    <td colspan="3">Deze groep heeft het formulier nog niet ingevuld.<br><br><br>
                                                      Vergeten in te vullen? <a href="https://intern.thestart.be/waiver" target="_blank">Doe het hier zelf handmatig</a>.
                                                    </td>
                                                     </tr>`);
