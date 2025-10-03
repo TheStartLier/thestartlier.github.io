@@ -213,6 +213,11 @@ function buildIcons(){
                                             + naam.substring(naam.indexOf(' ') + 1) + `&day=` + dow + 
                                           `','_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
           break;
+        case "3461702":
+          // Undercover
+          $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/strafblad.php?name=` 
+                                            + naam + `','_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
+          break;
       }
       
       saveddata[bdate].forEach(function(item, index) {
