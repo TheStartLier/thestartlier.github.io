@@ -243,7 +243,7 @@ function buildIcons(){
 
             if(value.value.indexOf("Engels") > -1){
               $(".box_icons", bookingslot).prepend('<span>EN</span>');
-              //$(".print", bookingslot).attr("onclick", $(".print", bookingslot).attr("onclick").split("','_blank'")[0] + "&lang=EN','_blank');");
+              $(".print", bookingslot).attr("onclick", $(".print", bookingslot).attr("onclick").split("','_blank'")[0] + "&lang=EN','_blank');");
             }
 
             if(value.value.indexOf("ZONDER LIVE ACTEUR") > -1){
