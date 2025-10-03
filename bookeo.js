@@ -203,8 +203,8 @@ function buildIcons(){
       switch(bcategory){
         case "3951928":
           // Harbor Hotel
-          $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open(https://intern.thestart.be/HH_gang.php?name=` + naam.substring(naam.indexOf(' ') + 1) + 
-                                          `,'_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
+          $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/HH_gang.php?name=` + naam.substring(naam.indexOf(' ') + 1) + 
+                                          `','_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
           break;
       }
       
