@@ -329,8 +329,10 @@ function fetchBookeoDetails(curDate){
       },
       error : function(request,error)
       {
-        alreadyLoading = false;
           console.log("Request: "+JSON.stringify(request));
+        setTimeout(function(){
+          alreadyLoading = false;
+        }, 5000);
       }
   });
 
