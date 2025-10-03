@@ -62,8 +62,9 @@ var styles = `
     }
     .ctev_in .print{
       position: absolute;
-      bottom: 5px;
-      left: 5px;
+      bottom: 2px;
+      left: 4px;
+      font-size: 1.1em;
     }
     .ctev_in .waiverinfo{
       position: absolute;
