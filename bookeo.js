@@ -218,24 +218,24 @@ function buildIcons(){
           if(dow == 0){
             dow = 7;
           }
-           let splitStr = naam.substring(naam.indexOf(' ') + 1).split(" ");
-           for (var i = 0; i < splitStr.length; i++) {
-               splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+           let splitStr3 = naam.substring(naam.indexOf(' ') + 1).split(" ");
+           for (var i = 0; i < splitStr3.length; i++) {
+               splitStr3[i] = splitStr3[i].charAt(0).toUpperCase() + splitStr3[i].substring(1);     
            }
-           let capitalizedNaam = splitStr.join('%20'); 
+           let capitalizedNaam1 = splitStr3.join('%20'); 
           $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/HH_gang.php?name=` 
-                                            + capitalizedNaam + `&day=` + dow + 
+                                            + capitalizedNaam1 + `&day=` + dow + 
                                           `','_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
           break;
         case "3461702":
           // Undercover
-           let splitStr = naam.split(" ");
-           for (var i = 0; i < splitStr.length; i++) {
-               splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+           let splitStr4 = naam.split(" ");
+           for (var i = 0; i < splitStr4.length; i++) {
+               splitStr4[i] = splitStr4[i].charAt(0).toUpperCase() + splitStr4[i].substring(1);     
            }
-           let capitalizedNaam = splitStr.join('%20'); 
+           let capitalizedNaam2 = splitStr4.join('%20'); 
           $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/strafblad.php?name=` 
-                                            + capitalizedNaam + `','_blank');" title="Print Strafblad."><i class="fa fa-print"></i></div>`);
+                                            + capitalizedNaam2 + `','_blank');" title="Print Strafblad."><i class="fa fa-print"></i></div>`);
           break;
       }
       
