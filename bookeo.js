@@ -157,8 +157,14 @@ async function loadWaivers(){
             data.forEach(function(item, i) {
               let print = "";
               if(item.game_played == "uc"){
-                let naam = item.first_name.charAt(0).toUpperCase() + item.first_name.slice(1).replace(" ", "%20") + "%20" + 
-                  item.last_name.charAt(0).toUpperCase() + item.last_name.slice(1).replace(" ", "%20");
+                 let splitStr1 = item.first_name.toLowerCase().split(' ');
+                 let splitStr2 = item.last_name.toLowerCase().split(' ');
+                 let splitStr = splitStr1.concat(splitStr2);
+                 for (var i = 0; i < splitStr.length; i++) {
+                     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+                 }
+                 // Directly return the joined string
+                 let naam = splitStr.join('%20'); 
                 print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + naam + '">Strafblad</a>';
               }
               $(".customtable table tbody").append('<tr>' +
