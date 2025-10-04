@@ -217,8 +217,13 @@ function buildIcons(){
           if(dow == 0){
             dow = 7;
           }
+           let splitStr = naam.substring(naam.indexOf(' ') + 1);
+           for (var i = 0; i < splitStr.length; i++) {
+               splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+           }
+           let capitalizedNaam = splitStr.join('%20'); 
           $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/HH_gang.php?name=` 
-                                            + naam.substring(naam.indexOf(' ') + 1) + `&day=` + dow + 
+                                            + capitalizedNaam + `&day=` + dow + 
                                           `','_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
           break;
         case "3461702":
