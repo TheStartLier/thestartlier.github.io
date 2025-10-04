@@ -65,6 +65,19 @@ var styles = `
       bottom: 2px;
       left: 4px;
       font-size: 1.1em;
+      opacity: 0;
+      transition: all 0.4s ease 0s;
+    }
+    .ctev_in .print{
+      position: absolute;
+      bottom: 2px;
+      left: 4px;
+      font-size: 1.1em;
+      opacity: 0;
+      transition: all 0.4s ease 0s;
+    }
+    .ctev:hover .print{
+      opacity: 1;
     }
     .ctev_in .waiverinfo{
       position: absolute;
