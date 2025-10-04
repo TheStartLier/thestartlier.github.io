@@ -164,7 +164,6 @@ async function loadWaivers(){
                  for (var i = 0; i < splitStr.length; i++) {
                      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
                  }
-                console.log(splitStr);
                  let capitalizedNaam = splitStr.join('%20'); 
                 print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '">Strafblad</a>';
               }
