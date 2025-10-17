@@ -199,8 +199,6 @@ async function loadWaivers(){
         error : function(request,status, error)
         {
             console.log("Request: "+JSON.stringify(request));
-            console.log(status);
-            console.log(JSON.stringify(error));
         }
     });
   }
@@ -363,8 +361,6 @@ function fetchBookeoDetails(curDate){
       error : function(request,status, error)
       {
             console.log("Request: "+JSON.stringify(request));
-            console.log(status);
-            console.log(JSON.stringify(error));
         setTimeout(function(){
           alreadyLoading = false;
         }, 5000);
@@ -396,8 +392,6 @@ function fetchCustomer(email){
         error : function(request,status, error)
         {
             console.log("Request: "+JSON.stringify(request));
-            console.log(status);
-            console.log(JSON.stringify(error));
         }
     });
   }
@@ -443,8 +437,6 @@ async function loadCustomerHistory(email){
         error : function(request,status, error)
         {
             console.log("Request: "+JSON.stringify(request));
-            console.log(status);
-            console.log(JSON.stringify(error));
         }
       });
     });
