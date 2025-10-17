@@ -298,7 +298,7 @@ function buildIcons(){
           if(ervaring){
             ervaring = "Ervaring: <strong>" + ervaring + "</strong>";
           }
-          $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring);
+          $(".b_detailsText", bookingslot)[0].innerHTML = $(".b_detailsText", bookingslot)[0].innerHTML.replace("0 available", ervaring).replaceAll("???", "");
         }
       });
 
