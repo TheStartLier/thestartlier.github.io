@@ -340,11 +340,13 @@ function buildIcons(){
   }
 }
 
+var lastRequest = Date.now();
 function fetchBookeoDetails(curDate){
-  if(alreadyLoading){
+  if(alreadyLoading || Date.now() - lastRequest < 5000){
     return;
   }
   alreadyLoading = true;
+  lastRequest = Date.now();
   $.ajax({
       url : 'https://intern.thestart.be/api.php',
       type : 'GET',
