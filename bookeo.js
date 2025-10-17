@@ -196,10 +196,11 @@ async function loadWaivers(){
                                                     </tr>`);
           }
         },
-        error : function(request,error)
+        error : function(request,status, error)
         {
             console.log("Request: "+JSON.stringify(request));
-          console.log(error);
+            console.log(status);
+            console.log(error);
         }
     });
   }
@@ -359,10 +360,11 @@ function fetchBookeoDetails(curDate){
         alreadyLoading = false;
         saveddata[curDate] = data.data;
       },
-      error : function(request,error)
+      error : function(request,status, error)
       {
-          console.log("Request: "+JSON.stringify(request));
-          console.log(error);
+            console.log("Request: "+JSON.stringify(request));
+            console.log(status);
+            console.log(error);
         setTimeout(function(){
           alreadyLoading = false;
         }, 5000);
@@ -391,10 +393,11 @@ function fetchCustomer(email){
           savedcustomers[email]["totalBookings"] = totalBookings;
           savedcustomers[email]["customerdata"] = data.data;
         },
-        error : function(request,error)
+        error : function(request,status, error)
         {
             console.log("Request: "+JSON.stringify(request));
-          console.log(error);
+            console.log(status);
+            console.log(error);
         }
     });
   }
@@ -437,11 +440,12 @@ async function loadCustomerHistory(email){
             }
             $(".hidden_wrapper").removeClass("hidden").fadeIn(400);
           },
-          error : function(request,error)
-          {
-              console.log("Request: "+JSON.stringify(request));
-          console.log(error);
-          }
+        error : function(request,status, error)
+        {
+            console.log("Request: "+JSON.stringify(request));
+            console.log(status);
+            console.log(error);
+        }
       });
     });
   }
