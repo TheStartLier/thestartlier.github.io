@@ -162,6 +162,7 @@ async function loadWaivers(){
           'datum' : newdatum.toISOString().split("T")[0],
           'bookingNumber' : bookingID
         },
+        dataType:'json',
         success : function(data) {
           $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th><th>Taal</th><th>Print</th></tr></thead><tbody></tbody></table></div>');
                                   
@@ -354,6 +355,7 @@ function fetchBookeoDetails(curDate){
           'startTime' : curDate + "T00:00:00Z",
           'endTime' : curDate + "T23:59:59Z"
       },
+      dataType:'json',
       success : function(data) {
         alreadyLoading = false;
         saveddata[curDate] = data.data;
@@ -382,6 +384,7 @@ function fetchCustomer(email){
             'type' : "totalBookings",
             'email' : email
         },
+        dataType:'json',
         success : function(data) {
           var totalBookings = 0;
           data.data.forEach(function(row, index) {
@@ -415,6 +418,7 @@ async function loadCustomerHistory(email){
               'type' : "bookingHistory",
               'customerID' : row.id
           },
+          dataType:'json',
           success : function(data) {
             if(data.data.length){
               data.data.forEach(function(item, i) {
