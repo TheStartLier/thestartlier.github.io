@@ -200,7 +200,7 @@ async function loadWaivers(){
         {
             console.log("Request: "+JSON.stringify(request));
             console.log(status);
-            console.log(error);
+            console.log(JSON.stringify(error));
         }
     });
   }
@@ -364,7 +364,7 @@ function fetchBookeoDetails(curDate){
       {
             console.log("Request: "+JSON.stringify(request));
             console.log(status);
-            console.log(error);
+            console.log(JSON.stringify(error));
         setTimeout(function(){
           alreadyLoading = false;
         }, 5000);
@@ -397,7 +397,7 @@ function fetchCustomer(email){
         {
             console.log("Request: "+JSON.stringify(request));
             console.log(status);
-            console.log(error);
+            console.log(JSON.stringify(error));
         }
     });
   }
@@ -444,7 +444,7 @@ async function loadCustomerHistory(email){
         {
             console.log("Request: "+JSON.stringify(request));
             console.log(status);
-            console.log(error);
+            console.log(JSON.stringify(error));
         }
       });
     });
