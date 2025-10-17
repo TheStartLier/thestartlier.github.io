@@ -1,6 +1,5 @@
 if(window.location.href.includes("book_viewSchedules")){
   
-console.log("here");
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">');
 
 var saveddata = [];
@@ -146,9 +145,6 @@ var styles = `
 var styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);
-
-console.log("here2");
-}
 
 async function loadWaivers(){
   if($(".bookingInfo").length && $(".winTitle").length && !$("#waivers").length){
@@ -444,4 +440,6 @@ async function loadCustomerHistory(email){
       });
     });
   }
+}
+
 }
