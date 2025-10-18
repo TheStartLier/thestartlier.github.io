@@ -323,7 +323,8 @@ function buildIcons(){
         $(bookingslot).addClass("numBookingsdone");
       }
       if(savedcustomers[email]["totalBookings"] > 1){
-        $(".ctev_in", bookingslot).append(`<div class="numBookings" data-email="` + email + `" title="Deze klant heeft al ` + savedcustomers[email]["totalBookings"] + ` keer geboekt bij TheStart.">(`
+        $(".ctev_in", bookingslot).append(`<div class="numBookings" onclick="event.stopPropagation();loadCustomerHistory('` + email + 
+                                          `');" title="Deze klant heeft al ` + savedcustomers[email]["totalBookings"] + ` keer geboekt bij TheStart.">(`
                                           + savedcustomers[email]["totalBookings"] + `)</div>`);
       }
     }else{
@@ -335,11 +336,6 @@ function buildIcons(){
     $("body").append('<div class="hidden_wrapper hidden"><div id="bookingHistory" class="customtable"></div></div>');
   }
 }
-
-$(document).on("click", ".numBookings", function(e){
-  e.stopPropagation();
-  loadCustomerHistory($(this).attr("data-email"));
-});
 
 var lastRequest = Date.now();
 function fetchBookeoDetails(curDate){
@@ -401,7 +397,7 @@ function fetchCustomer(email){
 }
 
 // Customer history
-async function loadCustomerHistory(email){
+function loadCustomerHistory(email){
   $("#bookingHistory").empty();
   if(savedcustomers[email] && savedcustomers[email]["customerdata"]){
     savedcustomers[email]["customerdata"].forEach(function(row, index) {
