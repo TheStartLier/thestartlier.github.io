@@ -415,8 +415,12 @@ function loadCustomerHistory(email){
           success : function(data) {
             if(data.data.length){
               data.data.forEach(function(item, i) {
+                let roomname = item.productName;
+                if(item.canceled){
+                  roomname = "<s>" + roomname + "</s>";
+                }
                 $("#bookingHistory table tbody").append('<tr>' +
-                                                      '<td>' + item.productName + '</td>' +
+                                                      '<td>' + roomname + '</td>' +
                                                       '<td>' + item.startTime.split(":00+")[0].replace("T", " ") + '</td>' +
                                                       '<td>' + item.participants.numbers[0].number + '</td>' +
                                                       '</tr>');
