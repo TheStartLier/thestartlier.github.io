@@ -269,11 +269,10 @@ function buildIcons(){
 
             // Kids
             if(item.productID = "42556W7PC9W1904AFECC0E" && value.name.indexOf("Vier je een verjaardag bij TheStart?") > -1){
-              console.log(value.value);
               let jarige = value.value.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
-              console.log(jarige);
-              $(".ctev_in", bookingslot).append('<div class="print" data-jarige="' + jarige + '" onclick="event.stopPropagation();window.open(\x27https://intern.thestart.be/strafblad.php?name='
+              $(".ctev_in", bookingslot).append('<div class="print" onclick="event.stopPropagation();window.open(\x27https://intern.thestart.be/strafblad.php?name='
                                                   + jarige + '&lang=kids\x27,\x27_blank\x27);" title="Print Strafblad."><i class="fa fa-print"></i></div>');
+              $(".print", bookingslot).attr("data-jarige", jarige);
             }
 
             if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
