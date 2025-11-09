@@ -272,7 +272,7 @@ function buildIcons(){
               console.log(value.value);
               let jarige = value.value.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
               console.log(jarige);
-              $(".ctev_in", bookingslot).append('<div class="print" onclick="event.stopPropagation();window.open(\x27https://intern.thestart.be/strafblad.php?name='
+              $(".ctev_in", bookingslot).append('<div class="print" data-jarige="' + jarige + '" onclick="event.stopPropagation();window.open(\x27https://intern.thestart.be/strafblad.php?name='
                                                   + jarige + '&lang=kids\x27,\x27_blank\x27);" title="Print Strafblad."><i class="fa fa-print"></i></div>');
             }
 
