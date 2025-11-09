@@ -270,7 +270,7 @@ function buildIcons(){
             // Kids
             if(item.productID = "42556W7PC9W1904AFECC0E" && value.name.indexOf("Vier je een verjaardag bij TheStart?") > -1){
               let jarige = value.value.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
-              $(".ctev_in", bookingslot).append('<div class="print kids" onclick="event.stopPropagation();printKids(\x22' + jarige + '\x22);" title="Print Strafblad."><i class="fa fa-print"></i></div>');
+              $(".ctev_in", bookingslot).append('<div class="print kids" onclick="event.stopPropagation();printKids(\x27' + jarige + '\x27);" title="Print Strafblad."><i class="fa fa-print"></i></div>');
               $(".print", bookingslot).attr("data-jarige", jarige);
             }
 
