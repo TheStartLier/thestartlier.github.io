@@ -33,10 +33,6 @@ $(document).keyup(function (e) {
 $(document).on("click", ".hidden_wrapper div", function (e) {
   e.stopPropagation();
 });
-$(document).on("click", ".print.kids", function (e) {
-  e.stopPropagation();
-  window.open('https://intern.thestart.be/strafblad.php?name=' + $(this).attr("data-jarige") + '&lang=kids','_blank');
-});
 
 var styles = `
     i.fa{
@@ -274,7 +270,7 @@ function buildIcons(){
             // Kids
             if(item.productID = "42556W7PC9W1904AFECC0E" && value.name.indexOf("Vier je een verjaardag bij TheStart?") > -1){
               let jarige = value.value.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
-              $(".ctev_in", bookingslot).append('<div class="print kids" title="Print Strafblad."><i class="fa fa-print"></i></div>');
+              $(".ctev_in", bookingslot).append('<div class="print kids" onclick="event.stopPropagation();printKids();" title="Print Strafblad."><i class="fa fa-print"></i></div>');
               $(".print", bookingslot).attr("data-jarige", jarige);
             }
 
@@ -455,6 +451,11 @@ function loadCustomerHistory(email){
       });
     });
   }
+}
+
+function printKids(){
+  console.log($(this));
+  window.open('https://intern.thestart.be/strafblad.php?name=' + $(this).attr("data-jarige") + '&lang=kids','_blank');
 }
 
 }
