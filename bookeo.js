@@ -268,7 +268,7 @@ function buildIcons(){
             }
 
             // Kids
-            if(item.productID = "42556W7PC9W1904AFECC0E" && value.name.indexOf("Vier je een verjaardag bij TheStart?" > -1){
+            if(item.productID = "42556W7PC9W1904AFECC0E" && value.name.indexOf("Vier je een verjaardag bij TheStart?") > -1){
               let jarige = value.value;
               $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/strafblad.php?name=` 
                                                   + jarige + `&lang=kids','_blank');" title="Print Strafblad."><i class="fa fa-print"></i></div>`);
