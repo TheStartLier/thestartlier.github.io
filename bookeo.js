@@ -406,6 +406,7 @@ function fetchCustomer(email){
 function loadCustomerHistory(email){
   $("#bookingHistory").empty();
   if(savedcustomers[email] && savedcustomers[email]["customerdata"]){
+    $(".hidden_wrapper").removeClass("hidden").fadeIn(400);
     savedcustomers[email]["customerdata"].forEach(function(row, index) {
       if(index == 0){
         $("#bookingHistory").html('<h2>Booking History: ' + row.firstName + ' ' + row.lastName + '<span class="close">X</span></h2><table><thead><tr><th>Room</th><th>Datum</th><th>Spelers</th></tr></thead><tbody></tbody></table>');
@@ -441,7 +442,6 @@ function loadCustomerHistory(email){
                                                       '</tr>');
               }
             }
-            $(".hidden_wrapper").removeClass("hidden").fadeIn(400);
           },
         error : function(request,status, error)
         {
