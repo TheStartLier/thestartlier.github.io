@@ -454,7 +454,6 @@ function loadCustomerHistory(email){
 
 function printKids(jarige){
   let jarigeformatted = jarige.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
-  console.log(jarigeformatted);
   window.open('https://intern.thestart.be/strafblad.php?name=' + jarigeformatted + '&lang=kids','_blank');
 }
 
