@@ -275,7 +275,7 @@ function buildIcons(){
 
             if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
               value.value.indexOf("Ja, perfect voor na onze escape") > -1 || 
-              value.value.indexOf("Ja, lekker!") > -1 || 
+              value.value.indexOf("lekker") > -1 || 
               value.value.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > -1){
               $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
             }
