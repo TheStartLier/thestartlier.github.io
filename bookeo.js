@@ -176,7 +176,7 @@ async function loadWaivers(){
                  }
                  let capitalizedNaam = splitStr.join('%20'); 
                 print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=' + item.lang + '">Strafblad adult</a>';
-                print+= ' / <a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=jongvw">jongvolwassenen</a>';
+                print+= ' / <a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=jongvw">jongeren</a>';
                 print+= ' / <a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=kids">kids</a>';
               }
               $(".customtable table tbody").append('<tr>' +
