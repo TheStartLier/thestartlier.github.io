@@ -175,7 +175,8 @@ async function loadWaivers(){
                      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
                  }
                  let capitalizedNaam = splitStr.join('%20'); 
-                print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=' + item.lang + '">Strafblad</a>';
+                print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=' + item.lang + '">Strafblad adult</a>';
+                print+ = ' / <a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=jongvw">jongvolwassenen</a>';
               }
               $(".customtable table tbody").append('<tr>' +
                                                     '<td>' + item.first_name + '</td>' +
