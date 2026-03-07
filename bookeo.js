@@ -462,18 +462,21 @@ function printKids(jarige){
 }
 
 if(window.location.href.includes("autodownload=true")){
-  setTimeout(function(){
+  console.log("here");
     var interv = setInterval(function(){
       if(typeof $ == 'function' && !$("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
+  console.log("here2");
         clearInterval(interv);
         $("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").click();
+  console.log("here3");
         interv = setInterval(function(){
           if($("button[class*=ExportButton__StyledButton]")){
+  console.log("here4");
             clearInterval(interv);
             $("button[class*=ExportButton__StyledButton]").click();
+  console.log("here5");
           }
         }, 500);
       }    
     }, 500);
-  }, 15000);
 }
