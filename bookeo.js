@@ -461,7 +461,7 @@ function printKids(jarige){
 
 }
 
-$(document).ready(function() {
+setTimeout(function(){
   if(window.location.href.includes("autodownload=true")){
       var interv = setInterval(function(){
         if(!$("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
@@ -476,4 +476,4 @@ $(document).ready(function() {
         }    
       }, 500);
   }
-});
+}, 3000);
