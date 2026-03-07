@@ -462,20 +462,14 @@ function printKids(jarige){
 }
 
 if(window.location.href.includes("autodownload=true")){
-  console.log("here");
     var interv = setInterval(function(){
-      console.log("checking");
-      if(!document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
-  console.log("here2");
+      if(document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type") && !document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
         clearInterval(interv);
         document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").click();
-  console.log("here3");
         interv = setInterval(function(){
           if(document.querySelector("button[class*=ExportButton__StyledButton]")){
-  console.log("here4");
             clearInterval(interv);
             document.querySelector("button[class*=ExportButton__StyledButton]").click();
-  console.log("here5");
           }
         }, 500);
       }    
