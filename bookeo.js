@@ -462,16 +462,18 @@ function printKids(jarige){
 }
 
 if(window.location.href.includes("autodownload=true")){
-  var interv = setInterval(function(){
-    if(!$("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
-      clearInterval(interv);
-      $("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").click();
-      interv = setInterval(function(){
-        if($("button[class*=ExportButton__StyledButton]")){
-          clearInterval(interv);
-          $("button[class*=ExportButton__StyledButton]").click();
-        }
-      }, 500);
-    }    
-  }, 500);
+  $(document).ready(function() {
+    var interv = setInterval(function(){
+      if(!$("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
+        clearInterval(interv);
+        $("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").click();
+        interv = setInterval(function(){
+          if($("button[class*=ExportButton__StyledButton]")){
+            clearInterval(interv);
+            $("button[class*=ExportButton__StyledButton]").click();
+          }
+        }, 500);
+      }    
+    }, 500);
+  });
 }
