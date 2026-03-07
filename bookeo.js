@@ -461,19 +461,17 @@ function printKids(jarige){
 
 }
 
-setTimeout(function(){
-  if(window.location.href.includes("autodownload=true")){
-      var interv = setInterval(function(){
-        if(!$("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
-          clearInterval(interv);
-          $("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").click();
-          interv = setInterval(function(){
-            if($("button[class*=ExportButton__StyledButton]")){
-              clearInterval(interv);
-              $("button[class*=ExportButton__StyledButton]").click();
-            }
-          }, 500);
-        }    
-      }, 500);
-  }
-}, 3000);
+if(window.location.href.includes("autodownload=true")){
+    var interv = setInterval(function(){
+      if(typeof $ == 'function' && !$("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
+        clearInterval(interv);
+        $("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").click();
+        interv = setInterval(function(){
+          if($("button[class*=ExportButton__StyledButton]")){
+            clearInterval(interv);
+            $("button[class*=ExportButton__StyledButton]").click();
+          }
+        }, 500);
+      }    
+    }, 500);
+}
