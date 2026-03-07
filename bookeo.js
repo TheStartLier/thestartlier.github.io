@@ -471,7 +471,7 @@ if(window.location.href.includes("autodownload=true")){
             clearInterval(interv);
             document.querySelector("button[class*=ExportButton__StyledButton]").click();
             setTimeout(function(){
-              back();
+              history.go(-1);
             }, 30000);
           }
         }, 500);
