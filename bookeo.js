@@ -475,5 +475,5 @@ if(window.location.href.includes("autodownload=true")){
         }, 500);
       }    
     }, 500);
-  }, 10000);
+  }, 15000);
 }
