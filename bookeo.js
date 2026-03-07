@@ -465,6 +465,7 @@ if(window.location.href.includes("autodownload=true")){
   console.log("here");
     var interv = setInterval(function(){
       console.log("checking");
+      console.log(typeof $);
       if(typeof $ == 'function' && !$("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
   console.log("here2");
         clearInterval(interv);
