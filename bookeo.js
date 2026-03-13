@@ -367,10 +367,10 @@ function fetchBookeoDetails(curDate){
       },
       error : function(request,status, error)
       {
-            console.log("Request: "+JSON.stringify(request));
-        setTimeout(function(){
-          alreadyLoading = false;
-        }, 5000);
+          console.log("Request: "+JSON.stringify(request));
+          setTimeout(function(){
+            alreadyLoading = false;
+          }, 5000);
       }
   });
 
@@ -461,6 +461,7 @@ function printKids(jarige){
 
 }
 
+// Unifi autodownload
 if(window.location.href.includes("autodownload=true")){
     var interv = setInterval(function(){
       if(document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type") && !document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
