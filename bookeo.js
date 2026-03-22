@@ -275,10 +275,9 @@ function buildIcons(){
               $(".ctev_in", bookingslot).append('<div class="print kids" onclick="event.stopPropagation();printKids(\x27' + value.value + '\x27);" title="Print Strafblad."><i class="fa fa-print"></i></div>');
             }
 
-            if(value.value.indexOf("Lekker. Dit mag je ons allemaal serveren") > -1 || 
-              value.value.indexOf("Ja, perfect voor na onze escape") > -1 || 
-              value.value.indexOf("lekker") > -1 || 
-              value.value.indexOf("Jaaa, lekker, serveer maar een sharingportie na de escape!") > -1){
+            if(value.value.indexOf("Lekker") > -1 || 
+              value.value.indexOf("Ja, perfect") > -1 || 
+              value.value.indexOf("lekker") > -1){
               $(".box_icons", bookingslot).prepend('<i class="fa fa-cutlery"></i>');
             }
 
