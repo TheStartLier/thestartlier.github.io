@@ -473,10 +473,10 @@ if(window.location.href.includes("autodownload=true")){
             interv = setInterval(function(){
               if(document.querySelector("span[data-testid='minutes']:first-of-type")){
                 clearInterval(interv);
-                newVal = Number(document.querySelector("span[data-testid='minutes']:first-of-type").innerText) - 30;
-                if(newVal < 0){
-                  newVal += 60;
-                  document.querySelector("span[data-testid='hours']:first-of-type").innerText = Number(document.querySelector("span[data-testid='hours']:first-of-type").innerText) - 1;
+                newVal = Number(document.querySelector("span[data-testid='minutes']:first-of-type").innerText) + 30;
+                if(newVal > 59){
+                  newVal -= 60;
+                  document.querySelector("span[data-testid='hours']:first-of-type").innerText = Number(document.querySelector("span[data-testid='hours']:first-of-type").innerText) + 1;
                 }
                 document.querySelector("span[data-testid='minutes']:first-of-type").innerText = newVal;
                 interv = setInterval(function(){
