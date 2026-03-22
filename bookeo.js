@@ -467,30 +467,12 @@ if(window.location.href.includes("autodownload=true")){
         clearInterval(interv);
         document.querySelector("div[class*=TimelineBlock__TimelapseFooter] button:first-of-type").click();
         interv = setInterval(function(){
-          if(document.querySelector("div[class*=TimeRangeDisplay__TimeBlock]:first-of-type")){
+          if(document.querySelector("div[class*=styles__ButtonCover] button:first-of-type")){
             clearInterval(interv);
-            document.querySelector("div[class*=TimeRangeDisplay__TimeBlock]:first-of-type").click();
-            interv = setInterval(function(){
-              if(document.querySelector("span[data-testid='minutes']:first-of-type")){
-                clearInterval(interv);
-                newVal = Number(document.querySelector("span[data-testid='minutes']:first-of-type").innerText) + 30;
-                if(newVal > 59){
-                  newVal -= 60;
-                  document.querySelector("span[data-testid='hours']:first-of-type").innerText = Number(document.querySelector("span[data-testid='hours']:first-of-type").innerText) + 1;
-                }
-                document.querySelector("span[data-testid='minutes']:first-of-type").innerText = newVal;
-                document.querySelector("div[class*=footerRight] button:last-of-type").click();
-                setTimeout(function(){
-                    if(document.querySelector("div[class*=styles__ButtonCover] button:first-of-type")){
-                      clearInterval(interv);
-                      document.querySelector("div[class*=styles__ButtonCover] button:first-of-type").click();
-                      setTimeout(function(){
-                        history.go(-1);
-                      }, 30000);
-                    }
-                }, 3000);
-              }
-            }, 500);
+            document.querySelector("div[class*=styles__ButtonCover] button:first-of-type").click();
+            setTimeout(function(){
+              history.go(-1);
+            }, 30000);
           }
         }, 500);
       }    
