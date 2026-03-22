@@ -489,7 +489,7 @@ if(window.location.href.includes("autodownload=true")){
                       }, 30000);
                     }
                   }
-                }, 1000);
+                }, 3000);
               }
             }, 500);
           }
