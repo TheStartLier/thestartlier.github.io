@@ -488,7 +488,6 @@ if(window.location.href.includes("autodownload=true")){
                         history.go(-1);
                       }, 30000);
                     }
-                  }
                 }, 3000);
               }
             }, 500);
