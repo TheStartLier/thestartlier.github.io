@@ -464,13 +464,13 @@ function printKids(jarige){
 // Unifi autodownload
 if(window.location.href.includes("autodownload=true")){
     var interv = setInterval(function(){
-      if(document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type") && !document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").hasAttribute("disabled")){
+      if(document.querySelector("div[class*=TimelineBlock__TimelapseFooter] button:first-of-type") && !document.querySelector("div[class*=TimelineBlock__TimelapseFooter] button:first-of-type").hasAttribute("disabled")){
         clearInterval(interv);
-        document.querySelector("div[class*=TimelineBlock__FotterButtonCover] button:last-of-type").click();
+        document.querySelector("div[class*=TimelineBlock__TimelapseFooter] button:first-of-type").click();
         interv = setInterval(function(){
-          if(document.querySelector("button[class*=ExportButton__StyledButton]")){
+          if(document.querySelector("div[class*=styles__ButtonCover] button:first-of-type")){
             clearInterval(interv);
-            document.querySelector("button[class*=ExportButton__StyledButton]").click();
+            document.querySelector("div[class*=styles__ButtonCover] button:first-of-type").click();
             setTimeout(function(){
               history.go(-1);
             }, 30000);
