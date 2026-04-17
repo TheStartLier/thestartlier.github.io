@@ -234,6 +234,7 @@ function buildIcons(){
                splitStr3[i] = splitStr3[i].charAt(0).toUpperCase() + splitStr3[i].substring(1);     
            }
            let capitalizedNaam1 = splitStr3.join('%20').replaceAll("'", "\'").replaceAll('"', '\"'); 
+          console.log(capitalizedNaam1);
           $(".ctev_in", bookingslot).append(`<div class="print" onclick="event.stopPropagation();window.open('https://intern.thestart.be/HH_gang.php?name=` 
                                             + capitalizedNaam1 + `&day=` + dow + 
                                           `','_blank');" title="Print Gang document."><i class="fa fa-print"></i></div>`);
