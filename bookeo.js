@@ -151,6 +151,7 @@ async function loadWaivers(){
     var bookingID = $(".bookingInfo .details tbody tr:contains('Booking number') td").text();
     var datum = $(".winTitle").text().split("\n")[3].trim();
     var newdatum = new Date(datum + " UTC");
+    $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th><th>Taal</th><th>Print</th></tr></thead><tbody></tbody></table></div>');
     $.ajax({
         url : 'https://intern.thestart.be/api.php',
         type : 'GET',
@@ -161,8 +162,6 @@ async function loadWaivers(){
         },
         dataType:'json',
         success : function(data) {
-          $(".bookingInfo").after('<div id="waivers" class="customtable"><h2>Disclaimers ingevuld:</h2><table><thead><tr><th>Voornaam</th><th>Achternaam</th><th>Email</th><th>Taal</th><th>Print</th></tr></thead><tbody></tbody></table></div>');
-                                  
           if(data.length){
             data.forEach(function(item, i) {
               let print = "";
@@ -172,14 +171,14 @@ async function loadWaivers(){
                  let splitStr2 = item.last_name.split(' ');
                  let splitStr = splitStr1.concat(splitStr2);
                  for (var i = 0; i < splitStr.length; i++) {
-                     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+                     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
                  }
-                 let capitalizedNaam = splitStr.join('%20').replaceAll("'", "%27").replaceAll('"', '%22'); 
+                 let capitalizedNaam = splitStr.join('%20').replaceAll("'", "%27").replaceAll('"', '%22');
                 print = '<a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=' + item.lang + '">Strafblad adult</a>';
                 print+= ' / <a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=jongvw">jongeren</a>';
                 print+= ' / <a target="_blank" href="https://intern.thestart.be/strafblad.php?name=' + capitalizedNaam + '&lang=kids">kids</a>';
               }
-              $(".customtable table tbody").append('<tr>' +
+              $("#waivers table tbody").append('<tr>' +
                                                     '<td>' + item.first_name + '</td>' +
                                                     '<td>' + item.last_name + '</td>' +
                                                     '<td>' + item.email + '</td>' +
@@ -188,7 +187,7 @@ async function loadWaivers(){
                                                     '</tr>');
             });
           }else{
-              $(".customtable table tbody").append(`<tr>
+              $("#waivers table tbody").append(`<tr>
                                                     <td colspan="3">Deze groep heeft het formulier nog niet ingevuld.<br><br><br>
                                                      Vergeten in te vullen? <a href="https://intern.thestart.be/waiver" target="_blank">Doe het hier zelf handmatig</a>.
                                                    </td>
@@ -198,6 +197,7 @@ async function loadWaivers(){
         error : function(request,status, error)
         {
             console.log("Request: "+JSON.stringify(request));
+            $("#waivers").remove();
         }
     });
   }
