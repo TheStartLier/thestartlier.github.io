@@ -336,7 +336,7 @@ function buildIcons(){
                                           + savedcustomers[email]["totalBookings"] + `)</div>`);
       }
     }else{
-      fetchCustomer(email);
+      //fetchCustomer(email);
     }
   });
 
